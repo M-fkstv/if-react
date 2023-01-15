@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "prettier --write .  && eslint ./src/App.js --fix"
+    "lint": "prettier --write .  && eslint src/Components/App/App.js --fix"
   },
   "eslintConfig": {
     "extends": [
