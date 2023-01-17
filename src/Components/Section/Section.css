@@ -15,7 +15,7 @@
 .h2-text {
   position: relative;
   text-align: center;
-  font-family: Roboto, serif; 
+  font-family: Roboto, serif;
   font-size: 40px;
   font-weight: 500;
   margin: 0 auto 110px;
@@ -49,5 +49,4 @@
   justify-content: space-between;
   margin: 106px auto 0;
   flex-wrap: wrap;
-
 }
