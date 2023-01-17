@@ -3,7 +3,7 @@ import "./App.css";
 import { Section } from "../Section";
 
 function App() {
-  return <Section h2Text={"Homes Guest Loves"} />;
+  return <Section sectionName={"Homes guests loves"} />;
 }
 
 export default App;

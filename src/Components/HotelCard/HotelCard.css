@@ -4,8 +4,9 @@
 }
 
 .homes__examples__icons {
-  width: calc(100% / 14 * 3);
+  width: 296px;
   margin: 0;
+  overflow: hidden;
 }
 
 .homes__examples__icon {
@@ -28,37 +29,3 @@
   color: #bfbfbf;
 }
 
-/* For slider controls buttons */
-
-/*.homes__examples--arr {*/
-/*  position: absolute;*/
-/*  top: calc(50% - 144px / 2);*/
-/*  left: 100%;*/
-/*  transform: translate(-50%, -50%);*/
-/*  height: 40px;*/
-/*  width: 40px;*/
-/*  border-radius: 50%;*/
-/*  border: 1px solid var(--bg-color) 9;*/
-/*  background-color: #f3f3f4;*/
-/*  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);*/
-/*  text-align: center;*/
-/*  padding: 10px;*/
-/*  cursor: pointer;*/
-/*}*/
-/*.arr-img {*/
-/*  height: 20px;*/
-/*  width: 20px;*/
-/*}*/
-/*МОЖНО И ТАК СДЕЛАТЬ БЕЗ SVG*/
-/*.homes__examples--arr:before{*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  height: 10px;*/
-/*  width: 10px;*/
-/*  border: 2px solid #10367c;*/
-/*  border-right: 0;*/
-/*  border-top: 0;*/
-/*  top: 35%;*/
-/*  left: 35%;*/
-/*  transform:rotate(230deg) skew(20deg);*/
-/*}*/

@@ -1,18 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { HotelCard } from "../HotelCard";
 import { hotels } from "../HotelCard/config";
 
 import "./Section.css";
+import {SliderButton} from '../SliderButton';
 
-export const Section = ({ h2Text }) => (
+export const Section = ({ sectionName }) => (
   <section className="homes">
-    <h2 className="h2-text">{h2Text}</h2>
+    <h2 className="h2-text">{sectionName}</h2>
+
     <div className="homes__examples">
+      <SliderButton className={'s-button-next'}/>
       {hotels.map((item) => (
-        <Fragment key={item.id}>
-          <HotelCard {...item} />
-        </Fragment>
-      ))}
+          <HotelCard key={item.id} {...item} />
+      )).slice(0,4)}
     </div>
   </section>
 );
