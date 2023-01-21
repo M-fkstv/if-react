@@ -11,8 +11,12 @@
 
 .homes__examples__icon {
   width: 100%;
+  aspect-ratio: 1/1;
+  transition: 0.5s;
 }
-
+.homes__examples__icon:hover {
+  scale: 1.1;
+}
 .homes__description {
   height: 120px;
 }
