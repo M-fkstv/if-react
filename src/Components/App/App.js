@@ -1,9 +1,11 @@
-import "./App.css";
+import React from "react";
 
 import { Section } from "../Section";
-import { hotels } from "../HotelCard/config";
 import { Main } from "../Main";
 import { Sprite } from "../Sprite";
+import { hotels } from "../HotelCard/config";
+
+import "./App.css";
 
 export const App = () => {
   return (
@@ -11,6 +13,7 @@ export const App = () => {
       <Sprite />
       <Main />
       <Section sectionName={"Homes guests loves"} data={hotels} />
+      {/*<Section sectionName={"w"} data={state} />*/}
     </>
   );
 };
