@@ -4,21 +4,18 @@ import "./Main.css";
 import { Header } from "../Header";
 import { Form } from "../Form";
 import { Apps } from "../Icons";
-import { Example } from "../Example";
 
-export const Main = () => {
+export const Main = ({ onSubmit }) => {
   return (
     <>
       <div className="main__wrapper">
         <div className="main col-lg-12 col-xs-6">
           <Header />
-
           <h1 className="title-text">
             Discover stays <br />
             to live, work or just relax
           </h1>
-          <Form />
-          <Example />
+          <Form onSubmit={onSubmit} />
         </div>
         <div className="apps">
           <Apps className="apps__google" id="#google" />

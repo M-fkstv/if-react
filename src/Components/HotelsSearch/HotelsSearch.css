@@ -1,0 +1,35 @@
+.magnifier {
+  display: none;
+  height: 16px;
+  width: 16px;
+}
+
+.form__city {
+  position: relative;
+  display: flex;
+  width: 37.85%;
+  /*max-width: 1232px;*/
+  /*padding-left: 24px;*/
+}
+.input-style {
+  border: 0;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 18px;
+  height: 59px;
+}
+
+.form__city--search {
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  font-size: 18px;
+  color: var(--general-white);
+}
+.form__city--label {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+}

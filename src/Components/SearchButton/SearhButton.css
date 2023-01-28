@@ -1,0 +1,10 @@
+.form__submit {
+  display: block;
+  background-color: var(--general-blue);
+  width: 16%;
+  color: var(--general-white);
+  font-size: 24px;
+  height: 64px;
+  margin: -3px;
+  cursor: pointer;
+}

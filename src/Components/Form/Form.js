@@ -1,31 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./Form.css";
 
-export const Form = () => {
-  const [state, setState] = useState("");
-  const handler = (event) => {
-    console.log(event.target.value);
-    // event.target.value = state;
-    // console.log(state);
-    setState(event.target.value);
-    console.log("state", state);
-  };
+import { hotels } from "../HotelCard/config";
+import { Apps } from "../Icons";
+
+export const Form = ({ onSubmit }) => {
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const result = [];
+
+    hotels.filter((item) => {
+      if (
+        item.name.toLowerCase().includes(searchValue) ||
+        item.city.toLowerCase().includes(searchValue) ||
+        item.country.toLowerCase().includes(searchValue)
+      ) {
+        result.push(item);
+      }
+      return result;
+    });
+    console.log("res", result);
+    // setState([...result]);
+    onSubmit([...result]);
+  }
+
+  let searchValue;
+  function handleChange(e) {
+    searchValue = e.target.value;
+    console.log(searchValue);
+  }
   return (
-    <form id="form" className="form col-md-12">
+    <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <div className="form__city col-md-4">
         <label className="form__city--label label" htmlFor="search">
           Your destination or hotel name
         </label>
-        <svg className="magnifier">
-          <use href="./src./images/sprite.svg#magnifier" />
-        </svg>
+        <Apps className="magnifier" id="#magnifier" />
         <input
           className="form__city--search input-style col-xs-6"
           type="text"
           id="search"
           name="search"
-          onChange={handler}
+          onChange={handleChange}
         />
       </div>
       <div className="form__date col-md-4">
@@ -57,7 +75,7 @@ export const Form = () => {
           type="text"
           id="adults"
           name="adults"
-          // value="2"
+          value="2"
           disabled
         />
         <label className="adults-label person-label" htmlFor="adults">
@@ -72,7 +90,7 @@ export const Form = () => {
           type="text"
           id="children"
           name="children"
-          // value="0"
+          value="0"
           disabled
         />
         <label className="children-label person-label" htmlFor="children">
@@ -87,15 +105,16 @@ export const Form = () => {
           type="text"
           id="room"
           name="room"
-          // value="1"
+          value="1"
           disabled
         />
         <label className="room-label person-label" htmlFor="room">
           Room
         </label>
       </div>
+      {/*<SearchButton />*/}
       <button
-        type="button"
+        type="submit"
         className="form__submit input-style col-md-4 col-xs-6"
       >
         Search

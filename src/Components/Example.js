@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { hotels } from "./HotelCard/config";
-import { Section } from "./Section";
 
-export function Example() {
-  const result = [];
+export function Example({ onSubmit }) {
+  const [state, setState] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    hotels.map((item) => {
+    const result = [];
+
+    hotels.filter((item) => {
       if (
         item.name.toLowerCase().includes(searchValue) ||
         item.city.toLowerCase().includes(searchValue) ||
@@ -18,8 +19,8 @@ export function Example() {
       }
       return result;
     });
-    console.log(result);
-    return result;
+    setState([...result]);
+    onSubmit([...result]);
   }
 
   let searchValue;
