@@ -13,7 +13,6 @@ export const App = () => {
       <Sprite />
       <Main />
       <Section sectionName={"Homes guests loves"} data={hotels} />
-      {/*<Section sectionName={"w"} data={state} />*/}
     </>
   );
 };
