@@ -6,6 +6,14 @@ import { Slider } from "../Slider";
 import { HotelCard } from "../HotelCard";
 
 export const Section = ({ sectionName, data }) => {
+  if (data.length === 0) {
+    return (
+      <section className="homes">
+        <h2 className="h2-text">{sectionName}</h2>
+        <p>Wrong</p>
+      </section>
+    );
+  }
   if (data.length < 4) {
     return (
       <section className="homes">

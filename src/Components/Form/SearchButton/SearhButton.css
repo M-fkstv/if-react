@@ -3,6 +3,8 @@
   background-color: var(--general-blue);
   width: 16%;
   color: var(--general-white);
+  border: 0;
+  border-radius: 8px;
   font-size: 24px;
   height: 64px;
   margin: -3px;

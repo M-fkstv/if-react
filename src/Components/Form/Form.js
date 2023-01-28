@@ -3,7 +3,9 @@ import React from "react";
 import "./Form.css";
 
 import { hotels } from "../HotelCard/config";
-import { Apps } from "../Icons";
+
+import { SearchButton } from "./SearchButton";
+import { HotelsSearch } from "./HotelsSearch";
 
 export const Form = ({ onSubmit }) => {
   function handleSubmit(e) {
@@ -21,31 +23,29 @@ export const Form = ({ onSubmit }) => {
       }
       return result;
     });
-    console.log("res", result);
-    // setState([...result]);
     onSubmit([...result]);
   }
 
   let searchValue;
   function handleChange(e) {
     searchValue = e.target.value;
-    console.log(searchValue);
   }
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
-      <div className="form__city col-md-4">
-        <label className="form__city--label label" htmlFor="search">
-          Your destination or hotel name
-        </label>
-        <Apps className="magnifier" id="#magnifier" />
-        <input
-          className="form__city--search input-style col-xs-6"
-          type="text"
-          id="search"
-          name="search"
-          onChange={handleChange}
-        />
-      </div>
+      <HotelsSearch onChange={handleChange} />
+      {/*<div className="form__city col-md-4">*/}
+      {/*<label className="form__city--label label" htmlFor="search">*/}
+      {/*  Your destination or hotel name*/}
+      {/*</label>*/}
+      {/*<Apps className="magnifier" id="#magnifier" />*/}
+      {/*<input*/}
+      {/*  className="form__city--search input-style col-xs-6"*/}
+      {/*  type="text"*/}
+      {/*  id="search"*/}
+      {/*  name="search"*/}
+      {/*  onChange={handleChange}*/}
+      {/*/>*/}
+      {/*</div>*/}
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
@@ -112,13 +112,8 @@ export const Form = ({ onSubmit }) => {
           Room
         </label>
       </div>
-      {/*<SearchButton />*/}
-      <button
-        type="submit"
-        className="form__submit input-style col-md-4 col-xs-6"
-      >
-        Search
-      </button>
+
+      <SearchButton />
     </form>
   );
 };
