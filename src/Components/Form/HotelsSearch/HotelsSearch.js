@@ -3,7 +3,7 @@ import React from "react";
 import "./HotelsSearch.css";
 import { Apps } from "../../Icons";
 
-export const HotelsSearch = ({ onChange }) => {
+export const HotelsSearch = ({ onChange, value }) => {
   return (
     <div className="form__city col-md-4">
       <label className="form__city--label label" htmlFor="search">
@@ -16,6 +16,7 @@ export const HotelsSearch = ({ onChange }) => {
         id="search"
         name="search"
         onChange={onChange}
+        value={value}
       />
     </div>
   );

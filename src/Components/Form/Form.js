@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Form.css";
 
@@ -8,6 +8,7 @@ import { SearchButton } from "./SearchButton";
 import { HotelsSearch } from "./HotelsSearch";
 
 export const Form = ({ onSubmit }) => {
+  const [formState, setFormState] = useState([]);
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -15,24 +16,24 @@ export const Form = ({ onSubmit }) => {
 
     hotels.filter((item) => {
       if (
-        item.name.toLowerCase().includes(searchValue) ||
-        item.city.toLowerCase().includes(searchValue) ||
-        item.country.toLowerCase().includes(searchValue)
+        item.name.toLowerCase().includes(formState) ||
+        item.city.toLowerCase().includes(formState) ||
+        item.country.toLowerCase().includes(formState)
       ) {
         result.push(item);
       }
+      // debugger;
       return result;
     });
     onSubmit([...result]);
   }
 
-  let searchValue;
   function handleChange(e) {
-    searchValue = e.target.value;
+    setFormState(e.target.value);
   }
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
-      <HotelsSearch onChange={handleChange} />
+      <HotelsSearch onChange={handleChange} value={formState} />
       {/*<div className="form__city col-md-4">*/}
       {/*<label className="form__city--label label" htmlFor="search">*/}
       {/*  Your destination or hotel name*/}
