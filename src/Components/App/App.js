@@ -8,7 +8,7 @@ import { hotels } from "../HotelCard/config";
 import "./App.css";
 
 export const App = () => {
-  const [state, setState] = useState("");
+  const [state, setState] = useState([]);
 
   const setAppState = (value) => {
     setState(value);
@@ -18,11 +18,10 @@ export const App = () => {
     <>
       <Sprite />
       <Main onSubmit={setAppState} />
-      {state.length > 0 ? (
+      {state.length > 0 && (
         <Section sectionName={"Available hotels"} data={state} />
-      ) : (
-        false
       )}
+
       <Section sectionName={"Homes guests loves"} data={hotels} />
     </>
   );

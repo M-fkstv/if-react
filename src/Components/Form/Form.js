@@ -8,21 +8,24 @@ import { SearchButton } from "./SearchButton";
 import { HotelsSearch } from "./HotelsSearch";
 
 export const Form = ({ onSubmit }) => {
-  const [formState, setFormState] = useState([]);
+  const [formState, setFormState] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
 
     const result = [];
 
     hotels.filter((item) => {
-      if (
-        item.name.toLowerCase().includes(formState) ||
-        item.city.toLowerCase().includes(formState) ||
-        item.country.toLowerCase().includes(formState)
-      ) {
-        result.push(item);
+      if (formState.length !== 0) {
+        if (
+          item.name.toLowerCase().includes(formState) ||
+          item.city.toLowerCase().includes(formState) ||
+          item.country.toLowerCase().includes(formState)
+        ) {
+          // debugger;
+          console.log(formState);
+          result.push(item);
+        }
       }
-      // debugger;
       return result;
     });
     onSubmit([...result]);
@@ -34,19 +37,6 @@ export const Form = ({ onSubmit }) => {
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
-      {/*<div className="form__city col-md-4">*/}
-      {/*<label className="form__city--label label" htmlFor="search">*/}
-      {/*  Your destination or hotel name*/}
-      {/*</label>*/}
-      {/*<Apps className="magnifier" id="#magnifier" />*/}
-      {/*<input*/}
-      {/*  className="form__city--search input-style col-xs-6"*/}
-      {/*  type="text"*/}
-      {/*  id="search"*/}
-      {/*  name="search"*/}
-      {/*  onChange={handleChange}*/}
-      {/*/>*/}
-      {/*</div>*/}
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
@@ -55,7 +45,6 @@ export const Form = ({ onSubmit }) => {
           className="form__date--in input-style"
           type="date"
           id="date-in"
-          // value="Tue 15 Sept"
         />
         <div className="form--splitter">
           <span> &mdash; </span>
@@ -67,7 +56,6 @@ export const Form = ({ onSubmit }) => {
           className="form__date--out input-style"
           type="date"
           id="date-out"
-          // value="Sat 19 Sept"
         />
       </div>
       <div className="form__person col-md-4 col-xs-6">
