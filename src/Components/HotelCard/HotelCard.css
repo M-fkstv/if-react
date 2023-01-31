@@ -1,0 +1,34 @@
+:root {
+  --general-blue: #3077c6;
+  --bg-color: #eaf0f9;
+}
+
+.homes__examples__icons {
+  width: 296px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.homes__examples__icon {
+  width: 100%;
+  aspect-ratio: 1/1;
+  transition: 0.5s;
+}
+.homes__examples__icon:hover {
+  scale: 1.1;
+}
+.homes__description {
+  height: 120px;
+}
+
+.homes__description--text {
+  margin-top: 20px;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--general-blue);
+}
+
+.homes__description--text:last-of-type {
+  color: #bfbfbf;
+}
