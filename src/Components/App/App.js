@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import { Section } from "../Section";
 import { Main } from "../Main";
 import { Sprite } from "../Sprite";
-import { hotels } from "../HotelCard/config";
+
+import { AvailableHotels } from "../AvailableHotels/AvailableHotels";
+import { HomesClass } from "../HomesClass/HomesClass";
 
 import "./App.css";
 
@@ -18,11 +19,8 @@ export const App = () => {
     <>
       <Sprite />
       <Main onSubmit={setAppState} />
-      {state.length > 0 && (
-        <Section sectionName={"Available hotels"} data={state} />
-      )}
-
-      <Section sectionName={"Homes guests loves"} data={hotels} />
+      {state.length > 0 && <AvailableHotels data={state} />}
+      <HomesClass />
     </>
   );
 };

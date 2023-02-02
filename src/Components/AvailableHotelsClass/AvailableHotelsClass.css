@@ -1,0 +1,52 @@
+:root {
+  --general-blue: #3077c6;
+  --bg-color: #eaf0f9;
+  --animation-color: #f5bd41;
+  --main-text: #383838;
+}
+
+.homes {
+  background-color: var(--bg-color);
+  padding-top: 120px;
+  padding-bottom: 120px;
+  /*margin: 0 auto;*/
+}
+
+.h2-text {
+  position: relative;
+  text-align: center;
+  font-family: Roboto, serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0 auto 106px;
+  color: var(--main-text);
+}
+.h2-text:hover:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  border-bottom: 7px solid var(--animation-color);
+  top: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: width 300ms ease-in-out;
+}
+
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+.homes__examples {
+  position: relative;
+  max-width: 1232px;
+  gap: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 106px auto 0;
+  flex-wrap: wrap;
+}
