@@ -1,39 +1,34 @@
 import React, { useState } from "react";
+import { SearchButton } from "./SearchButton";
+import { HotelsSearch } from "./HotelsSearch";
+import { apiUrl } from "../../Services/Constanst/links";
 
 import "./Form.css";
 
-import { hotels } from "../HotelCard/config";
 
-import { SearchButton } from "./SearchButton";
-import { HotelsSearch } from "./HotelsSearch";
+
 
 export const Form = ({ onSubmit }) => {
   const [formState, setFormState] = useState("");
+  
   function handleSubmit(e) {
     e.preventDefault();
 
-    const result = [];
+    const URLSetParams = () => {
+      apiUrl.searchParams.set("search", `${formState}`);
+    };
 
-    hotels.filter((item) => {
-      if (formState.length !== 0) {
-        if (
-          item.name.toLowerCase().includes(formState) ||
-          item.city.toLowerCase().includes(formState) ||
-          item.country.toLowerCase().includes(formState)
-        ) {
-          // debugger;
-          console.log(formState);
-          result.push(item);
-        }
-      }
-      return result;
-    });
-    onSubmit([...result]);
+    URLSetParams();
+
+    fetch(apiUrl).then(res => res.json())
+    .then(result => onSubmit(result)); 
+
   }
 
   function handleChange(e) {
     setFormState(e.target.value);
   }
+  
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />

@@ -16,7 +16,7 @@ export const Homes = () => {
 
   return (
     <section className="homes">
-      <h2 className="h2-text">Homes guests</h2>
+      <h2 className="h2-text">Homes guests loves</h2>
 
       <div className="add">
         {}
