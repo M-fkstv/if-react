@@ -44,9 +44,9 @@
 .homes__examples {
   position: relative;
   max-width: 1232px;
-  gap: 8px;
+  gap: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 106px auto 0;
   flex-wrap: wrap;
 }
