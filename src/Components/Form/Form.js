@@ -7,27 +7,25 @@ import { apiUrl } from "../../Services/Constanst/links";
 
 import "./Form.css";
 
-
-
-
 export const Form = ({ onSubmit }) => {
   const [formState, setFormState] = useState("");
-  
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    axios.get(`${apiUrl}`, {
-      params:{
-          search : `${formState}`,
-      },
-    }).then(resp => onSubmit(resp.data));
-
+    axios
+      .get(`${apiUrl}`, {
+        params: {
+          search: `${formState}`,
+        },
+      })
+      .then((resp) => onSubmit(resp.data));
   }
 
   function handleChange(e) {
     setFormState(e.target.value);
   }
-  
+
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
