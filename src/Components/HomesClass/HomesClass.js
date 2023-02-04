@@ -6,7 +6,6 @@ import { getHotels } from "../../Services/HotelsCards/SearchAPI";
 
 import "./Homes.css";
 
-
 export class HomesClass extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +13,7 @@ export class HomesClass extends Component {
       cards: [],
     };
   }
-  
+
   async componentDidMount() {
     const cards = await getHotels();
     this.setState({ cards });
@@ -29,7 +28,7 @@ export class HomesClass extends Component {
         <div className="add">
           <SliderButton className={"s-button-next"} />
           <SliderButton className={"s-button-prev"} />
-          <Slider className="homes__examples" data={ cards } />
+          <Slider className="homes__examples" data={cards} />
         </div>
       </section>
     );

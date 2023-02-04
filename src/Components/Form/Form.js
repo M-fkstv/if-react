@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+
 import { SearchButton } from "./SearchButton";
 import { HotelsSearch } from "./HotelsSearch";
 import { apiUrl } from "../../Services/Constanst/links";
@@ -14,14 +16,11 @@ export const Form = ({ onSubmit }) => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const URLSetParams = () => {
-      apiUrl.searchParams.set("search", `${formState}`);
-    };
-
-    URLSetParams();
-
-    fetch(apiUrl).then(res => res.json())
-    .then(result => onSubmit(result)); 
+    axios.get(`${apiUrl}`, {
+      params:{
+          search : `${formState}`,
+      },
+    }).then(resp => onSubmit(resp.data));
 
   }
 
