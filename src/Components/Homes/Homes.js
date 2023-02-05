@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { SliderButton } from "../SliderButton";
 import { Slider } from "../Slider";
-import { BaseURL } from "../../Constanst/links";
+import { BaseURL } from "../../Services/Constanst/links";
 import "./Homes.css";
 
 export const Homes = () => {

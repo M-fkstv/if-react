@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 
 import { SearchButton } from "./SearchButton";
 import { HotelsSearch } from "./HotelsSearch";
 import { apiUrl } from "../../Services/Constanst/links";
+import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
 import "./Form.css";
 
-
-
-
-export const Form = ({ onSubmit }) => {
+export const Form = () => {
   const [formState, setFormState] = useState("");
+  const { setAvailable } = useContext(AvailableHotelsContext);
   
   function handleSubmit(e) {
     e.preventDefault();
 
     axios.get(`${apiUrl}`, {
       params:{
-          search : `${formState}`,
+          search: `${formState}`,
       },
-    }).then(resp => onSubmit(resp.data));
+    }).then(resp => setAvailable(resp.data));
 
   }
 

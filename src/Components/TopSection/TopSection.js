@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./Main.css";
+import "./TopSection.css";
 import { Header } from "../Header";
 import { Form } from "../Form";
 import { Apps } from "../Icons";
 
-export const Main = ({ onSubmit }) => {
+export const TopSection = () => {
   return (
     <>
       <div className="main__wrapper">
@@ -15,7 +15,7 @@ export const Main = ({ onSubmit }) => {
             Discover stays <br />
             to live, work or just relax
           </h1>
-          <Form onSubmit={onSubmit} />
+          <Form />
         </div>
         <div className="apps">
           <Apps className="apps__google" id="#google" />
