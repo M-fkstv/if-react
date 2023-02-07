@@ -1,4 +1,5 @@
 // Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { HotelCard } from "../HotelCard";
@@ -10,6 +11,7 @@ import "./Slider.css";
 import "../SliderButton/SliderButton.css";
 
 export const Slider = ({ className, data }) => {
+  
   return (
     <Swiper
       className={className}

@@ -2,13 +2,13 @@ import React, { createContext, useState } from "react";
 
 export const AvailableHotelsContext = createContext({
     available: "",
-    setAvailable: () => {},
+    setAvailable: () => { },
 });
 
-export const AvailableHotelsContextProvider = ({children}) => {
-    const [available, setAvailable] = useState('');
+export const AvailableHotelsContextProvider = (children) => {
+    const [available, setAvailable] = useState("");
 
-    return(
+    return (
         <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
             {children}
         </AvailableHotelsContext.Provider>

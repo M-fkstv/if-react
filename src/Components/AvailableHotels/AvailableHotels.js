@@ -7,15 +7,15 @@ import { HotelCard } from "../HotelCard";
 import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
 export const AvailableHotels = () => {
-  
   const { available } = useContext(AvailableHotelsContext);
 
   if (available.length === 0) {
     return (
       <section className="homes">
-        <h2 className="h2-text">Available hotels
-        <p>Error...</p></h2>
-        
+        <h2 className="h2-text">
+          Available hotels
+          <p>Error...</p>
+        </h2>
       </section>
     );
   }
