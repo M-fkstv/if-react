@@ -7,7 +7,7 @@ import { apiUrl } from "../../Services/Constanst/links";
 import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
 import "./Form.css";
-import { Example } from "../Example";
+// import { Example } from "../Example";
 
 export const Form = () => {
   const [formState, setFormState] = useState("");
@@ -16,15 +16,15 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    axios
+    formState !== "" &&   axios
       .get(`${apiUrl}`, {
         params: {
           search: `${formState}`,
         },
       })
-      .then((resp) => setAvailable(resp.data));
+      .then(formState === "" ? false  : (resp) => setAvailable(resp.data));
   }
-
+  
   function handleChange(e) {
     setFormState(e.target.value);
   }
@@ -33,27 +33,28 @@ export const Form = () => {
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
+        
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
         </label>
-        {/* <input
+        <input
           className="form__date--in input-style"
           type="date"
           id="date-in"
-        /> */}
-        <Example />
+        />
+        {/* <Example /> */}
         <div className="form--splitter">
           <span> &mdash; </span>
         </div>
         <label className="form__date-out--label label" htmlFor="date-out">
           Check out
         </label>
-        {/* <input
+        <input
           className="form__date--out input-style"
           type="date"
           id="date-out"
-        /> */}
-        <Example />
+        />
+        {/* <Example/> */}
       </div>
       <div className="form__person col-md-4 col-xs-6">
         <input

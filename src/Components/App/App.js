@@ -17,7 +17,8 @@ export const App = () => {
       <Sprite />
       <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
         <TopSection />
-        {available.length > 0 && <AvailableHotels />}
+        {available.length > 0 && <AvailableHotels />} 
+       
       </AvailableHotelsContext.Provider>
       <Homes />
       <Example />
