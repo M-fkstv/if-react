@@ -1,4 +1,5 @@
 // Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { HotelCard } from "../HotelCard";

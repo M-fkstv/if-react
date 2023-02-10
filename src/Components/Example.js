@@ -1,37 +1,51 @@
+// import React from "react";
+
+// export function Example() {
+// const [state, setState] = useState();
+
+// function handleSubmit(e) {
+//   e.preventDefault();
+
+//   const result = [];
+
+//   hotels.filter((item) => {
+//     if (
+//       item.name.toLowerCase().includes(searchValue) ||
+//       item.city.toLowerCase().includes(searchValue) ||
+//       item.country.toLowerCase().includes(searchValue)
+//     ) {
+//       result.push(item);
+//     }
+//     return result;
+//   });
+//   setState([...result]);
+//   onSubmit([...result]);
+// }
+
+// let searchValue;
+// function handleChange(e) {
+//   searchValue = e.target.value;
+// }
+
+//   return (
+//     <form>
+//       <input type="text"  />
+//       <button type="submit">Отправить</button>
+//     </form>
+//   );
+// }
+
 import React, { useState } from "react";
-import { hotels } from "./HotelCard/config";
+import DatePicker from "react-datepicker";
 
-export function Example({ onSubmit }) {
-  const [state, setState] = useState();
+import "react-datepicker/dist/react-datepicker.css";
 
-  function handleSubmit(e) {
-    e.preventDefault();
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-    const result = [];
-
-    hotels.filter((item) => {
-      if (
-        item.name.toLowerCase().includes(searchValue) ||
-        item.city.toLowerCase().includes(searchValue) ||
-        item.country.toLowerCase().includes(searchValue)
-      ) {
-        result.push(item);
-      }
-      return result;
-    });
-    setState([...result]);
-    onSubmit([...result]);
-  }
-
-  let searchValue;
-  function handleChange(e) {
-    searchValue = e.target.value;
-  }
-
+export const Example = () => {
+  const [startDate, setStartDate] = useState(new Date());
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} />
-      <button type="submit">Отправить</button>
-    </form>
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
   );
-}
+};

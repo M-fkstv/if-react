@@ -1,39 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./AvailableHotels.css";
 import { SliderButton } from "../SliderButton";
 import { Slider } from "../Slider";
 import { HotelCard } from "../HotelCard";
+import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
-export const AvailableHotels = ({ data }) => {
-  if (data.length === 0) {
+export const AvailableHotels = () => {
+  const { available } = useContext(AvailableHotelsContext);
+  console.log(available)
+  if (available.length === 0) {
+    
     return (
       <section className="homes">
-        <h2 className="h2-text">Available hotels</h2>
-        <p>Wrong</p>
+        <h2 className="h2-text">
+          Available hotels
+          <p>Error...</p>
+        </h2>
       </section>
     );
   }
-  if (data.length < 4) {
+  if (available.length < 4) {
     return (
       <section className="homes">
         <h2 className="h2-text">Available hotels</h2>
         <div className="homes__examples">
-          {data.map((item) => (
+          {available.map((item) => (
             <HotelCard key={item.id} {...item} />
           ))}
         </div>
       </section>
     );
   }
-  return (
+  return (  
     <section className="homes">
       <h2 className="h2-text">Available hotels</h2>
 
       <div className="add">
         <SliderButton className={"s-button-next"} />
         <SliderButton className={"s-button-prev"} />
-        <Slider className="homes__examples" data={data} />
+        <Slider className="homes__examples" data={available} />
       </div>
     </section>
   );

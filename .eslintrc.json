@@ -9,10 +9,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "plugins": ["react", "react-hooks"],
   "rules": {
-    "prefer-const": "error",
-    "semi": ["error", "always"],
-    "no-var": "error",
-    "comma-dangle": ["error", "always-multiline"]
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

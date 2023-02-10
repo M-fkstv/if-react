@@ -8,8 +8,8 @@
   position: relative;
   display: flex;
   width: 37.85%;
-  /*max-width: 1232px;*/
-  /*padding-left: 24px;*/
+  /* max-width: 1232px; 
+   padding-left: 24px; */
 }
 .input-style {
   border: 0;
