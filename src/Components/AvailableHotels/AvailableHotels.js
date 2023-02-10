@@ -8,9 +8,8 @@ import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
 export const AvailableHotels = () => {
   const { available } = useContext(AvailableHotelsContext);
-  console.log(available)
+  console.log(available);
   if (available.length === 0) {
-    
     return (
       <section className="homes">
         <h2 className="h2-text">
@@ -32,7 +31,7 @@ export const AvailableHotels = () => {
       </section>
     );
   }
-  return (  
+  return (
     <section className="homes">
       <h2 className="h2-text">Available hotels</h2>
 

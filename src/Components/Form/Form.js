@@ -16,15 +16,16 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    formState !== "" &&   axios
-      .get(`${apiUrl}`, {
-        params: {
-          search: `${formState}`,
-        },
-      })
-      .then(formState === "" ? false  : (resp) => setAvailable(resp.data));
+    formState !== "" &&
+      axios
+        .get(`${apiUrl}`, {
+          params: {
+            search: `${formState}`,
+          },
+        })
+        .then(formState === "" ? false : (resp) => setAvailable(resp.data));
   }
-  
+
   function handleChange(e) {
     setFormState(e.target.value);
   }
@@ -33,7 +34,6 @@ export const Form = () => {
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
-        
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
         </label>
