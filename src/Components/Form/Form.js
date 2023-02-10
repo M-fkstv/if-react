@@ -1,43 +1,39 @@
-import React, { useState } from "react";
-
-import "./Form.css";
-
-import { hotels } from "../HotelCard/config";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 
 import { SearchButton } from "./SearchButton";
 import { HotelsSearch } from "./HotelsSearch";
+import { apiUrl } from "../../Services/Constanst/links";
+import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
 
-export const Form = ({ onSubmit }) => {
+import "./Form.css";
+// import { Example } from "../Example";
+
+export const Form = () => {
   const [formState, setFormState] = useState("");
+  const { setAvailable } = useContext(AvailableHotelsContext);
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    const result = [];
-
-    hotels.filter((item) => {
-      if (formState.length !== 0) {
-        if (
-          item.name.toLowerCase().includes(formState) ||
-          item.city.toLowerCase().includes(formState) ||
-          item.country.toLowerCase().includes(formState)
-        ) {
-          // debugger;
-          console.log(formState);
-          result.push(item);
-        }
-      }
-      return result;
-    });
-    onSubmit([...result]);
+    formState !== "" &&   axios
+      .get(`${apiUrl}`, {
+        params: {
+          search: `${formState}`,
+        },
+      })
+      .then(formState === "" ? false  : (resp) => setAvailable(resp.data));
   }
-
+  
   function handleChange(e) {
     setFormState(e.target.value);
   }
+
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
+        
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
         </label>
@@ -46,6 +42,7 @@ export const Form = ({ onSubmit }) => {
           type="date"
           id="date-in"
         />
+        {/* <Example /> */}
         <div className="form--splitter">
           <span> &mdash; </span>
         </div>
@@ -57,6 +54,7 @@ export const Form = ({ onSubmit }) => {
           type="date"
           id="date-out"
         />
+        {/* <Example/> */}
       </div>
       <div className="form__person col-md-4 col-xs-6">
         <input

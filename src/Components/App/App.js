@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 
-import { Section } from "../Section";
-import { Main } from "../Main";
+import { TopSection } from "../TopSection";
 import { Sprite } from "../Sprite";
-import { hotels } from "../HotelCard/config";
+import { AvailableHotelsContext } from "../../Context/AvailableHotelsContext";
+import { AvailableHotels } from "../AvailableHotels/AvailableHotels";
+import { Homes } from "../Homes";
+import { Example } from "../Example";
 
 import "./App.css";
 
 export const App = () => {
-  const [state, setState] = useState([]);
-
-  const setAppState = (value) => {
-    setState(value);
-  };
+  const [available, setAvailable] = useState([]);
 
   return (
     <>
       <Sprite />
-      <Main onSubmit={setAppState} />
-      {state.length > 0 && (
-        <Section sectionName={"Available hotels"} data={state} />
-      )}
-
-      <Section sectionName={"Homes guests loves"} data={hotels} />
+      <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
+        <TopSection />
+        {available.length > 0 && <AvailableHotels />} 
+       
+      </AvailableHotelsContext.Provider>
+      <Homes />
+      <Example />
     </>
   );
 };
