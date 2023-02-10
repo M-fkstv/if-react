@@ -11,6 +11,7 @@ import "./Slider.css";
 import "../SliderButton/SliderButton.css";
 
 export const Slider = ({ className, data }) => {
+  
   return (
     <Swiper
       className={className}

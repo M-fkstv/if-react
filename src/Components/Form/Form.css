@@ -24,21 +24,11 @@
   height: 59px;
 }
 
-.form__city--search {
-  position: relative;
-  width: 100%;
-}
 
 .label {
   font-size: 18px;
   color: var(--general-white);
 }
-.form__city--label {
-  position: absolute;
-  top: -50px;
-  left: 20px;
-}
-
 /**/
 .form__date--in--label {
   position: absolute;

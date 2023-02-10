@@ -5,7 +5,7 @@ export const AvailableHotelsContext = createContext({
   setAvailable: () => {},
 });
 
-export const AvailableHotelsContextProvider = ({children}) => {
+export const AvailableHotelsContextProvider = ({ children }) => {
   const [available, setAvailable] = useState("");
 
   return (
