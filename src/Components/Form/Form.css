@@ -1,0 +1,112 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1230px;
+  height: 64px;
+  padding: 0;
+  border: 3px solid #f3f3f4;
+  border-radius: 8px;
+  background-color: var(--general-white);
+}
+
+/**/
+.magnifier {
+  display: none;
+  height: 16px;
+  width: 16px;
+}
+
+.form__city {
+  position: relative;
+  display: flex;
+  width: 37.85%;
+  /*max-width: 1232px;*/
+  /*padding-left: 24px;*/
+}
+.input-style {
+  border: 0;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 18px;
+  height: 59px;
+}
+
+.label {
+  font-size: 18px;
+  color: var(--general-white);
+}
+/**/
+.form__date--in--label {
+  position: absolute;
+  top: -50px;
+  left: 25px;
+}
+
+.form__date--in--label:after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  width: 10px;
+  border-bottom: 2px solid var(--general-white);
+  top: 50%;
+  margin-left: 10px;
+}
+
+.form__date-out--label {
+  position: absolute;
+  top: -50px;
+  left: 118px;
+}
+
+.form__date {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21.12%;
+  height: 64px;
+  border: 3px solid var(--animation-color);
+  border-radius: 8px;
+  margin: -3px;
+}
+
+.form__date--in {
+  width: 100%;
+  text-align: right;
+}
+
+.form__date--out {
+  width: 100%;
+  /*height: 58px;*/
+  text-align: left;
+}
+
+.form__person {
+  display: flex;
+  width: 26%;
+  justify-content: center;
+  align-items: center;
+  padding-right: 24px;
+  padding-left: 30px;
+  text-align: center;
+}
+.person-label {
+  font-size: 19px;
+  padding-left: 2px;
+}
+
+.form__person--search {
+  width: 100%;
+  text-align: center;
+}
+
+.form__submit {
+  display: block;
+  background-color: var(--general-blue);
+  width: 16%;
+  color: var(--general-white);
+  font-size: 24px;
+  height: 64px;
+  margin: -3px;
+  cursor: pointer;
+}
