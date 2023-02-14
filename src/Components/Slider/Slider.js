@@ -19,7 +19,8 @@ export const Slider = ({ className, data }) => {
       navigation={{
         nextEl: '.s-button-next',
         prevEl: '.s-button-prev',
-        clickable: true
+        clickable: true,
+        loop: true
       }}
       spaceBetween={16}
       slidesPerView={4}

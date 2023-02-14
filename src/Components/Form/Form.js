@@ -17,14 +17,14 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    
+   
     formState !== '' &&  axios
       .get(`${apiUrl}`, {
         params: {
           search: `${formState}`,
         },
       })
-     
+     //TODO: Error handling, loader
       .then(formState === '' ? false  : (resp) => setAvailable(resp.data));
   }
 
@@ -37,18 +37,11 @@ export const Form = () => {
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
-        </label>
-        
-        {/* <input className="form__date--in input-style" type="date" id="date-in" /> */}
+        </label>   
         <Example/>
-        <div className="form--splitter">
-          <span> &mdash; </span>
-        </div>
         <label className="form__date-out--label label" htmlFor="date-out"> 
           Check out
         </label>
-        <Example/>
-        {/* <input className="form__date--out input-style" type="date" id="date-out" /> */}
       </div>
       <div className="form__person col-md-4 col-xs-6">
         <input
