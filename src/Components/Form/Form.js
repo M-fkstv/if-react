@@ -5,11 +5,13 @@ import { HotelsSearch } from './HotelsSearch';
 import { apiUrl } from '../../Services/Constanst/links';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { Calendar } from '../Calendar';
+import { UsersFilter } from './UsersFilter';
 
 import './Form.css';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
+  const [ visible, setVisible ] = useState('');
   const { setAvailable } = useContext(AvailableHotelsContext);
 
   function handleSubmit(e) {
@@ -32,6 +34,12 @@ export const Form = () => {
   function handleChange(e) {
     setFormState(e.target.value);
   }
+
+  function showFilter(e) {
+    console.log(e.currentTarget);
+    setVisible(false);
+  }
+
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
       <HotelsSearch onChange={handleChange} value={formState} />
@@ -44,50 +52,12 @@ export const Form = () => {
           Check out
         </label>
       </div>
-      <div className="form__person col-md-4 col-xs-6">
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="adults"
-          name="adults"
-          value="2"
-          disabled
-        />
-        <label className="adults-label person-label" htmlFor="adults">
-          Adults
-        </label>
-        <div className="form--splitter">
-          <span> &mdash; </span>
-        </div>
-
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="children"
-          name="children"
-          value="0"
-          disabled
-        />
-        <label className="children-label person-label" htmlFor="children">
-          Children
-        </label>
-        <div className="form--splitter">
-          <span> &mdash; </span>
-        </div>
-
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="room"
-          name="room"
-          value="1"
-          disabled
-        />
-        <label className="room-label person-label" htmlFor="room">
-          Room
-        </label>
-      </div>
-
+      <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
+        <h3>
+          <span>2</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+        </h3>
+      </div>  
+      <UsersFilter visible={visible}/>
       <SearchButton />
     </form>
   );
