@@ -20,11 +20,10 @@ export const Slider = ({ className, data }) => {
         nextEl: '.s-button-next',
         prevEl: '.s-button-prev',
         clickable: true,
-        loop: true
+        loop: true,
       }}
       spaceBetween={16}
-      slidesPerView={4}
-    >
+      slidesPerView={4}>
       {data.map((item) => (
         <SwiperSlide key={item.id}>
           <HotelCard {...item} />

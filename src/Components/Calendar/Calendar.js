@@ -43,20 +43,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-import './Example.css';
+import './Calendar.css';
 
-
-export const Example = () => {
+export const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    console.log(start, end)
   };
-  
-  return (  
+
+  return (
     <DatePicker
       placeholderText="Click to select a date"
       selected={startDate}

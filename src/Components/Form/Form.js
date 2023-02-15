@@ -1,14 +1,12 @@
 import React, { useState, useContext } from 'react';
-import axios  from 'axios';
+import axios from 'axios';
 import { SearchButton } from './SearchButton';
 import { HotelsSearch } from './HotelsSearch';
 import { apiUrl } from '../../Services/Constanst/links';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+import { Calendar } from '../Calendar';
 
 import './Form.css';
-import { Example } from '../Example';
-
-
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
@@ -17,15 +15,18 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-   
-    formState !== '' &&  axios
-      .get(`${apiUrl}`, {
-        params: {
-          search: `${formState}`,
-        },
-      })
-     //TODO: Error handling, loader
-      .then(formState === '' ? false  : (resp) => setAvailable(resp.data));
+    formState !== '' &&
+      axios
+        .get(`${apiUrl}`, {
+          params: {
+            search: `${formState}`,
+          },
+        })
+        //TODO: Error handling, loader
+        .then(formState === '' ? false : (resp) => setAvailable(resp.data))
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 
   function handleChange(e) {
@@ -37,9 +38,9 @@ export const Form = () => {
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
           Check in
-        </label>   
-        <Example/>
-        <label className="form__date-out--label label" htmlFor="date-out"> 
+        </label>
+        <Calendar />
+        <label className="form__date-out--label label" htmlFor="date-out">
           Check out
         </label>
       </div>

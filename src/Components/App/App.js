@@ -4,7 +4,6 @@ import { Sprite } from '../Sprite';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { AvailableHotels } from '../AvailableHotels/AvailableHotels';
 import { Homes } from '../Homes';
-import { Example } from '../Example';
 
 import './App.css';
 
@@ -20,7 +19,7 @@ export const App = () => {
 
       </AvailableHotelsContext.Provider>
       <Homes />
-      <Example />
+    
     </>
   );
 };

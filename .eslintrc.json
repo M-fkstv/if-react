@@ -13,7 +13,10 @@
   "plugins": ["react", "react-hooks"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "quotes": ["error", "single"]
-    
+    "quotes": ["error", "single"],
+    "prefer-const": "error",
+    "semi": ["error", "always"],
+    "no-var": "error",
+    "comma-dangle": ["error", "always-multiline"]
   }
 }
