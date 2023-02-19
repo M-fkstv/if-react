@@ -10,7 +10,7 @@
   background-color: var(--general-white);
 }
 
-/**/
+
 .magnifier {
   display: none;
   height: 16px;
@@ -36,7 +36,7 @@
   font-size: 18px;
   color: var(--general-white);
 }
-/**/
+
 .form__date--in--label {
   position: absolute;
   top: -50px;
@@ -61,24 +61,11 @@
 
 .form__date {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 21.12%;
   height: 64px;
   border: 3px solid var(--animation-color);
   border-radius: 8px;
   margin: -3px;
-}
-
-.form__date--in {
-  width: 100%;
-  text-align: right;
-}
-
-.form__date--out {
-  width: 100%;
-  text-align: left;
 }
 
 .form__person {
@@ -89,10 +76,6 @@
   padding-right: 24px;
   padding-left: 30px;
   text-align: center;
-}
-.person-label {
-  font-size: 19px;
-  padding-left: 2px;
 }
 
 .form__person--search {
