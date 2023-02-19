@@ -34,11 +34,11 @@ export const Counter = ({ id }) => {
 
   const btnAdd = classNames( {
     'btn': true,
-    'btn--disabled': id.includes('adult') && state === 30 || id.includes('rooms') && state === 30 || id.includes('children') && state === 10,
+    'btn--disabled': (id.includes('adult') && state === 30) || (id.includes('rooms') && state === 30) || (id.includes('children') && state === 10),
   });
   const btnRemove = classNames( {
     'btn': true,
-    'btn--disabled':  id.includes('adult') && state === 1 || id.includes('rooms') && state === 1 || id.includes('children') && state === 0,
+    'btn--disabled': ( id.includes('adult') && state === 1) || (id.includes('rooms') && state === 1) || (id.includes('children') && state === 0),
   });
 
 
