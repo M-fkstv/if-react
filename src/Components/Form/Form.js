@@ -11,7 +11,7 @@ import './Form.css';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
-  const [ visible, setVisible ] = useState('');
+  const [filterActive, setFilterActive] = useState(false);
   const { setAvailable } = useContext(AvailableHotelsContext);
 
   function handleSubmit(e) {
@@ -35,10 +35,9 @@ export const Form = () => {
     setFormState(e.target.value);
   }
 
-  function showFilter(e) {
-    console.log(e.currentTarget);
-    setVisible(false);
-  }
+  const showFilter = () => {
+    filterActive ? setFilterActive(false) : setFilterActive(true);
+  };
 
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
@@ -53,11 +52,13 @@ export const Form = () => {
         </label>
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
+        {/* <input type='text' ref={myRef} value={`${formState} Adults 0 Children 1 Rooms`}/> */}
         <h3>
           <span>2</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
-      </div>  
-      <UsersFilter visible={visible}/>
+      </div>
+
+      <UsersFilter active={filterActive} />
       <SearchButton />
     </form>
   );

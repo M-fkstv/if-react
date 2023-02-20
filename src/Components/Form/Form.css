@@ -10,7 +10,6 @@
   background-color: var(--general-white);
 }
 
-
 .magnifier {
   display: none;
   height: 16px;
@@ -82,8 +81,11 @@
   width: 100%;
   text-align: center;
 }
+.form__person--search:checked {
+  outline: 3px solid var(--animation-color);
+}
 
-.form__submit {
+/* .form__submit {
   display: block;
   background-color: var(--general-blue);
   width: 16%;
@@ -92,4 +94,4 @@
   height: 64px;
   margin: -3px;
   cursor: pointer;
-}
+} */

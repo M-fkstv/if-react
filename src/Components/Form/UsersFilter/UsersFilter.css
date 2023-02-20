@@ -1,11 +1,10 @@
 /*<<<<<<<<<<<<<<<<<<<<   MODAL WINDOW TO FORM PEOPLES INPUT   >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .persons {
-  
-  display: block;
+  display: none;
 }
 
 .persons__inputs {
-  display: flex;
+  
   flex-direction: column;
   margin-top: 10px;
   width: 260px;
@@ -17,7 +16,7 @@
   left: 60%;
 }
 .active {
-  display: flex;
+  display: block;
 }
 .adults__input,
 .children__input,
@@ -75,5 +74,5 @@
   width: 200px;
 }
 .toggle {
-  display: block;
+  display: flex;
 }

@@ -1,11 +1,11 @@
-import React  from 'react';
+import React from 'react';
 import { Counter } from './Counter/Counter';
 
 import './UsersFilter.css';
 
-export const UsersFilter = () => {
+export const UsersFilter = ({ active }) => {
   return (
-    <div className="persons">
+    <div className={active ? 'persons active' : 'persons'}>
       <div className="persons__inputs">
         <div className="adults__input">
           <p className="inputs__title--adult">Adults</p>
@@ -18,7 +18,7 @@ export const UsersFilter = () => {
 
         <div className="rooms__input">
           <p className="inputs__title">Rooms</p>
-          <Counter id={'rooms'}/>
+          <Counter id={'rooms'} />
         </div>
         <p hidden className="children__input--subtitle">
           What is the age of the child you're travelling with

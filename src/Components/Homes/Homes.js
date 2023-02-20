@@ -20,7 +20,6 @@ export const Homes = () => {
       <h2 className="h2-text">Homes guests loves</h2>
 
       <div className="add">
-        {}
         <SliderButton className={'s-button-next'} />
         <SliderButton className={'s-button-prev'} />
         <Slider className="homes__examples" data={state} />
