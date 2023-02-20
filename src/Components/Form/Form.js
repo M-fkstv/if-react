@@ -35,7 +35,8 @@ export const Form = () => {
     setFormState(e.target.value);
   }
 
-  const showFilter = () => {
+  const showFilter = (e) => {
+    console.log(e.target, e.currentTarget);
     filterActive ? setFilterActive(false) : setFilterActive(true);
   };
 
