@@ -23,7 +23,8 @@ export const Slider = ({ className, data }) => {
         loop: true,
       }}
       spaceBetween={16}
-      slidesPerView={4}>
+      slidesPerView={4}
+    >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
           <HotelCard {...item} />

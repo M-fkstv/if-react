@@ -8,6 +8,7 @@ import { Calendar } from '../Calendar';
 import { UsersFilter } from './UsersFilter';
 
 import './Form.css';
+import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
@@ -40,8 +41,10 @@ export const Form = () => {
     filterActive ? setFilterActive(false) : setFilterActive(true);
   };
 
+  const outsideRef = useClickOutside(() => setFilterActive(false));
+
   return (
-    <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={ref}>
+    <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={outsideRef}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
@@ -54,7 +57,7 @@ export const Form = () => {
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         <h3>
-          <span>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+          <span ref={ref}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
       </div>
 

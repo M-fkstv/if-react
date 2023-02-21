@@ -12,7 +12,7 @@ export const Homes = () => {
     fetch(BaseURL)
       .then((res) => res.json())
       .then((result) => setState(result));
-      //TODO: Error handling, loader
+    //TODO: Error handling, loader
   }, []);
 
   return (

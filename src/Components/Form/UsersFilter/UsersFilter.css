@@ -4,7 +4,6 @@
 }
 
 .persons__inputs {
-  
   flex-direction: column;
   margin-top: 10px;
   width: 260px;
@@ -20,7 +19,7 @@
 }
 .adults__input,
 .children__input,
-.rooms__input{
+.rooms__input {
   display: flex;
   align-items: center;
   justify-content: space-between;

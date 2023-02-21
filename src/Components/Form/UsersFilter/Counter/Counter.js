@@ -24,8 +24,8 @@ export const Counter = ({ id }) => {
   });
 
   useEffect(() => {
-    console.log(countRef.current.textContent);
-  }, [countRef]);
+    console.log(countRef);
+  });
 
   return (
     <div className="counter">
@@ -34,7 +34,8 @@ export const Counter = ({ id }) => {
         className={btnRemove}
         onClick={() => {
           dispatch({ type: 'decrement' });
-        }}>
+        }}
+      >
         -
       </button>
       <span id={id} className="output" ref={countRef}>
@@ -45,7 +46,8 @@ export const Counter = ({ id }) => {
         className={btnAdd}
         onClick={() => {
           dispatch({ type: 'increment' });
-        }}>
+        }}
+      >
         +
       </button>
     </div>
