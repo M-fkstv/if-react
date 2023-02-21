@@ -6,12 +6,12 @@ import './UsersFilter.css';
 export const UsersFilter = ({ active }) => {
   const personsRef = createRef();
 
-  const showRef = () => {
-    console.log(personsRef.current);
-  };
+  // const showRef = () => {
+  //   console.log(personsRef.current);
+  // };
 
   return (
-    <div className={active ? 'persons active' : 'persons'} onClick={showRef}>
+    <div className={active ? 'persons active' : 'persons'}>
       <div className="persons__inputs" ref={personsRef}>
         <div className="adults__input">
           <p className="inputs__title--adult">Adults</p>

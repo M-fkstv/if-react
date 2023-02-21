@@ -34,16 +34,14 @@ export const Form = () => {
 
   function handleChange(e) {
     setFormState(e.target.value);
-    console.log(ref);
   }
 
   const showFilter = (e) => {
-    console.log(e.target, e.currentTarget);
     filterActive ? setFilterActive(false) : setFilterActive(true);
   };
 
   return (
-    <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
+    <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={ref}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
@@ -55,7 +53,6 @@ export const Form = () => {
         </label>
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
-        {/* <input type='text' ref={myRef} value={`${formState} Adults 0 Children 1 Rooms`}/> */}
         <h3>
           <span>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
