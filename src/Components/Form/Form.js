@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import axios from 'axios';
 import { SearchButton } from './SearchButton';
 import { HotelsSearch } from './HotelsSearch';
@@ -13,6 +13,7 @@ export const Form = () => {
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
   const { setAvailable } = useContext(AvailableHotelsContext);
+  const ref = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +34,7 @@ export const Form = () => {
 
   function handleChange(e) {
     setFormState(e.target.value);
+    console.log(ref);
   }
 
   const showFilter = (e) => {
@@ -55,7 +57,7 @@ export const Form = () => {
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         {/* <input type='text' ref={myRef} value={`${formState} Adults 0 Children 1 Rooms`}/> */}
         <h3>
-          <span>2</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+          <span>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
       </div>
 

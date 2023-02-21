@@ -4,19 +4,18 @@ import { Counter } from './Counter/Counter';
 import './UsersFilter.css';
 
 export const UsersFilter = ({ active }) => {
+  const personsRef = createRef();
 
- const personsRef = createRef();
-
- const showRef = () => {
-  console.log(personsRef.current);
- };
+  const showRef = () => {
+    console.log(personsRef.current);
+  };
 
   return (
-    <div className={active ? 'persons active' : 'persons'}  onClick={showRef}>
-      <div className="persons__inputs" ref={personsRef} >
+    <div className={active ? 'persons active' : 'persons'} onClick={showRef}>
+      <div className="persons__inputs" ref={personsRef}>
         <div className="adults__input">
           <p className="inputs__title--adult">Adults</p>
-          <Counter id={'adults'}  />
+          <Counter id={'adults'} />
         </div>
         <div className="children__input">
           <p className="inputs__title">Children</p>

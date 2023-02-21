@@ -1,62 +1,102 @@
-import React, { useState } from 'react';
+import React, { createRef, useEffect, useReducer } from 'react';
 import classNames from 'classnames';
 
 import '../UsersFilter.css';
 
+function reducer(state, action) {
+  if (action.type === 'decrement') {
+    if (state.name === 'children' && state.count > 0) {
+      return {
+        name: state.name,
+        count: state.count - 1,
+      };
+    }
+    if (state.name === 'adults' && state.count > 1) {
+      return {
+        name: state.name,
+        count: state.count - 1,
+      };
+    }
+    if (state.name === 'rooms' && state.count > 1) {
+      return {
+        name: state.name,
+        count: state.count - 1,
+      };
+    }
+    return {
+      name: state.name,
+      count: state.count,
+    };
+  }
+  if (action.type === 'increment') {
+    if (state.name === 'children' && state.count < 10) {
+      return {
+        name: state.name,
+        count: state.count + 1,
+      };
+    }
+    if (state.name === 'adults' && state.count < 10) {
+      return {
+        name: state.name,
+        count: state.count + 1,
+      };
+    }
+    if (state.name === 'rooms' && state.count < 10) {
+      return {
+        name: state.name,
+        count: state.count + 1,
+      };
+    }
+    return {
+      name: state.name,
+      count: state.count,
+    };
+  }
+  throw Error('Unknown action.');
+}
+
 export const Counter = ({ id }) => {
-  const [state, setState] = useState(1);
-
-  const decrement = (e) => {
-    if (e.target.id.includes('adult')) {
-      return state <= 1 ? false : setState((state) => state - 1);
-    }
-    if (e.target.id.includes('children')) {
-      return state <= 0 ? false : setState((state) => state - 1);
-    }
-    if (e.target.id.includes('rooms')) {
-      return state <= 1 ? false : setState((state) => state - 1);
-    }
-  };
-
-  const increment = (e) => {
-    if (e.target.id.includes('adult')) {
-      return state >= 30 ? false : setState((state) => state + 1);
-    }
-    if (e.target.id.includes('children')) {
-      return state >= 10 ? false : setState((state) => state + 1);
-    }
-    if (e.target.id.includes('rooms')) {
-      return state >= 30 ? false : setState((state) => state + 1);
-    }
-  };
-  // if (id.includes('adult') && state > 1) {
-  //   return (new Array(17).fill(0).map((item, index)=>`<option> ${index} years old <option/>`).join(''));
-  // }
+  const [state, dispatch] = useReducer(reducer, { name: id, count: 1 });
+  const countRef = createRef();
 
   const btnAdd = classNames({
     btn: true,
     'btn--disabled':
-      (id.includes('adult') && state === 30) ||
-      (id.includes('rooms') && state === 30) ||
-      (id.includes('children') && state === 10),
+      (id.includes('adult') && state.count >= 10) ||
+      (id.includes('rooms') && state.count >= 10) ||
+      (id.includes('children') && state.count >= 10),
   });
   const btnRemove = classNames({
     btn: true,
     'btn--disabled':
-      (id.includes('adult') && state === 1) ||
-      (id.includes('rooms') && state === 1) ||
-      (id.includes('children') && state === 0),
+      (id.includes('adult') && state.count === 1) ||
+      (id.includes('rooms') && state.count === 1) ||
+      (id.includes('children') && state.count === 0),
   });
+
+  useEffect(() => {
+    console.log(countRef.current.textContent);
+  }, [countRef]);
 
   return (
     <div className="counter">
-      <button id={id} className={btnRemove} onClick={decrement}>
+      <button
+        id={ id }
+        className={ btnRemove }
+        onClick={() => {
+          dispatch({ type: 'decrement' });
+        }}>
         -
       </button>
-      <span id={id} className="output">
-        {state}
+      <span id={ id } className="output" ref={ countRef }>
+        { state.count }
       </span>
-      <button id={id} className={btnAdd} onClick={increment}>
+      <button
+        id={ id }
+        className={ btnAdd } 
+        onClick={() => {
+          dispatch({ type: 'increment' });
+        }}>
         +
       </button>
     </div>
