@@ -8,7 +8,7 @@ export const conterReducer = (state, action) => {
         };
       }
       if (state.name === 'adults' && state.count > 1) {
-        return {
+        return { 
           name: state.name,
           count: state.count - 1,
         };

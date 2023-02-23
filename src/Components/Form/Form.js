@@ -6,9 +6,9 @@ import { apiUrl } from '../../Services/Constanst/links';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { Calendar } from '../Calendar';
 import { UsersFilter } from './UsersFilter';
+import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 import './Form.css';
-import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');

@@ -1,11 +1,12 @@
-import React, { createRef, useEffect, useReducer } from 'react';
+import React, { createRef,  useReducer } from 'react';
 import classNames from 'classnames';
 import { conterReducer } from './Counter.Reducer';
 
 import '../UsersFilter.css';
 
-export const Counter = ({ id }) => {
-  const [state, dispatch] = useReducer(conterReducer, { name: id, count: 1 });
+export const Counter = ({ id, updateChildren, updateAdults, updateRooms }) => {
+  const [state, dispatch] = useReducer(conterReducer, { name: id, count: 0 });
+
   const countRef = createRef();
 
   const btnAdd = classNames({
@@ -23,33 +24,49 @@ export const Counter = ({ id }) => {
       (id.includes('children') && state.count === 0),
   });
 
-  useEffect(() => {
-    console.log(countRef);
-  });
+  const updateState = () => {
+    if(id.includes('adult')){
+      updateAdults(state.count);
+    }
+    if(id.includes('children')){
+      updateChildren(state.count);
+    }
+    if(id.includes('rooms')){
+      updateRooms(state.count);
+    }  
+  };
+
+  const add = () => {
+    const addReducer = () => {
+      dispatch({ type: 'decrement' });
+    };
+
+    addReducer();
+    updateState();
+  };
+
+  const remove = (e) => {
+    const removeReducer = () => {
+      dispatch({ type: 'increment' });
+    };
+
+    removeReducer();
+    updateState();
+  };
 
   return (
-    <div className="counter">
-      <button
-        id={id}
-        className={btnRemove}
-        onClick={() => {
-          dispatch({ type: 'decrement' });
-        }}
-      >
-        -
-      </button>
-      <span id={id} className="output" ref={countRef}>
-        {state.count}
-      </span>
-      <button
-        id={id}
-        className={btnAdd}
-        onClick={() => {
-          dispatch({ type: 'increment' });
-        }}
-      >
-        +
-      </button>
-    </div>
+    <>
+      <div className="counter">
+        <button id={id} className={btnRemove} onClick={add}>
+          -
+        </button>
+        <span id={id} className="output" ref={countRef}>
+          {state.count}
+        </span>
+        <button id={id} className={btnAdd} onClick={remove}>
+          +
+        </button>
+      </div>
+    </>
   );
 };
