@@ -1,4 +1,4 @@
-export const conterReducer = (state, action) => {
+export const counterReducer = (state, action) => {
   switch (action.type) {
     case 'decrement':
       if (state.name === 'children' && state.count > 0) {
@@ -31,13 +31,13 @@ export const conterReducer = (state, action) => {
           count: state.count + 1,
         };
       }
-      if (state.name === 'adults' && state.count < 10) {
+      if (state.name === 'adults' && state.count < 30) {
         return {
           name: state.name,
           count: state.count + 1,
         };
       }
-      if (state.name === 'rooms' && state.count < 10) {
+      if (state.name === 'rooms' && state.count < 30) {
         return {
           name: state.name,
           count: state.count + 1,
