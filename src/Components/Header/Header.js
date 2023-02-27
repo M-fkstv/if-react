@@ -15,7 +15,7 @@ export const Header = () => (
       <div className="header__images">
         <Menu />
         <Night />
-        <Account />
+        <Account href="#"/>
       </div>
     </div>
   </header>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Apps.css';
 
@@ -7,3 +8,8 @@ export const Apps = ({ className, id }) => (
     <use href={id} />
   </svg>
 );
+
+Apps.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string,
+};

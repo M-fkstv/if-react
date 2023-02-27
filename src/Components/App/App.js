@@ -4,6 +4,7 @@ import { Sprite } from '../Sprite';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { AvailableHotels } from '../AvailableHotels/AvailableHotels';
 import { Homes } from '../Homes';
+import { Advantages } from '../Advantages/Advantages';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ export const App = () => {
         <TopSection />
         {available.length > 0 && <AvailableHotels ref={availableRef}/>}
       </AvailableHotelsContext.Provider>
+      <Advantages/>
       <Homes />
     </>
   );

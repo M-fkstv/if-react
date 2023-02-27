@@ -2,7 +2,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import PropTypes from 'prop-types';
+
 import { HotelCard } from '../HotelCard';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -32,4 +35,9 @@ export const Slider = ({ className, data }) => {
       ))}
     </Swiper>
   );
+};
+
+Slider.propTypes  = {
+  className : PropTypes.string,
+  data : PropTypes.array,
 };

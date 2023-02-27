@@ -1,10 +1,12 @@
 import React, { forwardRef, useContext } from 'react';
 
-import './AvailableHotels.css';
+
 import { SliderButton } from '../SliderButton';
 import { Slider } from '../Slider';
 import { HotelCard } from '../HotelCard';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+
+import './AvailableHotels.css';
 
 export const AvailableHotels = forwardRef((_,ref) => {
   const { available } = useContext(AvailableHotelsContext);
@@ -12,7 +14,7 @@ export const AvailableHotels = forwardRef((_,ref) => {
   if (available.length === 0) {
     return (
       <section className="homes" ref={ref}>
-        <h2 className="h2-text">
+        <h2 className="section-title">
           Available hotels
           <p>Error...</p>
         </h2>
@@ -43,3 +45,4 @@ export const AvailableHotels = forwardRef((_,ref) => {
     </section>
   );
 });
+

@@ -55,7 +55,7 @@ export const Form = () => {
           Check out
         </label>
       </div>
-      <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
+      <div className="form__person col-md-4 col-xs-6" onClick={showFilter} >
         <h3>
           <span ref={ref}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
