@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { forwardRef, useContext } from 'react';
 
 import './AvailableHotels.css';
 import { SliderButton } from '../SliderButton';
@@ -6,12 +6,12 @@ import { Slider } from '../Slider';
 import { HotelCard } from '../HotelCard';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 
-export const AvailableHotels = () => {
+export const AvailableHotels = forwardRef((_,ref) => {
   const { available } = useContext(AvailableHotelsContext);
   console.log(available);
   if (available.length === 0) {
     return (
-      <section className="homes">
+      <section className="homes" ref={ref}>
         <h2 className="h2-text">
           Available hotels
           <p>Error...</p>
@@ -21,7 +21,7 @@ export const AvailableHotels = () => {
   }
   if (available.length < 4) {
     return (
-      <section className="homes">
+      <section className="homes" ref={ref}>
         <h2 className="h2-text">Available hotels</h2>
         <div className="homes__examples">
           {available.map((item) => (
@@ -32,7 +32,7 @@ export const AvailableHotels = () => {
     );
   }
   return (
-    <section className="homes">
+    <section className="homes" ref={ref}>
       <h2 className="h2-text">Available hotels</h2>
 
       <div className="add">
@@ -42,4 +42,4 @@ export const AvailableHotels = () => {
       </div>
     </section>
   );
-};
+});
