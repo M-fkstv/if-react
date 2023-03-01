@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef} from 'react';
 import axios from 'axios';
 import { SearchButton } from './SearchButton';
 import { HotelsSearch } from './HotelsSearch';
@@ -14,7 +14,7 @@ export const Form = () => {
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
   const { setAvailable } = useContext(AvailableHotelsContext);
-  const ref = useRef();
+  const AdRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -42,6 +42,10 @@ export const Form = () => {
   };
 
   const outsideRef = useClickOutside(() => setFilterActive(false));
+  
+
+  // ref.current.textContent = 3;
+  
 
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={outsideRef}>
@@ -57,11 +61,11 @@ export const Form = () => {
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         <h3>
-          <span ref={ref}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+          <span ref={AdRef}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>
       </div>
 
-      <UsersFilter active={filterActive} />
+      <UsersFilter active={filterActive} ref={AdRef}/>
       <SearchButton />
     </form>
   );

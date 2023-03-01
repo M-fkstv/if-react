@@ -4,8 +4,8 @@ import { counterReducer } from './Counter.Reducer';
 
 import '../UsersFilter.css';
 
-export const Counter = ({ name, guests, setGuests, select, setSelect }) => {
-  const [state, dispatch] = useReducer(counterReducer, { name: name, count: 0 });
+export const Counter = ({ name, guests, setGuests, select, setSelect, initialValue }) => {
+  const [state, dispatch] = useReducer(counterReducer, { name: name, count: initialValue });
 
   const countRef = createRef();
   const { count } = state;
@@ -63,7 +63,7 @@ export const Counter = ({ name, guests, setGuests, select, setSelect }) => {
       dispatch({ type: 'decrement' });
     })();
 
-    if (name === 'children' && count < 10) {
+    if (name === 'children' && count <= 10) {
       select.pop();
       setSelect((select) => {
         return [...select];
