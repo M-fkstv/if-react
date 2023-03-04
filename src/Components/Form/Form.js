@@ -24,18 +24,18 @@ export const Form = () => {
     apiUrl.searchParams.set('search', `${formState}`);
 
     const hotels = wrapPromise(fetchData(apiUrl));  
+
     console.log('hotels', hotels);
     
-    // setAvailable(getHotels(apiUrl));
     formState !== '' && setAvailable(hotels);
 
   //   formState !== '' &&
-  //    axios
-  //     .get(`${apiUrl}`, {
-  //       params: {
-  //         search: `${formState}`,
-  //       },
-  //     })
+    //  axios
+    //   .get(`${apiUrl}`, {
+    //     params: {
+    //       search: `${formState}`,
+    //     },
+    //   })
   //   // TODO: Error handling, loader
   //   .then((resp) => setAvailable(resp.data))
   //   .catch(function (error) {
