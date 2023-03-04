@@ -10,6 +10,7 @@ import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 import './Form.css';
 import { fetchData, wrapPromise } from '../../lib/wrapPromise';
+import { getHotels } from '../../Services/HotelsCards/SearchAPI';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
@@ -20,20 +21,26 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    formState !== '' && setAvailable(wrapPromise(fetchData(apiUrl)));
+    apiUrl.searchParams.set('search', `${formState}`);
 
-    // formState !== '' &&
-    //  axios
-    //   .get(`${apiUrl}`, {
-    //     params: {
-    //       search: `${formState}`,
-    //     },
-    //   })
-    // // TODO: Error handling, loader
-    // .then((resp) => setAvailable(resp.data))
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    const hotels = wrapPromise(fetchData(apiUrl));  
+    console.log('hotels', hotels);
+    
+    // setAvailable(getHotels(apiUrl));
+    formState !== '' && setAvailable(hotels);
+
+  //   formState !== '' &&
+  //    axios
+  //     .get(`${apiUrl}`, {
+  //       params: {
+  //         search: `${formState}`,
+  //       },
+  //     })
+  //   // TODO: Error handling, loader
+  //   .then((resp) => setAvailable(resp.data))
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
     setFormState('');
   }
 

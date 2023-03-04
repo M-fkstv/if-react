@@ -14,8 +14,8 @@ export function fetchData(url) {
 
 async function getData(url) {
   if (url === apiUrl) {
-    console.log(url === apiUrl);
-    console.log (await getHotels(apiUrl));
+    // console.log(url === apiUrl);
+    // console.log(await getHotels(apiUrl));
     // debugger;
     return await getHotels(apiUrl);
   } else {
@@ -24,26 +24,31 @@ async function getData(url) {
 }
 
 export const wrapPromise = (promise) => {
+  console.log(promise);
   if (promise.status === 'fulfilled') {
+    console.log(promise.status);
     return promise.value;
   } else if (promise.status === 'rejected') {
+    console.log(promise.status);
+
     throw promise.reason;
   } else if (promise.status === 'pending') {
+    console.log(promise.status);
+
     throw promise;
   } else {
     promise.status = 'pending';
+    console.log(promise.status);
     promise.then(
       (result) => {
         promise.status = 'fulfilled';
         promise.value = result;
-        console.log(result);
       },
       (reason) => {
         promise.status = 'rejected';
         promise.reason = reason;
       },
     );
-    console.log(promise);
     throw promise;
   }
 };
