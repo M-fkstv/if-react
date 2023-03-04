@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 import { SliderButton } from '../SliderButton';
 import { Slider } from '../Slider';
+import { getHotels } from '../../Services/HotelsCards/SearchAPI';
 import { BaseURL } from '../../Services/Constanst/links';
+
 import './Homes.css';
 
 export const Homes = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    fetch(BaseURL)
-      .then((res) => res.json())
-      .then((result) => setState(result));
+    // fetch(BaseURL)
+    //   .then((res) => res.json())
+    //   .then((result) => setState(result));
+    getHotels(BaseURL).then((result) => setState(result));
     //TODO: Error handling, loader
   }, []);
 

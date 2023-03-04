@@ -9,6 +9,7 @@ import { UsersFilter } from './UsersFilter';
 import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 import './Form.css';
+import { fetchData, wrapPromise } from '../../lib/wrapPromise';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
@@ -19,18 +20,21 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    formState !== '' &&
-      axios
-        .get(`${apiUrl}`, {
-          params: {
-            search: `${formState}`,
-          },
-        })
-        //TODO: Error handling, loader
-        .then(formState === '' ? false : (resp) => setAvailable(resp.data))
-        .catch(function (error) {
-          console.log(error);
-        });
+    formState !== '' && setAvailable(wrapPromise(fetchData(apiUrl)));
+
+    // formState !== '' &&
+    //  axios
+    //   .get(`${apiUrl}`, {
+    //     params: {
+    //       search: `${formState}`,
+    //     },
+    //   })
+    // // TODO: Error handling, loader
+    // .then((resp) => setAvailable(resp.data))
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+    setFormState('');
   }
 
   function handleChange(e) {
@@ -55,7 +59,7 @@ export const Form = () => {
           Check out
         </label>
       </div>
-      <div className="form__person col-md-4 col-xs-6" onClick={showFilter} >
+      <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         <h3>
           <span ref={ref}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
         </h3>

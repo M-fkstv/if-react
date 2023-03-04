@@ -10,7 +10,6 @@ import './AvailableHotels.css';
 
 export const AvailableHotels = forwardRef((_,ref) => {
   const { available } = useContext(AvailableHotelsContext);
-  console.log(available);
   if (available.length === 0) {
     return (
       <section className="homes" ref={ref}>
@@ -24,7 +23,7 @@ export const AvailableHotels = forwardRef((_,ref) => {
   if (available.length < 4) {
     return (
       <section className="homes" ref={ref}>
-        <h2 className="h2-text">Available hotels</h2>
+        <h2 className="section-title">Available hotels</h2>
         <div className="homes__examples">
           {available.map((item) => (
             <HotelCard key={item.id} {...item} />
@@ -35,7 +34,7 @@ export const AvailableHotels = forwardRef((_,ref) => {
   }
   return (
     <section className="homes" ref={ref}>
-      <h2 className="h2-text">Available hotels</h2>
+      <h2 className="section-title">Available hotels</h2>
 
       <div className="add">
         <SliderButton className={'s-button-next'} />
