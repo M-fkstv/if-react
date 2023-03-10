@@ -12,7 +12,7 @@ export const Homes = () => {
     fetch(BaseURL)
       .then((res) => res.json())
       .then((result) => setState(result));
-      //TODO: Error handling, loader
+    //TODO: Error handling, loader
   }, []);
 
   return (
@@ -20,7 +20,6 @@ export const Homes = () => {
       <h2 className="h2-text">Homes guests loves</h2>
 
       <div className="add">
-        {}
         <SliderButton className={'s-button-next'} />
         <SliderButton className={'s-button-prev'} />
         <Slider className="homes__examples" data={state} />

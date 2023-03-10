@@ -15,11 +15,8 @@ export const App = () => {
       <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
         <TopSection />
         {available.length > 0 && <AvailableHotels />}
-        
-
       </AvailableHotelsContext.Provider>
       <Homes />
-    
     </>
   );
 };
