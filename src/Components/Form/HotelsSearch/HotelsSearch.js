@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
-import './HotelsSearch.css';
 import { Apps } from '../../Icons';
 
-export const HotelsSearch = ({ onChange, value }) => {
+import './HotelsSearch.css';
+
+export const HotelsSearch = memo(({ onChange, value }) => {
   return (
     <div className="form__city col-md-4">
       <label className="form__city--label label" htmlFor="search">
@@ -20,4 +22,9 @@ export const HotelsSearch = ({ onChange, value }) => {
       />
     </div>
   );
+});
+
+HotelsSearch.propTypes = {
+  onChange : PropTypes.func,
+  value : PropTypes.string,
 };

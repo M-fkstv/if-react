@@ -2,7 +2,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import PropTypes from 'prop-types';
+
 import { HotelCard } from '../HotelCard';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -23,7 +26,8 @@ export const Slider = ({ className, data }) => {
         loop: true,
       }}
       spaceBetween={16}
-      slidesPerView={4}>
+      slidesPerView={4}
+    >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
           <HotelCard {...item} />
@@ -31,4 +35,9 @@ export const Slider = ({ className, data }) => {
       ))}
     </Swiper>
   );
+};
+
+Slider.propTypes  = {
+  className : PropTypes.string,
+  data : PropTypes.array,
 };

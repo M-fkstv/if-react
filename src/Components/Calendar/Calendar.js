@@ -35,7 +35,7 @@
 //     </form>
 //   );
 // }
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -45,7 +45,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import './Calendar.css';
 
-export const Calendar = () => {
+export const Calendar = memo(() => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
@@ -66,4 +66,4 @@ export const Calendar = () => {
       dateFormat="d MMMM yyyy"
     />
   );
-};
+});

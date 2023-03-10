@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './HotelCard.css';
 
@@ -13,3 +14,11 @@ export const HotelCard = ({ id, name, city, country, imageUrl }) => (
     </div>
   </div>
 );
+
+HotelCard.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  imageUrl: PropTypes.string,
+};

@@ -1,6 +1,8 @@
-import { BaseURL } from '../Constanst/links';
+// import { BaseURL } from '../Constanst/links';
 
-export const getHotels = async () => {
-  const response = await fetch(BaseURL);
-  return response.json();
+import axios from 'axios';
+
+export const getHotels = async (url) => {
+  const { data: hotels } = await axios.get(url);
+  return hotels;
 };

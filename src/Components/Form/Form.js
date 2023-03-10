@@ -1,39 +1,64 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import axios from 'axios';
 import { SearchButton } from './SearchButton';
 import { HotelsSearch } from './HotelsSearch';
 import { apiUrl } from '../../Services/Constanst/links';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { Calendar } from '../Calendar';
+import { UsersFilter } from './UsersFilter';
+import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 import './Form.css';
+import { fetchData, getData, wrapPromise } from '../../lib/wrapPromise';
+import { getHotels } from '../../Services/HotelsCards/SearchAPI';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
+  const [filterActive, setFilterActive] = useState(false);
   const { setAvailable } = useContext(AvailableHotelsContext);
+  const ref = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    formState !== '' &&
-      axios
-        .get(`${apiUrl}`, {
-          params: {
-            search: `${formState}`,
-          },
-        })
-        //TODO: Error handling, loader
-        .then(formState === '' ? false : (resp) => setAvailable(resp.data))
-        .catch(function (error) {
-          console.log(error);
-        });
+    apiUrl.searchParams.set('search', `${formState}`);
+
+    const hotels = wrapPromise(fetchData(apiUrl));  
+    // debugger;
+    
+    console.log('fetchData(apiUrl))', fetchData(apiUrl));
+    console.log('hotels', apiUrl);
+    
+    
+    formState !== '' && setAvailable(hotels);
+
+  //   formState !== '' &&
+    //  axios
+    //   .get(`${apiUrl}`, {
+    //     params: {
+    //       search: `${formState}`,
+    //     },
+    //   })
+  //   // TODO: Error handling, loader
+  //   .then((resp) => setAvailable(resp.data))
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+    setFormState('');
   }
 
   function handleChange(e) {
     setFormState(e.target.value);
   }
+
+  const showFilter = () => {
+    filterActive ? setFilterActive(false) : setFilterActive(true);
+  };
+
+  const outsideRef = useClickOutside(() => setFilterActive(false));
+
   return (
-    <form id="form" className="form col-md-12" onSubmit={handleSubmit}>
+    <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={outsideRef}>
       <HotelsSearch onChange={handleChange} value={formState} />
       <div className="form__date col-md-4">
         <label className="form__date--in--label label" htmlFor="date-in">
@@ -44,50 +69,13 @@ export const Form = () => {
           Check out
         </label>
       </div>
-      <div className="form__person col-md-4 col-xs-6">
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="adults"
-          name="adults"
-          value="2"
-          disabled
-        />
-        <label className="adults-label person-label" htmlFor="adults">
-          Adults
-        </label>
-        <div className="form--splitter">
-          <span> &mdash; </span>
-        </div>
-
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="children"
-          name="children"
-          value="0"
-          disabled
-        />
-        <label className="children-label person-label" htmlFor="children">
-          Children
-        </label>
-        <div className="form--splitter">
-          <span> &mdash; </span>
-        </div>
-
-        <input
-          className="form__person--search input-style"
-          type="text"
-          id="room"
-          name="room"
-          value="1"
-          disabled
-        />
-        <label className="room-label person-label" htmlFor="room">
-          Room
-        </label>
+      <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
+        <h3>
+          <span ref={ref}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+        </h3>
       </div>
 
+      <UsersFilter active={filterActive} />
       <SearchButton />
     </form>
   );
