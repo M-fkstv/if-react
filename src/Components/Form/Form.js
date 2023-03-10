@@ -9,7 +9,7 @@ import { UsersFilter } from './UsersFilter';
 import { useClickOutside } from '../../Hooks/useClickOutSide';
 
 import './Form.css';
-import { fetchData, wrapPromise } from '../../lib/wrapPromise';
+import { fetchData, getData, wrapPromise } from '../../lib/wrapPromise';
 import { getHotels } from '../../Services/HotelsCards/SearchAPI';
 
 export const Form = () => {
@@ -24,8 +24,11 @@ export const Form = () => {
     apiUrl.searchParams.set('search', `${formState}`);
 
     const hotels = wrapPromise(fetchData(apiUrl));  
-
-    console.log('hotels', hotels);
+    // debugger;
+    
+    console.log('fetchData(apiUrl))', fetchData(apiUrl));
+    console.log('hotels', apiUrl);
+    
     
     formState !== '' && setAvailable(hotels);
 

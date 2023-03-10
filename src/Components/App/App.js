@@ -15,7 +15,7 @@ export const App = () => {
 
   useEffect(() => {
     available.length > 0 && availableRef.current.scrollIntoView({ behavior: 'smooth' });
-  }, [available]);
+  }, [available.length]);
 
   return (
     <>

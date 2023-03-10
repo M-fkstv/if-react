@@ -4,53 +4,51 @@ import { getHotels } from '../Services/HotelsCards/SearchAPI';
 const cache = new Map();
 
 export function fetchData(url) {
-  console.log('NO URL',cache);
   if (!cache.has(url)) {
     cache.set(url, getData(url));
   }
-  console.log('URL',cache);
+  console.log('URL',cache.get(url));
   return cache.get(url);
 }
 
-async function getData(url) {
+
+export async function getData(url) {
   if (url === apiUrl) {
-    console.log(url === apiUrl);
-    // console.log(await getHotels(apiUrl));
-    // debugger;
-    return await getHotels(apiUrl);
+    return await getHotels();
   } else {
     throw Error('Not implemented');
   }
-  
+
 }
 
 
-export const wrapPromise = (promise) => {
-  console.log(promise);
+export function wrapPromise (promise) {
+  
   if (promise.status === 'fulfilled') {
-    console.log(promise.status);
+    console.log(promise.value);
     return promise.value;
   } else if (promise.status === 'rejected') {
-    console.log(promise.status);
+    console.log(promise.reason);
 
     throw promise.reason;
   } else if (promise.status === 'pending') {
-    console.log(promise.status);
+    console.log(promise);
 
     throw promise;
   } else {
-    promise.status = 'pending';
-    console.log(promise.status);
+    promise.status = 'pending';  
+    console.log(promise.status);  
     promise.then(
-      (result) => {
+      result => {
         promise.status = 'fulfilled';
         promise.value = result;
       },
-      (reason) => {
+      reason => {
         promise.status = 'rejected';
         promise.reason = reason;
       },
     );
+    // debugger;
     throw promise;
   }
 };
