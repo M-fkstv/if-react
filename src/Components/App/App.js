@@ -5,9 +5,11 @@ import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 import { AvailableHotels } from '../AvailableHotels/AvailableHotels';
 import { Homes } from '../Homes';
 import { Advantages } from '../Advantages';
+import { Footer } from '../Footer';
 
 import './App.css';
 import { Loader } from '../Loader/Loader';
+import { Hotel } from '../../Pages/Hotel/Hotel';
 
 export const App = () => {
   const [available, setAvailable] = useState([]);
@@ -28,6 +30,8 @@ export const App = () => {
       </AvailableHotelsContext.Provider>
       <Advantages />
       <Homes />
+      <Footer />
+      <Hotel />
     </>
   );
 };
