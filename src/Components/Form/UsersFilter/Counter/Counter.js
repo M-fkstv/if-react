@@ -4,65 +4,84 @@ import { counterReducer } from './Counter.Reducer';
 
 import '../UsersFilter.css';
 
-export const Counter = ({ id, guests, setGuests, select, setSelect}) => {
-  const [state, dispatch] = useReducer(counterReducer, { name: id, count: 0 });
+export const Counter = ({ name, guests, setGuests, select, setSelect, initialValue }) => {
+  const [state, dispatch] = useReducer(counterReducer, { name: name, count: initialValue });
 
   const countRef = createRef();
+  const { count } = state;
 
   const btnAdd = classNames({
     btn: true,
     'btn--disabled':
-      (id.includes('adult') && state.count >= 30) ||
-      (id.includes('rooms') && state.count >= 30) ||
-      (id.includes('children') && state.count >= 10),
+      (name.includes('adult') && count >= 30) ||
+      (name.includes('rooms') && count >= 30) ||
+      (name.includes('children') && count >= 10),
   });
   const btnRemove = classNames({
     btn: true,
     'btn--disabled':
-      (id.includes('adult') && state.count === 1) ||
-      (id.includes('rooms') && state.count === 1) ||
-      (id.includes('children') && state.count === 0),
+      (name.includes('adult') && count === 1) ||
+      (name.includes('rooms') && count === 1) ||
+      (name.includes('children') && count === 0),
   });
 
-  const updateState = () => {
-    if (id.includes('adults')) {
-      setGuests({...guests, adults:state.count });
-    }
-    if (id.includes('children')) {
-      setGuests({...guests, children:state.count });
-      
-    }
-    if (id.includes('rooms')) {
-      setGuests({...guests, rooms:state.count });
-    }
-  };
+  // Если пр пройдёт, код ниже удалить
 
-  const add = () => {
+  // const updateState = (e) => {
+  //   console.log(e.target);
+
+  //   setGuests({ ...guests, [e.target.name]: count +1});
+
+  // if (id.includes('adults')) {
+  //   setGuests({ ...guests, adults: state.count });
+  // }
+  // if (id.includes('children')) {
+  //   setGuests({ ...guests, children: state.count });
+  // }
+  // if (id.includes('rooms')) {
+  //   setGuests({ ...guests, rooms: state.count });
+  // }
+  // };
+
+  const add = (e) => {
     const addReducer = () => {
       dispatch({ type: 'increment' });
     };
     addReducer();
-    state.count < 10 && setSelect([...select, state.count]);
-    updateState();
+
+    name === 'children' &&
+      count < 10 &&
+      setSelect((select) => {
+        return [...select, count];
+      });
+
+    setGuests({ ...guests, [e.target.name]: count + 1 });
   };
 
   const remove = (e) => {
     (() => {
       dispatch({ type: 'decrement' });
     })();
-    updateState();
+
+    if (name === 'children' && count <= 10) {
+      select.pop();
+      setSelect((select) => {
+        return [...select];
+      });
+    }
+    setGuests({ ...guests, [e.target.name]: count - 1 });
   };
 
   return (
     <>
       <div className="counter">
-        <button id={id} className={btnRemove} onClick={remove}>
+        <button name={name} className={btnRemove} onClick={remove}>
           -
         </button>
-        <span id={id} className="output" ref={countRef}>
-          {state.count}
+        <span name={name} className="output" ref={countRef}>
+          {count}
         </span>
-        <button id={id} className={btnAdd} onClick={add}>
+        <button name={name} className={btnAdd} onClick={add}>
           +
         </button>
       </div>
