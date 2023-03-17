@@ -22,7 +22,7 @@ export const Homes = () => {
     <section className="homes">
       <h2 className="section-title">Homes guests loves</h2>
 
-      <div className="add">
+      <div className="slider-wrapper">
         <SliderButton className={'s-button-next'} />
         <SliderButton className={'s-button-prev'} />
         <Slider className="homes__examples" data={state} />

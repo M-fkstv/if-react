@@ -14,7 +14,7 @@ export function fetchData(url) {
 
 export async function getData(url) {
   if (url === apiUrl) {
-    return await getHotels();
+    return await getHotels(apiUrl);
   } else {
     throw Error('Not implemented');
   }

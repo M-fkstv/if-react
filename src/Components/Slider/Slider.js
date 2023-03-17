@@ -12,6 +12,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './Slider.css';
 import '../SliderButton/SliderButton.css';
+import { Link } from 'react-router-dom';
+import { PATH } from '../../Constants/paths';
 
 export const Slider = ({ className, data }) => {
   return (
@@ -30,7 +32,9 @@ export const Slider = ({ className, data }) => {
     >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
-          <HotelCard {...item} />
+          <Link to={PATH.hotel} >
+              <HotelCard{...item} />
+            </Link>     
         </SwiperSlide>
       ))}
     </Swiper>

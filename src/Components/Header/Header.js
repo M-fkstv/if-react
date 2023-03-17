@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { PATH } from '../../Constants/paths';
 import { Logo, Account, Menu, Night } from '../Icons';
+import { LogOut } from '../LogOutModal/LogOut';
 
 import './Header.css';
 
-export const Header = () => (
+export const Header = () => {
+  // const navigate = useNavigate(); //for button element
+
+  return (
+  <>
   <header className="header">
-    <Logo />
+    <Link to={PATH.index}><Logo /></Link> 
     <div className="header__container">
       <div className="header__text">
         <p className="header__text--title">Stays</p>
@@ -15,8 +22,12 @@ export const Header = () => (
       <div className="header__images">
         <Menu />
         <Night />
-        <Account href="#"/>
+        <Link to={PATH.login}><Account /></Link> 
+        {/* <Account onClick={() => navigate(PATH.login)}/>  for button element */}
       </div>
     </div>
   </header>
+ 
+  </>
 );
+};

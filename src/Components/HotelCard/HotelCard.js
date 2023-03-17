@@ -1,20 +1,28 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './HotelCard.css';
+import { PATH } from '../../Constants/paths';
 
-export const HotelCard = ({ id, name, city, country, imageUrl }) => (
-  <div className="homes__examples__icons col-lg-3 col-md-3 col-xs-3">
-    <img className="homes__examples__icon " id={id} src={imageUrl} alt={name} />
-    <div className="homes__description">
-      <p className="homes__description--text">{name}</p>
-      <p className="homes__description--text">
-        {city}, {country}
-      </p>
+
+
+export const HotelCard = ({ id, name, city, country, imageUrl }) => {
+  return (
+    <div className="homes__examples__icons ">
+      <Link   to={`/hotels/${id}`} props={ {id, name, city, country, imageUrl} } >
+        <img className="homes__examples__icon " id={id} src={imageUrl} alt={name} />
+
+        <div className="homes__description">
+          <p className="homes__description--text">{name}</p>
+          <p className="homes__description--text">
+            {city}, {country}
+          </p>
+        </div>
+      </Link>
     </div>
-  </div>
-);
-
+  );
+};
 HotelCard.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,

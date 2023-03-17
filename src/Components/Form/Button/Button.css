@@ -9,4 +9,8 @@
   height: 64px;
   margin: -3px;
   cursor: pointer;
+  transition: 0.1s;
+}
+.form__submit:active{
+  scale: 0.98;
 }

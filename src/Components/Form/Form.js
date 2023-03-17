@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef} from 'react';
 import axios from 'axios';
-import { SearchButton } from './SearchButton';
+import { Button } from './Button';
 import { HotelsSearch } from './HotelsSearch';
 import { apiUrl } from '../../Services/Constanst/links';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
@@ -21,29 +21,29 @@ export const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    apiUrl.searchParams.set('search', `${formState}`);
+    // apiUrl.searchParams.set('search', `${formState}`);
 
-    const hotels = wrapPromise(fetchData(apiUrl));  
+    // const hotels = wrapPromise(fetchData(apiUrl));  
     // debugger;
     
-    console.log('fetchData(apiUrl))', fetchData(apiUrl));
-    console.log('hotels', apiUrl);
+    // console.log('fetchData(apiUrl))', fetchData(apiUrl));
+    // console.log('hotels', apiUrl);
     
     
-    formState !== '' && setAvailable(hotels);
+    // formState !== '' && setAvailable(hotels);
 
-  //   formState !== '' &&
-    //  axios
-    //   .get(`${apiUrl}`, {
-    //     params: {
-    //       search: `${formState}`,
-    //     },
-    //   })
-  //   // TODO: Error handling, loader
-  //   .then((resp) => setAvailable(resp.data))
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
+    formState !== '' &&
+     axios
+      .get(`${apiUrl}`, {
+        params: {
+          search: `${formState}`,
+        },
+      })
+    // TODO: Error handling, loader
+    .then((resp) => setAvailable(resp.data))
+    .catch(function (error) {
+      console.log(error);
+    });
     setFormState('');
   }
 
@@ -80,7 +80,7 @@ export const Form = () => {
       </div>
 
       <UsersFilter active={filterActive} ref={AdRef}/>
-      <SearchButton />
+      <Button btnText={'Submit'} className="form__submit col-md-4 col-xs-6" />
     </form>
   );
 };
