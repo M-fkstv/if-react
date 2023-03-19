@@ -1,49 +1,38 @@
-import React, { useState, useContext, useRef} from 'react';
-import axios from 'axios';
+import React, { useState, useContext, useRef } from 'react';
+
 import { Button } from './Button';
-import { HotelsSearch } from './HotelsSearch';
-import { apiUrl } from '../../Services/Constanst/links';
-import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+import { HotelsSearch } from '../HotelsSearch';
 import { Calendar } from '../Calendar';
-import { UsersFilter } from './UsersFilter';
-import { useClickOutside } from '../../Hooks/useClickOutSide';
+import { UsersFilter } from '../UsersFilter';
+import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+
+import { useClickOutside } from '../../hooks/useClickOutSide';
+import { getData } from '../../hooks/getData';
+import { wrapPromise } from '../../lib/wrapPromise';
+import { apiUrl } from '../../services/Constanst/links';
 
 import './Form.css';
-import { fetchData, getData, wrapPromise } from '../../lib/wrapPromise';
-import { getHotels } from '../../Services/HotelsCards/SearchAPI';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
   const { setAvailable } = useContext(AvailableHotelsContext);
-  const AdRef = useRef();
+  const adultsCountRef = useRef();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    // apiUrl.searchParams.set('search', `${formState}`);
+    apiUrl.searchParams.set('search', `${formState}`);
 
-    // const hotels = wrapPromise(fetchData(apiUrl));  
-    // debugger;
-    
-    // console.log('fetchData(apiUrl))', fetchData(apiUrl));
-    // console.log('hotels', apiUrl);
-    
-    
-    // formState !== '' && setAvailable(hotels);
+    const hotels = wrapPromise(getData(apiUrl));
 
-    formState !== '' &&
-     axios
-      .get(`${apiUrl}`, {
-        params: {
-          search: `${formState}`,
-        },
-      })
-    // TODO: Error handling, loader
-    .then((resp) => setAvailable(resp.data))
-    .catch(function (error) {
-      console.log(error);
-    });
+    try {
+      const availableHotels = await hotels;
+      formState !== '' && setAvailable(availableHotels);
+    } catch (error) {
+      console.error();
+    }
+
     setFormState('');
   }
 
@@ -56,10 +45,6 @@ export const Form = () => {
   };
 
   const outsideRef = useClickOutside(() => setFilterActive(false));
-  
-
-  // ref.current.textContent = 3;
-  
 
   return (
     <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={outsideRef}>
@@ -75,11 +60,12 @@ export const Form = () => {
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         <h3>
-          <span ref={AdRef}>1</span> Adults - <span>0</span> Children - <span>1</span> Rooms
+          <span ref={adultsCountRef}>1</span> Adults - <span>0</span> Children - <span>1</span>{' '}
+          Rooms
         </h3>
       </div>
 
-      <UsersFilter active={filterActive} ref={AdRef}/>
+      <UsersFilter active={filterActive} ref={adultsCountRef} />
       <Button btnText={'Submit'} className="form__submit col-md-4 col-xs-6" />
     </form>
   );

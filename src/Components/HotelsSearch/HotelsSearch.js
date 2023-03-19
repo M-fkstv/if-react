@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { Apps } from '../../Icons';
+import { Apps } from '../Icons';
 
 import './HotelsSearch.css';
 

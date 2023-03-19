@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { SliderButton } from '../SliderButton';
 import { Slider } from '../Slider';
-import { getHotels } from '../../Services/HotelsCards/SearchAPI';
-import { BaseURL } from '../../Services/Constanst/links';
+import { getHotels } from '../../services/SearchApi/SearchAPI';
+import { BaseURL } from '../../services/Constanst/links';
 
 import './Homes.css';
 
