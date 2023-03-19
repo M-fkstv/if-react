@@ -1,8 +1,10 @@
 import React, { createRef, useReducer } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import { counterReducer } from './Counter.Reducer';
 
-import '../UsersFilter.css';
+import '../UsersFilter/UsersFilter.css';
 
 export const Counter = ({ name, guests, setGuests, select, setSelect, initialValue }) => {
   const [state, dispatch] = useReducer(counterReducer, { name: name, count: initialValue });
@@ -24,24 +26,6 @@ export const Counter = ({ name, guests, setGuests, select, setSelect, initialVal
       (name.includes('rooms') && count === 1) ||
       (name.includes('children') && count === 0),
   });
-
-  // Если пр пройдёт, код ниже удалить
-
-  // const updateState = (e) => {
-  //   console.log(e.target);
-
-  //   setGuests({ ...guests, [e.target.name]: count +1});
-
-  // if (id.includes('adults')) {
-  //   setGuests({ ...guests, adults: state.count });
-  // }
-  // if (id.includes('children')) {
-  //   setGuests({ ...guests, children: state.count });
-  // }
-  // if (id.includes('rooms')) {
-  //   setGuests({ ...guests, rooms: state.count });
-  // }
-  // };
 
   const add = (e) => {
     const addReducer = () => {
@@ -87,4 +71,13 @@ export const Counter = ({ name, guests, setGuests, select, setSelect, initialVal
       </div>
     </>
   );
+};
+
+Counter.propTypes = {
+  name: PropTypes.string,
+  guests: PropTypes.object,
+  setGuests: PropTypes.func,
+  select: PropTypes.array,
+  setSelect: PropTypes.func,
+  initialValue: PropTypes.number,
 };

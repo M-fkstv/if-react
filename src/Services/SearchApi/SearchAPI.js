@@ -1,5 +1,3 @@
-// import { BaseURL } from '../Constanst/links';
-
 import axios from 'axios';
 
 export const getHotels = async (url) => {
