@@ -1,6 +1,7 @@
 import React, { useId } from 'react';
-import { Button } from '../../Components/Form/Button';
-import { Header } from '../../Components/Header';
+import { Button } from '../../Components/Button';
+import { Header } from '../../Components/Header/Header.js';
+import { Sprite } from '../../Components/Sprite';
 
 import './LogIn.css';
 
@@ -10,6 +11,7 @@ export const LogIn = () => {
 
   return (
     <>
+      <Sprite/>
       <div className="log-in">
         <Header />
         <form className="log-in__form">
@@ -22,7 +24,6 @@ export const LogIn = () => {
               className="log-in__input"
               id={emailId}
               type="email"
-              placeholder="Enter your email"
             />
           </div>
           <div className="wrapper">
@@ -33,11 +34,12 @@ export const LogIn = () => {
               className="log-in__input"
               id={passwordId}
               type="text"
-              placeholder="Enter password"
             />
           </div>
+
           <Button btnText="Sign in" className="log-in__submit" />
         </form>
+
       </div>
     </>
   );

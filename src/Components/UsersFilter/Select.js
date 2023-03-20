@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export const SelectWrapper = ({ select }) => {
   return select.map((item, index) => {
     return (item = (
-      <select className="children__active" id={index}>
+      <select className="children__active" id={index} key={index}>
         <option>0 years old</option>
         <option>1 years old</option>
         <option>2 years old</option>

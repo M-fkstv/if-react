@@ -1,17 +1,16 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
-import { TopSection } from '../TopSection';
-import { Sprite } from '../Sprite';
+
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
-// import { AvailableHotels } from '../AvailableHotels/AvailableHotels';
-import { Homes } from '../Homes';
+
 import { Advantages } from '../Advantages';
 import { Footer } from '../Footer';
+import { Homes } from '../Homes';
 import { Loader } from '../Loader/Loader';
-
+import { TopSection } from '../TopSection';
+import { Sprite } from '../Sprite';
 
 import './App.css';
-
 
 const AvailableHotels = lazy(() => import('../AvailableHotels'));
 

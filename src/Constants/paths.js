@@ -5,6 +5,6 @@ login: 'login',
 
 export const PATH = {
 index: '/',
-hotels: '/hotels/:id/',
+hotels: '/hotels/:id',
 login: '/login',
 };

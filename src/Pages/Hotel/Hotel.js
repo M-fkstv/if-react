@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { ScrollRestoration, useLocation, useParams } from 'react-router-dom';
+import axios from 'axios';
 
+import { Apps } from '../../Components/Icons';
+import { Footer } from '../../Components/Footer';
 import { Header } from '../../Components/Header';
+import { Sprite } from '../../Components/Sprite';
+
+import { apiUrl } from '../../services/Constanst/links';
 
 import './Hotel.css';
-import { Apps } from '../../Components/Icons';
-import { ScrollRestoration, useLocation, useParams } from 'react-router-dom';
-import { Footer } from '../../Components/Footer';
-import axios from 'axios';
-import { apiUrl } from '../../Services/Constanst/links';
 
 export const Hotel = () => {
   const [state, setState] = useState('');
@@ -15,16 +17,19 @@ export const Hotel = () => {
 
   useEffect(() => {
     axios.get(apiUrl).then((resp) =>
-      resp.data.map((el) => {
-        if (el.id === params.id) {
-          setState(el);
-        }
-      }),
+      resp.data.map((item) => item.id === params.id && setState(item),
+      // {
+      //   if (item.id === params.id) {
+      //     setState(item);
+      //   }
+      // }
+      ),
     );
-  }, [params.id]);
+  },[]);
 
   return (
     <>
+      <Sprite />
       <ScrollRestoration />
       <div className="header__wrapper">
         <Header />

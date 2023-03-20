@@ -1,14 +1,15 @@
 .loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
   display: inline-block;
+  box-sizing: border-box;
+  width: 125px;
+  height: 125px;
+  margin-left: 50%;
+  margin-top: 40px;
+  border-radius: 50%;
   border-top: 3px solid #a41111;
   border-right: 3px solid transparent;
-  box-sizing: border-box;
   animation: rotation 1s linear infinite;
   justify-content: center;
-  margin-left: 50%;
 }
 
 @keyframes rotation {

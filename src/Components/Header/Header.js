@@ -10,24 +10,23 @@ export const Header = () => {
   // const navigate = useNavigate(); //for button element
 
   return (
-  <>
-  <header className="header">
-    <Link to={PATH.index}><Logo /></Link> 
-    <div className="header__container">
-      <div className="header__text">
-        <p className="header__text--title">Stays</p>
-        <p className="header__text--title">Attractions</p>
-      </div>
+    <header className="header">
+      <Link to={PATH.index}>
+        <Logo />
+      </Link>
+      <div className="header__container">
+        <div className="header__text">
+          <p className="header__text--title">Stays</p>
+          <p className="header__text--title">Attractions</p>
+        </div>
 
-      <div className="header__images">
-        <Menu />
-        <Night />
-        <Link to={PATH.login}><Account /></Link> 
-        {/* <Account onClick={() => navigate(PATH.login)}/>  for button element */}
+        <div className="header__images">
+          <Menu />
+          <Night />
+          <Account />
+          {/* <Account onClick={() => navigate(PATH.login)}/>  for button element */}
+        </div>
       </div>
-    </div>
-  </header>
- 
-  </>
-);
+    </header>
+  );
 };

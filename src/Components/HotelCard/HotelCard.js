@@ -10,7 +10,7 @@ import { PATH } from '../../Constants/paths';
 export const HotelCard = ({ id, name, city, country, imageUrl }) => {
   return (
     <div className="homes__examples__icons ">
-      <Link   to={`/hotels/${id}`} props={ {id, name, city, country, imageUrl} } >
+      <Link to={`hotels/${id}`} props={ {id, name, city, country, imageUrl} } >
         <img className="homes__examples__icon " id={id} src={imageUrl} alt={name} />
 
         <div className="homes__description">

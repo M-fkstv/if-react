@@ -83,6 +83,7 @@
 }
 .form__person--search:checked {
   outline: 3px solid var(--animation-color);
+  border: 0;
 }
 
 /* .form__submit {

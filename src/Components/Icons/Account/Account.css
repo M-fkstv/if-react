@@ -1,9 +1,13 @@
-.header__images--account {
+.header__images--account>svg {
   height: 40px;
   width: 40px;
   cursor: pointer;
+  fill: var(--general-white);
 }
-.header__images--account:hover {
 
-  stroke: blue;
+.header__images--account--login>svg  {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  fill: var(--animation-color);
 }

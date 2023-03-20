@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef } from 'react';
 
-import { Button } from './Button';
+import { Button } from '../Button';
 import { HotelsSearch } from '../HotelsSearch';
 import { Calendar } from '../Calendar';
 import { UsersFilter } from '../UsersFilter';
@@ -22,20 +22,21 @@ export const Form = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    apiUrl.searchParams.set('search', `${formState}`);
+    if (formState !== '') {
+      apiUrl.searchParams.set('search', `${formState}`);
 
-    const hotels = wrapPromise(getData(apiUrl));
+      const hotels = wrapPromise(getData(apiUrl));
 
-    try {
-      const availableHotels = await hotels;
-      formState !== '' && setAvailable(availableHotels);
-    } catch (error) {
-      console.error();
+      try {
+        const availableHotels = await hotels;
+        setAvailable(availableHotels);
+      } catch (error) {
+        console.error();
+      }
+
+      setFormState('');
     }
-
-    setFormState('');
   }
-
   function handleChange(e) {
     setFormState(e.target.value);
   }
