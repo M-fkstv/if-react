@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './HotelCard.css';
 import { PATH } from '../../Constants/paths';
 
-
+import './HotelCard.css';
 
 export const HotelCard = ({ id, name, city, country, imageUrl }) => {
   return (
     <div className="homes__examples__icons ">
-      <Link to={`hotels/${id}`} props={ {id, name, city, country, imageUrl} } >
+      <Link to={`${PATH.hotels}${id}`} state={ {id, name, city, country, imageUrl} } >
         <img className="homes__examples__icon " id={id} src={imageUrl} alt={name} />
 
         <div className="homes__description">
@@ -23,6 +22,7 @@ export const HotelCard = ({ id, name, city, country, imageUrl }) => {
     </div>
   );
 };
+
 HotelCard.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,

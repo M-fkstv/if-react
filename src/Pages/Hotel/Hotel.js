@@ -7,25 +7,12 @@ import { Footer } from '../../Components/Footer';
 import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
-import { apiUrl } from '../../services/Constanst/links';
-
 import './Hotel.css';
 
 export const Hotel = () => {
-  const [state, setState] = useState('');
-  const params = useParams();
+  const { state } = useLocation();
 
-  useEffect(() => {
-    axios.get(apiUrl).then((resp) =>
-      resp.data.map((item) => item.id === params.id && setState(item),
-      // {
-      //   if (item.id === params.id) {
-      //     setState(item);
-      //   }
-      // }
-      ),
-    );
-  },[]);
+  console.log(state);
 
   return (
     <>
