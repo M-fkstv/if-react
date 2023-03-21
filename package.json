@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ",
+    "lint": "eslint --fix . &&  prettier --write .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "prepare": "husky install"

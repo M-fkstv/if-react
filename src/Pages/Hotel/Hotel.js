@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollRestoration, useLocation, useParams } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import { ScrollRestoration, useLocation } from 'react-router-dom';
+
 
 import { Apps } from '../../Components/Icons';
 import { Footer } from '../../Components/Footer';

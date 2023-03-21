@@ -1,5 +1,5 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import React, { lazy, Suspense, useContext, useEffect, useRef, useState } from 'react';
+import { ScrollRestoration, useNavigate } from 'react-router-dom';
 
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 
@@ -7,16 +7,25 @@ import { Advantages } from '../Advantages';
 import { Footer } from '../Footer';
 import { Homes } from '../Homes';
 import { Loader } from '../Loader/Loader';
-import { TopSection } from '../TopSection';
 import { Sprite } from '../Sprite';
+import { TopSection } from '../TopSection';
 
 import './App.css';
+import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 const AvailableHotels = lazy(() => import('../AvailableHotels'));
 
 export const App = () => {
+  const { user } = useContext(SystemLayuotContext);
   const [available, setAvailable] = useState(null);
   const availableRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     available && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,13 +38,12 @@ export const App = () => {
       <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
         <TopSection />
         <Suspense fallback={<Loader />}>
-          {available !==null  && <AvailableHotels ref={availableRef} />}
+          {available !== null && <AvailableHotels ref={availableRef} />}
         </Suspense>
       </AvailableHotelsContext.Provider>
       <Advantages />
       <Homes />
       <Footer />
-      {/* <Hotel /> */}
     </>
   );
 };

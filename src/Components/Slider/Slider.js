@@ -21,14 +21,26 @@ export const Slider = ({ className, data }) => {
       className={className}
       modules={[Navigation]}
       loop={true}
+      spaceBetween={16}
+      slidesPerView={4}
+      breakpoints={{
+        1320:{
+          slidesPerView: 4,
+        },
+        768:{
+          slidesPerView: 3,
+        },
+        320:{
+          slidesPerView: 2,
+        },
+      }}
       navigation={{
         nextEl: '.s-button-next',
         prevEl: '.s-button-prev',
         clickable: true,
         loop: true,
       }}
-      spaceBetween={16}
-      slidesPerView={4}
+      
     >
       {data.map((item) => (
         <SwiperSlide key={item.id}>

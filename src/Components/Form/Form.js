@@ -61,8 +61,7 @@ export const Form = () => {
       </div>
       <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
         <h3>
-          <span ref={adultsCountRef}>1</span> Adults - <span>0</span> Children - <span>1</span>{' '}
-          Rooms
+          <span ref={adultsCountRef}>1</span> Adults - <span>0</span> Children - <span>1</span>Rooms
         </h3>
       </div>
 
