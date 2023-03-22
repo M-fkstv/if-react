@@ -1,11 +1,12 @@
-.header__images--account>svg {
+.header__images--account {
   height: 40px;
   width: 40px;
   cursor: pointer;
   fill: var(--general-white);
+  position: relative;
 }
 
-.header__images--account--login>svg  {
+.header__images--account--login {
   height: 40px;
   width: 40px;
   cursor: pointer;

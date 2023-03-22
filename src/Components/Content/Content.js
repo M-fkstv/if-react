@@ -5,7 +5,6 @@ import { Homes } from '../Homes';
 export const Content = () => (
   <>
     <Advantages />
-    <Homes/>
-
+    <Homes />
   </>
-  );
+);

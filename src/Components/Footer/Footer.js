@@ -3,7 +3,7 @@ import React from 'react';
 import './Footer.css';
 
 export const Footer = () => (
-    <div className="footer__wrapper">
+  <div className="footer__wrapper">
     <footer className="footer col-lg-12">
       <svg className="footer__logo col-xs-2">
         <use href="./src/images/sprite.svg#mobile-footer-logo" />
@@ -40,9 +40,9 @@ export const Footer = () => (
 
       <p className="footer__colontitul">
         © 2020 Triphouse, Inc. All rights reserved
-        {/* <button className="stt"></button> */} 
+        {/* <button className="stt"></button> */}
         {/* TODO: ADD ScrollToTop Button */}
       </p>
     </footer>
   </div>
-  );
+);

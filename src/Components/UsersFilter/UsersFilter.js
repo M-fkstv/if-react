@@ -48,6 +48,6 @@ export const UsersFilter = memo(({ active }) => {
   );
 });
 
-UsersFilter.proptypes = {
+UsersFilter.propTypes = {
   active: PropTypes.bool,
 };

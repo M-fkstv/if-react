@@ -14,7 +14,7 @@ export const Advantages = () => {
           return (
             <div className="col-lg-3 col-md-5 col-xs-4" key={index}>
               <div className="advantages__icons">
-                <Apps  className="advantages__icons--icon" id={item.id} />
+                <Apps className="advantages__icons--icon" id={item.id} />
                 <p className="advantages__description">{item.descr}</p>
               </div>
             </div>

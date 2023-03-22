@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 import { HotelCard } from '../HotelCard';
 
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,13 +23,13 @@ export const Slider = ({ className, data }) => {
       spaceBetween={16}
       slidesPerView={4}
       breakpoints={{
-        1320:{
+        1320: {
           slidesPerView: 4,
         },
-        768:{
+        768: {
           slidesPerView: 3,
         },
-        320:{
+        320: {
           slidesPerView: 2,
         },
       }}
@@ -40,20 +39,19 @@ export const Slider = ({ className, data }) => {
         clickable: true,
         loop: true,
       }}
-      
     >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
-          <Link to={PATH.hotel} >
-              <HotelCard{...item} />
-            </Link>     
+          <Link to={PATH.hotel}>
+            <HotelCard {...item} />
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
   );
 };
 
-Slider.propTypes  = {
-  className : PropTypes.string,
-  data : PropTypes.array,
+Slider.propTypes = {
+  className: PropTypes.string,
+  data: PropTypes.array,
 };

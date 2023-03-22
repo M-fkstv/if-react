@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+
+import { Account, Logo, Menu, Night } from '../Icons';
+import { SignOut } from '../SignOutModal/SignOut';
+
 import { PATH } from '../../Constants/paths';
-import { Logo, Account, Menu, Night } from '../Icons';
-import { LogOut } from '../LogOutModal/LogOut';
 
 import './Header.css';
 
 export const Header = () => {
   // const navigate = useNavigate(); //for button element
+  const signOutRef = useRef(null);
 
   return (
     <header className="header">
@@ -23,10 +26,11 @@ export const Header = () => {
         <div className="header__images">
           <Menu />
           <Night />
-          <Account />
+          <Account onClick={() => signOutRef.current.open()} />
           {/* <Account onClick={() => navigate(PATH.login)}/>  for button element */}
         </div>
       </div>
+      <SignOut ref={signOutRef} />
     </header>
   );
 };

@@ -14,5 +14,3 @@ export const AvailableHotelsContextProvider = ({ children }) => {
     </AvailableHotelsContext.Provider>
   );
 };
-
-

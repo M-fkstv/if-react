@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 
-
 import { Apps } from '../../Components/Icons';
 import { Footer } from '../../Components/Footer';
 import { Header } from '../../Components/Header';

@@ -30,7 +30,7 @@ html {
   transform: translateX(-50%);
   animation: width 300ms ease-in-out;
 }
-a{
+a {
   text-decoration: none;
 }
 
@@ -42,7 +42,6 @@ a{
     width: 100px;
   }
 }
-
 
 .col-lg-1 {
   width: calc(100% / 14);

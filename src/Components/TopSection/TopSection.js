@@ -1,9 +1,10 @@
 import React from 'react';
 
-import './TopSection.css';
 import { Header } from '../Header';
 import { Form } from '../Form';
 import { Apps } from '../Icons';
+
+import './TopSection.css';
 
 export const TopSection = () => {
   return (

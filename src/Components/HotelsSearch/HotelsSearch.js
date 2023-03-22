@@ -25,6 +25,6 @@ export const HotelsSearch = memo(({ onChange, value }) => {
 });
 
 HotelsSearch.propTypes = {
-  onChange : PropTypes.func,
-  value : PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
 };

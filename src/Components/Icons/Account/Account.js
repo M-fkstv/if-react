@@ -1,19 +1,19 @@
 import React from 'react';
-
+import { useLocation } from 'react-router-dom';
 
 import './Account.css';
-import { NavLink } from 'react-router-dom';
-import { PATH } from '../../../Constants/paths';
 
-export const Account = () => {
+export const Account = ({onClick}) => {
+ 
+  const location = useLocation();
   
   return (
- 
-    <NavLink to={PATH.login} className={({isActive}) => isActive ? 'header__images--account--login' : 'header__images--account'}>
-      <svg>
+   
+      <svg onClick={onClick}  className={
+        location.pathname === '/login' ? 'header__images--account--login' : 'header__images--account'
+      } >
         <use href="#account" />
       </svg>
-    </NavLink>
+    
   );
 };
-

@@ -1,18 +1,14 @@
 import React, { forwardRef, useContext } from 'react';
 
-
 import { SliderButton } from '../SliderButton';
 import { Slider } from '../Slider';
 import { HotelCard } from '../HotelCard';
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 
-
 import './AvailableHotels.css';
-
 
 export const AvailableHotels = forwardRef((_, ref) => {
   const { available } = useContext(AvailableHotelsContext);
-
 
   if (available.length === 0) {
     return (
@@ -31,9 +27,7 @@ export const AvailableHotels = forwardRef((_, ref) => {
 
         <div className="homes__examples">
           {available.map((item) => (
-           
-              <HotelCard {...item} key={item.id}/>
-                          
+            <HotelCard {...item} key={item.id} />
           ))}
         </div>
       </section>

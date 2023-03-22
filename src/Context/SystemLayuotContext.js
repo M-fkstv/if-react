@@ -10,7 +10,8 @@ export const SystemLayuot = () => {
       value={{
         user,
         setUser,
-      }}>
+      }}
+    >
       <Outlet />
     </SystemLayuotContext.Provider>
   );

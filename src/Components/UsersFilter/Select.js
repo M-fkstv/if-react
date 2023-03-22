@@ -29,10 +29,8 @@ export const SelectWrapper = ({ select }) => {
       </select>
     ));
   });
-
 };
 
-
-SelectWrapper.propTypes  = {
+SelectWrapper.propTypes = {
   select: PropTypes.array,
 };

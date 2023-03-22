@@ -1,12 +1,12 @@
-.error-boundary{
+.error-boundary {
   text-align: center;
 }
 
-.error-boundary__icon{
+.error-boundary__icon {
   font-size: 120px;
-  color: rgba(153, 153, 153, .5);
+  color: rgba(153, 153, 153, 0.5);
 }
 
-.error-boundary__message{
+.error-boundary__message {
   color: #1c1c1c;
 }
