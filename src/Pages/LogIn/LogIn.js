@@ -26,7 +26,10 @@ export const LogIn = () => {
     });
 
     navigate('/');
-    sessionStorage.setItem('user', JSON.stringify({'email':formData.get('email'),'password': formData.get('password')}));
+    sessionStorage.setItem(
+      'user',
+      JSON.stringify({ email: formData.get('email'), password: formData.get('password') }),
+    );
   };
 
   return (

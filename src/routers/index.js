@@ -18,11 +18,14 @@ export const router = createBrowserRouter(
       <Route element={<SystemLayuot />}>
         <Route path={PATH.login} element={<LogIn />} />
         <Route index element={<App />} />
-        <Route path={PATH.hotels} element={
-          <Suspense fallback={<Loader />}>
-            <Hotel /> 
-          </Suspense>
-        } />
+        <Route
+          path={PATH.hotels}
+          element={
+            <Suspense fallback={<Loader />}>
+              <Hotel />
+            </Suspense>
+          }
+        />
       </Route>
     </Route>,
   ),
