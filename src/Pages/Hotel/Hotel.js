@@ -11,8 +11,6 @@ import './Hotel.css';
 export const Hotel = () => {
   const { state } = useLocation();
 
-  console.log(state);
-
   return (
     <>
       <Sprite />

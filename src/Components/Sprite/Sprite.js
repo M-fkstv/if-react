@@ -99,7 +99,8 @@ export const Sprite = () => (
           y1="8.71"
           x2="5.017"
           y2="25.492"
-          gradientUnits="userSpaceOnUse">
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#00A0FF" />
           <stop offset=".007" stopColor="#00A1FF" />
           <stop offset=".26" stopColor="#00BEFF" />
@@ -113,7 +114,8 @@ export const Sprite = () => (
           y1="20.001"
           x2="9.638"
           y2="20.001"
-          gradientUnits="userSpaceOnUse">
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#FFE000" />
           <stop offset=".409" stopColor="#FFBD00" />
           <stop offset=".775" stopColor="orange" />
@@ -125,7 +127,8 @@ export const Sprite = () => (
           y1="22.296"
           x2="2.069"
           y2="45.054"
-          gradientUnits="userSpaceOnUse">
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#FF3A44" />
           <stop offset="1" stopColor="#C31162" />
         </linearGradient>
@@ -135,7 +138,8 @@ export const Sprite = () => (
           y1=".176"
           x2="17.46"
           y2="10.339"
-          gradientUnits="userSpaceOnUse">
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#32A071" />
           <stop offset=".069" stopColor="#2DA771" />
           <stop offset=".476" stopColor="#15CF74" />
@@ -215,7 +219,10 @@ export const Sprite = () => (
       />
     </symbol>
     <svg id="sign-out" width="20" height="18" viewBox="0 0 20 18">
-    <path fill="#333" d="m15 4-1.41 1.41L16.17 8H6v2h10.17l-2.58 2.58L15 14l5-5-5-5ZM2 2h8V0H2C.9 0 0 .9 0 2v14c0 1.1.9 2 2 2h8v-2H2V2Z"/>
+      <path
+        fill="#333"
+        d="m15 4-1.41 1.41L16.17 8H6v2h10.17l-2.58 2.58L15 14l5-5-5-5ZM2 2h8V0H2C.9 0 0 .9 0 2v14c0 1.1.9 2 2 2h8v-2H2V2Z"
+      />
     </svg>
   </svg>
 );

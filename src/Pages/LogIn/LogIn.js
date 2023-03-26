@@ -4,7 +4,7 @@ import { ScrollRestoration, useNavigate } from 'react-router-dom';
 import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 import { Button } from '../../Components/Button';
-import { Header } from '../../Components/Header/Header.js';
+import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
 import './LogIn.css';
@@ -26,6 +26,7 @@ export const LogIn = () => {
     });
 
     navigate('/');
+    sessionStorage.setItem('user', JSON.stringify({'email':formData.get('email'),'password': formData.get('password')}));
   };
 
   return (

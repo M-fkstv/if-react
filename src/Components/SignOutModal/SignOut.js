@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { forwardRef, useContext, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Apps } from '../Icons';
 
@@ -16,8 +16,8 @@ export const Modal = forwardRef(({ children }, ref) => {
 
   useImperativeHandle(ref, () => ({
     open: () => {
-      document.body.style.overflow = 'hidden';
       if (location.pathname === '/') {
+        document.body.style.overflow = 'hidden';
         setShowModal(true);
       }
     },
@@ -26,7 +26,7 @@ export const Modal = forwardRef(({ children }, ref) => {
 
   const closeModal = () => {
     document.body.style.overflow = 'auto';
-      setShowModal(false);
+    setShowModal(false);
   };
 
   return (
@@ -43,22 +43,24 @@ export const Modal = forwardRef(({ children }, ref) => {
 });
 
 Modal.propTypes = {
-  children: PropTypes.any,
-  onClose: PropTypes.func,
+  children: PropTypes.node,
+  ref: PropTypes.obj,
 };
 
 export const SignOut = forwardRef((_, ref) => {
   const { setUser } = useContext(SystemLayuotContext);
 
-  const singOut = () => {
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    sessionStorage.removeItem('user');
     setUser(null);
+    navigate('/login');
   };
 
-  console.log(ref);
-
   return (
-    <Modal ref={ref} >
-      <div className="modal-content" onClick={singOut}>
+    <Modal ref={ref}>
+      <div className="modal-content" onClick={signOut}>
         <Apps className="sign-out" id="#sign-out" />
         <p>Sing out</p>
       </div>
@@ -66,4 +68,6 @@ export const SignOut = forwardRef((_, ref) => {
   );
 });
 
-
+SignOut.propTypes = {
+  ref: PropTypes.func,
+};

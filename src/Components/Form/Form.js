@@ -1,15 +1,16 @@
 import React, { useState, useContext, useRef } from 'react';
 
+import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+
 import { Button } from '../Button';
 import { HotelsSearch } from '../HotelsSearch';
 import { Calendar } from '../Calendar';
 import { UsersFilter } from '../UsersFilter';
-import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
 
-import { useClickOutside } from '../../hooks/useClickOutSide';
 import { getData } from '../../hooks/getData';
 import { wrapPromise } from '../../lib/wrapPromise';
 import { apiUrl } from '../../services/Constanst/links';
+import { useClickOutside } from '../../hooks/useClickOutSide';
 
 import './Form.css';
 

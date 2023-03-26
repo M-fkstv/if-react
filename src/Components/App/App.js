@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useContext, useEffect, useRef, useState } from '
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
 
 import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 import { Advantages } from '../Advantages';
 import { Footer } from '../Footer';
@@ -11,7 +12,6 @@ import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
 import './App.css';
-import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 const AvailableHotels = lazy(() => import('../AvailableHotels'));
 
@@ -22,7 +22,7 @@ export const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!sessionStorage.getItem('user')) {
       navigate('/login');
     }
   }, [user, navigate]);

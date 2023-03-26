@@ -37,7 +37,7 @@ export const UsersFilter = memo(({ active }) => {
           <p className="inputs__title">Rooms</p>
           <Counter name={'rooms'} setGuests={setGuests} guests={guests} initialValue={1} />
         </div>
-        {guests.children !== 0 && (
+        {guests.children > 0 && (
           <p className="children__input--subtitle">
             What is the age of the child you're travelling with
           </p>
