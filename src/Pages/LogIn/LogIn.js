@@ -1,35 +1,47 @@
-import React, { useContext, useId } from 'react';
+import React, { useId } from 'react';
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
 
-import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
+import { useDispatch } from 'react-redux';
+import { PATH } from '../../Constants/paths';
+
 import './LogIn.css';
+import { loginAction } from '../../store/actions/auth.actions';
 
 export const LogIn = () => {
   const emailId = useId();
   const passwordId = useId();
   const navigate = useNavigate();
-  const { setUser } = useContext(SystemLayuotContext);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    setUser({
-      user: {
-        email: formData.get('email'),
-        password: formData.get('password'),
-      },
-    });
-
-    navigate('/');
-    sessionStorage.setItem(
-      'user',
-      JSON.stringify({ email: formData.get('email'), password: formData.get('password') }),
-    );
+  const dispatch = useDispatch();
+  // const { setUser } = useContext(SystemLayuotContext);
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    // setUser({  // for SystemLayuotContext
+    //   user: {
+    //     email: email,
+    //     password: password,
+    //   },
+    // });  
+    
+    if(email && password !== ''){
+      dispatch(loginAction);
+      navigate('/');
+    }
+    // {sessionStorage.setItem(
+    //   'user',
+    //   JSON.stringify({ email: email, password: password }),
+    // );}
+    // if(loggedIn){
+      // navigate('/');
+    // }
   };
 
   return (
@@ -44,7 +56,7 @@ export const LogIn = () => {
             <label className="log-in__label" htmlFor={emailId}>
               Email address
             </label>
-            <input name="email" className="log-in__input" id={emailId} type="text" />
+            <input name="email" className="log-in__input" id={emailId} type="text" autoComplete="off"/>
           </div>
           <div className="wrapper">
             <label className="log-in__label" htmlFor={passwordId}>
@@ -53,7 +65,7 @@ export const LogIn = () => {
             <input name="password" className="log-in__input" id={passwordId} type="password" />
           </div>
 
-          <Button btnText="Sign in" className="log-in__submit" />
+          <Button btnText="Sign in" className="log-in__submit" type="submit" />
         </form>
       </div>
     </>

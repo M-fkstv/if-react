@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React, { forwardRef, useContext, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Apps } from '../Icons';
 
-import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
+// import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
 
 import './SignOut.css';
 
@@ -48,13 +48,13 @@ Modal.propTypes = {
 };
 
 export const SignOut = forwardRef((_, ref) => {
-  const { setUser } = useContext(SystemLayuotContext);
+  // const { setUser } = useContext(SystemLayuotContext);
 
   const navigate = useNavigate();
 
   const signOut = () => {
     sessionStorage.removeItem('user');
-    setUser(null);
+    // setUser(null);
     navigate('/login');
   };
 
