@@ -7,16 +7,16 @@ import { store } from '../store';
 export const SystemLayuotContext = createContext();
 
 export const SystemLayuot = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   return (
     // <SystemLayuotContext.Provider
     //   value={{
     //     user,
     //     setUser,
     //   }}>
-      <Provider store={store}>
-        <Outlet />
-      </Provider>
+    <Provider store={store}>
+      <Outlet />
+    </Provider>
     //</SystemLayuotContext.Provider>
   );
 };

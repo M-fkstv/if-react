@@ -1,16 +1,16 @@
 import React, { useId } from 'react';
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
-import { useDispatch } from 'react-redux';
 import { PATH } from '../../Constants/paths';
+import { authStatuses } from '../../Constants/authStatuses';
+import { loginAction, setAuthStatus } from '../../store/actions/auth.actions';
 
 import './LogIn.css';
-import { loginAction } from '../../store/actions/auth.actions';
 
 export const LogIn = () => {
   const emailId = useId();
@@ -18,7 +18,7 @@ export const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const { setUser } = useContext(SystemLayuotContext);
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -29,18 +29,20 @@ export const LogIn = () => {
     //     email: email,
     //     password: password,
     //   },
-    // });  
-    
-    if(email && password !== ''){
-      dispatch(loginAction);
-      navigate('/');
+    // });
+
+    if (email && password !== '') {
+      // dispatch(loginAction);
+      dispatch(setAuthStatus(authStatuses.loggedIn));
+      sessionStorage.setItem('user', JSON.stringify({ email: email, password: password }));
+      navigate(PATH.index);
     }
     // {sessionStorage.setItem(
     //   'user',
     //   JSON.stringify({ email: email, password: password }),
     // );}
     // if(loggedIn){
-      // navigate('/');
+    // navigate('/');
     // }
   };
 
@@ -56,7 +58,13 @@ export const LogIn = () => {
             <label className="log-in__label" htmlFor={emailId}>
               Email address
             </label>
-            <input name="email" className="log-in__input" id={emailId} type="text" autoComplete="off"/>
+            <input
+              name="email"
+              className="log-in__input"
+              id={emailId}
+              type="text"
+              autoComplete="off"
+            />
           </div>
           <div className="wrapper">
             <label className="log-in__label" htmlFor={passwordId}>

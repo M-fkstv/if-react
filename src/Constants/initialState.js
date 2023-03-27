@@ -5,4 +5,8 @@ export const INITIAL_STATE = {
     // status: 'logged-out',
     status: authStatuses.loggedOut,
   },
+  user:{
+    email:null,
+    password: null,
+  },
 };

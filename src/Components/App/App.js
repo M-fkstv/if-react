@@ -26,10 +26,10 @@ export const App = () => {
   const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn);
 
   useEffect(() => {
-    if (loggedOut) {
-      navigate('/login');
+    if (loggedOut && !sessionStorage.getItem('user')) {
+      navigate(PATH.login);
     }
-  }, [ loggedOut,navigate]); //user
+  }, [loggedOut, navigate]); //user
 
   useEffect(() => {
     available && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });

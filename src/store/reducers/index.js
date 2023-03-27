@@ -1,16 +1,8 @@
-import { AUTH } from '../../Constants/actionTypse';
-import { INITIAL_STATE } from '../../Constants/initialState';
+import { combineReducers } from '@reduxjs/toolkit';
+import { authReducer } from './auth.reducer';
+import { userReducer } from './user.reducer';
 
-export const rootReducer = (state = INITIAL_STATE, action) => {
-  const newState = structuredClone(INITIAL_STATE);
-
-  switch (action.type) {
-    case AUTH.login:
-    case AUTH.logout:
-      newState.auth.status = action.payload;
-      return newState;
-
-    default:
-      return newState;
-  }
-};
+export const rootReducer = combineReducers({
+  auth : authReducer,
+  user : userReducer,
+});
