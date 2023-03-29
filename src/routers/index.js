@@ -2,13 +2,13 @@ import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 import { App } from '../Components/App/App';
+import { Loader } from '../Components/Loader/Loader';
 import { ErrorBoundary } from '../Components/ErrorBoundaryRouter.js/ErrorBoundaryRouter';
-import { LogIn } from '../Pages/LogIn/LogIn';
 
 import { SystemLayuot } from '../Context/SystemLayuotContext';
 
+import { LogIn } from '../Pages/LogIn/LogIn';
 import { PATH } from '../Constants/paths';
-import { Loader } from '../Components/Loader/Loader';
 
 const Hotel = lazy(() => import('../Pages/Hotel'));
 

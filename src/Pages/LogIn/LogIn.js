@@ -1,14 +1,16 @@
 import React, { useId } from 'react';
-import { ScrollRestoration, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ScrollRestoration, useNavigate } from 'react-router-dom';
 
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
-import { PATH } from '../../Constants/paths';
 import { authStatuses } from '../../Constants/authStatuses';
-import { loginAction, setAuthStatus } from '../../store/actions/auth.actions';
+import { PATH } from '../../Constants/paths';
+
+import { setAuthStatus } from '../../store/actions/auth.actions';
+import { setUser } from '../../store/actions/user.actions';
 
 import './LogIn.css';
 
@@ -17,33 +19,19 @@ export const LogIn = () => {
   const passwordId = useId();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { setUser } = useContext(SystemLayuotContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const email = formData.get('email');
     const password = formData.get('password');
-    // setUser({  // for SystemLayuotContext
-    //   user: {
-    //     email: email,
-    //     password: password,
-    //   },
-    // });
 
     if (email && password !== '') {
-      // dispatch(loginAction);
       dispatch(setAuthStatus(authStatuses.loggedIn));
-      sessionStorage.setItem('user', JSON.stringify({ email: email, password: password }));
+      dispatch(setUser({ email, password }));
+      sessionStorage.setItem('user', JSON.stringify({ email, password }));
       navigate(PATH.index);
     }
-    // {sessionStorage.setItem(
-    //   'user',
-    //   JSON.stringify({ email: email, password: password }),
-    // );}
-    // if(loggedIn){
-    // navigate('/');
-    // }
   };
 
   return (

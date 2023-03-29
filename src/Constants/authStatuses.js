@@ -1,4 +1,4 @@
 export const authStatuses = {
-  loggedIn: 'logged-id',
+  loggedIn: 'logged-in',
   loggedOut: 'logged-out',
 };

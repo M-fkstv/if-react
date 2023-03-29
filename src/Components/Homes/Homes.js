@@ -9,14 +9,19 @@ import './Homes.css';
 
 export const Homes = () => {
   const [state, setState] = useState([]);
+  const hasHomes = localStorage.getItem('homes');
 
   useEffect(() => {
-    // fetch(BaseURL)
-    //   .then((res) => res.json())
-    //   .then((result) => setState(result));
-    getHotels(BaseURL).then((result) => setState(result));
+   if(!hasHomes){ 
+    getHotels(BaseURL).then((result) => {
+      setState(result);
+      localStorage.setItem('homes', JSON.stringify(result));
+    });
+  }else{
+    setState(JSON.parse(hasHomes));
+  };
     //TODO: Error handling, loader
-  }, []);
+  }, [hasHomes]);
 
   return (
     <section className="homes">

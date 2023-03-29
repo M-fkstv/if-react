@@ -49,6 +49,6 @@ export const counterReducer = (state, action) => {
       };
     }
     default:
-      return { ...state };
+      return state;
   }
 };

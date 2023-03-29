@@ -1,14 +1,14 @@
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef } from 'react';
 
-import { SliderButton } from '../SliderButton';
-import { Slider } from '../Slider';
 import { HotelCard } from '../HotelCard';
-import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+import { Slider } from '../Slider';
+import { SliderButton } from '../SliderButton';
 
+import { useSelector } from 'react-redux';
 import './AvailableHotels.css';
 
 export const AvailableHotels = forwardRef((_, ref) => {
-  const { available } = useContext(AvailableHotelsContext);
+  const available = useSelector((state) => state.availableHotels);
 
   if (available.length === 0) {
     return (

@@ -1,5 +1,8 @@
 import { USER } from '../../Constants/actionTypse';
 
 export const setUser = (payload) => ({
-  type: USER.set,
+  type: USER.setUser,
+  payload,
 });
+
+

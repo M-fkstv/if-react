@@ -1,53 +1,43 @@
-import React, { lazy, Suspense, useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
 import { authStatuses } from '../../Constants/authStatuses';
 import { PATH } from '../../Constants/paths';
 
-import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
-import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
-
 import { Advantages } from '../Advantages';
+import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
 import { Homes } from '../Homes';
-import { Loader } from '../Loader/Loader';
 import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
 import './App.css';
 
-const AvailableHotels = lazy(() => import('../AvailableHotels'));
-
 export const App = () => {
-  // const { user } = useContext(SystemLayuotContext);
-  const [available, setAvailable] = useState(null);
   const availableRef = useRef(null);
   const navigate = useNavigate();
   const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn);
+  const availableHotels = useSelector((state) => state.availableHotels);
 
   useEffect(() => {
     if (loggedOut && !sessionStorage.getItem('user')) {
       navigate(PATH.login);
     }
-  }, [loggedOut, navigate]); //user
+    availableHotels && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [loggedOut, navigate,availableHotels]);
 
-  useEffect(() => {
-    available && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [available]);
+  // useEffect(() => {
+  // }, [availableHotels]);
 
   return (
     <>
       <Sprite />
-      <ScrollRestoration />
-      <AvailableHotelsContext.Provider value={{ available, setAvailable }}>
+      <ScrollRestoration /> 
         <TopSection />
-        <Suspense fallback={<Loader />}>
-          {available !== null && <AvailableHotels ref={availableRef} />}
-        </Suspense>
-      </AvailableHotelsContext.Provider>
-      <Advantages />
-      <Homes />
-      <Footer />
+         {availableHotels !== null && <AvailableHotels ref={availableRef} />}
+        <Advantages />
+        <Homes />
+        <Footer />
     </>
   );
 };

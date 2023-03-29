@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Apps } from '../Icons';
 
-// import { SystemLayuotContext } from '../../Context/SystemLayuotContext';
+import { authStatuses } from '../../Constants/authStatuses';
+import { setAuthStatus } from '../../store/actions/auth.actions';
+import { setUser } from '../../store/actions/user.actions';
 
 import './SignOut.css';
 
@@ -44,17 +47,17 @@ export const Modal = forwardRef(({ children }, ref) => {
 
 Modal.propTypes = {
   children: PropTypes.node,
-  ref: PropTypes.obj,
+  ref: PropTypes.func,
 };
 
 export const SignOut = forwardRef((_, ref) => {
-  // const { setUser } = useContext(SystemLayuotContext);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signOut = () => {
-    sessionStorage.removeItem('user');
-    // setUser(null);
+    dispatch(setAuthStatus(authStatuses.loggedOut));
+    dispatch(setUser({ email: null, password: null }));
     navigate('/login');
   };
 

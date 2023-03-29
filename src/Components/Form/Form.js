@@ -1,28 +1,27 @@
-import React, { useState, useContext, useRef } from 'react';
-
-import { AvailableHotelsContext } from '../../Context/AvailableHotelsContext';
+import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Button } from '../Button';
-import { HotelsSearch } from '../HotelsSearch';
 import { Calendar } from '../Calendar';
+import { HotelsSearch } from '../HotelsSearch';
 import { UsersFilter } from '../UsersFilter';
 
 import { getData } from '../../hooks/getData';
+import { useClickOutside } from '../../hooks/useClickOutSide';
 import { wrapPromise } from '../../lib/wrapPromise';
 import { apiUrl } from '../../services/Constanst/links';
-import { useClickOutside } from '../../hooks/useClickOutSide';
+import { setAvailableHotels } from '../../store/actions/available.actions';
 
 import './Form.css';
 
 export const Form = () => {
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
-  const { setAvailable } = useContext(AvailableHotelsContext);
   const adultsCountRef = useRef();
+  const dispatch = useDispatch();
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     if (formState !== '') {
       apiUrl.searchParams.set('search', `${formState}`);
 
@@ -30,7 +29,7 @@ export const Form = () => {
 
       try {
         const availableHotels = await hotels;
-        setAvailable(availableHotels);
+        dispatch(setAvailableHotels(availableHotels));
       } catch (error) {
         console.error();
       }
@@ -38,6 +37,7 @@ export const Form = () => {
       setFormState('');
     }
   }
+
   function handleChange(e) {
     setFormState(e.target.value);
   }
