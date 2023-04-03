@@ -24,7 +24,7 @@ export const App = () => {
       navigate(PATH.login);
     }
     availableHotels && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [loggedOut, navigate,availableHotels]);
+  }, [loggedOut, navigate, availableHotels]);
 
   // useEffect(() => {
   // }, [availableHotels]);
@@ -32,12 +32,12 @@ export const App = () => {
   return (
     <>
       <Sprite />
-      <ScrollRestoration /> 
-        <TopSection />
-         {availableHotels !== null && <AvailableHotels ref={availableRef} />}
-        <Advantages />
-        <Homes />
-        <Footer />
+      <ScrollRestoration />
+      <TopSection />
+      {availableHotels !== null && <AvailableHotels ref={availableRef} />}
+      <Advantages />
+      <Homes />
+      <Footer />
     </>
   );
 };

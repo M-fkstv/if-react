@@ -10,5 +10,3 @@ export const userReducer = (state = INITIAL_STATE.user, action) => {
       return state;
   }
 };
-
-

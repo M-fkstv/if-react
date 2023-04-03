@@ -12,14 +12,14 @@ export const Homes = () => {
   const hasHomes = localStorage.getItem('homes');
 
   useEffect(() => {
-   if(!hasHomes){ 
-    getHotels(BaseURL).then((result) => {
-      setState(result);
-      localStorage.setItem('homes', JSON.stringify(result));
-    });
-  }else{
-    setState(JSON.parse(hasHomes));
-  };
+    if (!hasHomes) {
+      getHotels(BaseURL).then((result) => {
+        setState(result);
+        localStorage.setItem('homes', JSON.stringify(result));
+      });
+    } else {
+      setState(JSON.parse(hasHomes));
+    }
     //TODO: Error handling, loader
   }, [hasHomes]);
 

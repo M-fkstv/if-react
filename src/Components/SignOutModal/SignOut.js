@@ -51,7 +51,6 @@ Modal.propTypes = {
 };
 
 export const SignOut = forwardRef((_, ref) => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
