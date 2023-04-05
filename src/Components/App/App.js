@@ -26,8 +26,6 @@ export const App = () => {
     availableHotels && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
   }, [loggedOut, navigate, availableHotels]);
 
-  // useEffect(() => {
-  // }, [availableHotels]);
 
   return (
     <>

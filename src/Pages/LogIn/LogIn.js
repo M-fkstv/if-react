@@ -9,25 +9,29 @@ import { Sprite } from '../../Components/Sprite';
 import { authStatuses } from '../../Constants/authStatuses';
 import { PATH } from '../../Constants/paths';
 
-import { setAuthStatus } from '../../store/actions/auth.actions';
-import { setUser } from '../../store/actions/user.actions';
+import { setStatus } from '../../store/slices/auth.slice';
+import { setUser } from '../../store/slices/user.slice';
 
 import './LogIn.css';
+// import { setAuthStatus, setUser } from '../../store/actions';
 
 export const LogIn = () => {
   const emailId = useId();
   const passwordId = useId();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+ 
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const email = formData.get('email');
     const password = formData.get('password');
-
+    
     if (email && password !== '') {
-      dispatch(setAuthStatus(authStatuses.loggedIn));
+     
+      dispatch(setStatus(authStatuses.loggedIn));
       dispatch(setUser({ email, password }));
       sessionStorage.setItem('user', JSON.stringify({ email, password }));
       navigate(PATH.index);

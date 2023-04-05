@@ -1,4 +1,5 @@
-import { AUTH } from '../../Constants/actionTypse';
+// import { createAction } from '@reduxjs/toolkit';
+// import { AUTH } from '../../Constants/actionTypse';
 // import { authStatuses } from '../../Constants/authStatuses';
 
 // export const loginAction = {
@@ -11,7 +12,9 @@ import { AUTH } from '../../Constants/actionTypse';
 //   payload: authStatuses.loggedOut,
 // };
 
-export const setAuthStatus = (status) => ({
-  type: AUTH.setStatus,
-  payload: status,
-});
+// export const setAuthStatus = (status) => ({
+//   type: AUTH.setStatus,
+//   payload: status,
+// });
+
+// export const setAuthStatus = createAction('auth/set-status');

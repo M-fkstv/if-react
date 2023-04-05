@@ -7,8 +7,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Apps } from '../Icons';
 
 import { authStatuses } from '../../Constants/authStatuses';
-import { setAuthStatus } from '../../store/actions/auth.actions';
-import { setUser } from '../../store/actions/user.actions';
+import { setStatus } from '../../store/slices/auth.slice';
+import { setUser } from '../../store/slices/user.slice';
+// import { setAuthStatus } from '../../store/actions/auth.actions';
+// import { setUser } from '../../store/actions/user.actions';
 
 import './SignOut.css';
 
@@ -18,14 +20,16 @@ export const Modal = forwardRef(({ children }, ref) => {
   const [showModal, setShowModal] = useState(false);
 
   useImperativeHandle(ref, () => ({
-    open: () => {
-      if (location.pathname === '/') {
-        document.body.style.overflow = 'hidden';
-        setShowModal(true);
-      }
-    },
+    open: openModal,
     close: closeModal,
   }));
+
+  const openModal =() => {
+    if (location.pathname === '/') {
+      document.body.style.overflow = 'hidden';
+      setShowModal(true);
+    }
+  };
 
   const closeModal = () => {
     document.body.style.overflow = 'auto';
@@ -55,7 +59,7 @@ export const SignOut = forwardRef((_, ref) => {
   const dispatch = useDispatch();
 
   const signOut = () => {
-    dispatch(setAuthStatus(authStatuses.loggedOut));
+    dispatch(setStatus(authStatuses.loggedOut));
     dispatch(setUser({ email: null, password: null }));
     navigate('/login');
   };
