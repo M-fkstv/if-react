@@ -20,12 +20,11 @@ export const App = () => {
   const availableHotels = useSelector((state) => state.availableHotels);
 
   useEffect(() => {
-    if (loggedOut && !sessionStorage.getItem('user')) {
+    if (loggedOut) {
       navigate(PATH.login);
     }
     availableHotels && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
   }, [loggedOut, navigate, availableHotels]);
-
 
   return (
     <>

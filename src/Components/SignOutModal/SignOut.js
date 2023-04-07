@@ -1,5 +1,5 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -8,9 +8,8 @@ import { Apps } from '../Icons';
 
 import { authStatuses } from '../../Constants/authStatuses';
 import { setStatus } from '../../store/slices/auth.slice';
+import { setAvailableHotels } from '../../store/slices/available.slice';
 import { setUser } from '../../store/slices/user.slice';
-// import { setAuthStatus } from '../../store/actions/auth.actions';
-// import { setUser } from '../../store/actions/user.actions';
 
 import './SignOut.css';
 
@@ -24,7 +23,7 @@ export const Modal = forwardRef(({ children }, ref) => {
     close: closeModal,
   }));
 
-  const openModal =() => {
+  const openModal = () => {
     if (location.pathname === '/') {
       document.body.style.overflow = 'hidden';
       setShowModal(true);
@@ -60,7 +59,10 @@ export const SignOut = forwardRef((_, ref) => {
 
   const signOut = () => {
     dispatch(setStatus(authStatuses.loggedOut));
+    console.log(setStatus(authStatuses.loggedOut));
     dispatch(setUser({ email: null, password: null }));
+    dispatch(setAvailableHotels(null));
+
     navigate('/login');
   };
 

@@ -17,6 +17,8 @@ export const Calendar = memo(() => {
     setEndDate(end);
   };
 
+  console.log(startDate.toLocaleString('ru'));
+
   return (
     <DatePicker
       placeholderText="Click to select a date"

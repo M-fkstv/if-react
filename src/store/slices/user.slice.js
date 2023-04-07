@@ -3,9 +3,9 @@ import { INITIAL_STATE } from '../../Constants/initialState';
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: INITIAL_STATE.user,
-  redusers: {
-    setUser: (state, action) => action.payload ,
+  initialState: INITIAL_STATE.availableHotels,
+  reducers: {
+    setUser (state, action)  { return  action.payload;},
   },
 });
 

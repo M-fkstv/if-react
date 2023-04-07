@@ -14,7 +14,5 @@
 // // };
 
 // export const availableReducer = createReducer(INITIAL_STATE.availableHotels, {
-//   [setAvailableHotels]: (state, action) => [...action.payload],
+//   [setAvailableHotels]: (state, action) => action.payload,
 // });
-
-

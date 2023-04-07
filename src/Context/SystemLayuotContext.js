@@ -1,15 +1,19 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { store } from '../store';
+import { Loader } from '../Components/Loader/Loader';
+import { persistor, store } from '../store';
 
-export const SystemLayuotContext = createContext();
+// export const SystemLayuotContext = createContext();  оставить для примера
 
 export const SystemLayuot = () => {
   return (
     <Provider store={store}>
-      <Outlet />
+      <PersistGate loading={<Loader />} persistor={persistor}>
+        <Outlet />
+      </PersistGate>
     </Provider>
   );
 };
