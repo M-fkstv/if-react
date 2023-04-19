@@ -5,7 +5,9 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: INITIAL_STATE.availableHotels,
   reducers: {
-    setUser (state, action)  { return  action.payload;},
+    setUser(state, action) {
+      return action.payload;
+    },
   },
 });
 

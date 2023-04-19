@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
@@ -10,7 +10,9 @@ import { useClickOutside } from '../../hooks/useClickOutSide';
 import { apiUrl } from '../../services/Constanst/links';
 import { getHotels } from '../../services/SearchApi/SearchAPI';
 
-import { setAvailableHotels } from '../../store/slices/available.slice';
+import { useAvailableHotMutation } from '../../services/getAvailable';
+import { availableHotelsActions, setAvailableHotels } from '../../store/slices/available.slice';
+
 import './Form.css';
 
 export const Form = () => {
@@ -18,19 +20,26 @@ export const Form = () => {
   const [filterActive, setFilterActive] = useState(false);
   const adultsCountRef = useRef();
   const dispatch = useDispatch();
+  // const { data: hotels1 = [], isLoading } = useGetAvailableHotelsQuery();
+  const [getAvailableHotels, { isLoading }] = useAvailableHotMutation();
+  const state = useSelector((state) => state );
+ 
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (formState !== '') {
-      apiUrl.searchParams.set('search', `${formState}`);
+      // apiUrl.searchParams.set('search', `${formState}`);
 
       // const hotels = wrapPromise(getData(apiUrl));
-      const hotels = getHotels(apiUrl);
+      // const hotels = getHotels(apiUrl);
 
       try {
-        const availableHotels = await hotels;
-        console.log(availableHotels);
-        dispatch(setAvailableHotels(availableHotels));
+        // const availableHotels = await hotels;
+        // const {data: availableHotels} = await getAvailableHotels(formState);
+        await getAvailableHotels(formState);
+        console.log((await getAvailableHotels(formState)).data);
+        console.log(state);
+        // dispatch(availableHotelsActions.setAvailableHotels(availableHotels));
       } catch (error) {
         console.error();
       }

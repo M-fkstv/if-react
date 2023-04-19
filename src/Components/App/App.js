@@ -12,12 +12,24 @@ import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
 import './App.css';
+import { useAvailableHotMutation } from '../../services/getAvailable';
 
 export const App = () => {
   const availableRef = useRef(null);
   const navigate = useNavigate();
   const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn);
   const availableHotels = useSelector((state) => state.availableHotels);
+  const [getAvailableHotels, {data}] = useAvailableHotMutation();
+
+
+  useEffect(()=>{
+   
+ 
+  console.log(data);
+  },[]);
+
+
+  const available = Object.values(availableHotels.mutations)[0]?.data;
 
   useEffect(() => {
     if (loggedOut) {
@@ -31,7 +43,7 @@ export const App = () => {
       <Sprite />
       <ScrollRestoration />
       <TopSection />
-      {availableHotels !== null && <AvailableHotels ref={availableRef} />}
+      {available && <AvailableHotels ref={availableRef} />}
       <Advantages />
       <Homes />
       <Footer />

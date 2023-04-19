@@ -5,10 +5,17 @@ import { authReducer } from './auth.slice';
 import { availableReducer } from './available.slice';
 
 import storage from 'redux-persist/lib/storage';
+import { availableHotels1 } from '../../services/availableHotelsAPI';
+import { availableHot } from '../../services/getAvailable';
 
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: [
+    availableHot.reducerPath,
+    // availableHotels1.reducerPath,
+
+  ],
 };
 
 export const rootReducer = persistReducer(
@@ -16,6 +23,8 @@ export const rootReducer = persistReducer(
   combineReducers({
     auth: authReducer,
     user: userReducer,
-    availableHotels: availableReducer,
+    [availableHot.reducerPath] : availableHot.reducer,
+    // availableHotels: availableReducer,
   }),
 );
+

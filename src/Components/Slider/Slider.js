@@ -42,9 +42,9 @@ export const Slider = ({ className, data }) => {
     >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
-          <Link to={PATH.hotels}>
+          {/* <Link to={PATH.hotels}>   validateDOMNesting(...): <a> cannot appear as a descendant of <a>. */}
             <HotelCard {...item} />
-          </Link>
+          {/* </Link> */}
         </SwiperSlide>
       ))}
     </Swiper>

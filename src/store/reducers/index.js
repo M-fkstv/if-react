@@ -6,17 +6,13 @@
 // import { availableReducer } from './available.reducer';
 // import { userReducer } from './user.reducer';
 
-
-
 // const persistConfig = {
 //   key: 'root',
 //   storage,
 // };
- 
+
 // export const rootReducer = persistReducer(persistConfig, combineReducers({
 //   auth: authReducer,
 //   user: userReducer,
 //   availableHotels: availableReducer,
 // }));
-
-

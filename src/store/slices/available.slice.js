@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { INITIAL_STATE } from '../../Constants/initialState';
 
 export const availableHotelsSlice = createSlice({
-  name: 'available',
+  name: 'availableHotels',
   initialState: INITIAL_STATE.availableHotels,
   reducers: {
     setAvailableHotels(state, action) {
@@ -11,6 +11,7 @@ export const availableHotelsSlice = createSlice({
   },
 });
 
-export const { setAvailableHotels } = availableHotelsSlice.actions;
+// export const { setAvailableHotels } = availableHotelsSlice.actions;
+export const availableHotelsActions = availableHotelsSlice.actions;
 
 export const availableReducer = availableHotelsSlice.reducer;

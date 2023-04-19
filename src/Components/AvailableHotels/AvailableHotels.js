@@ -8,7 +8,9 @@ import { useSelector } from 'react-redux';
 import './AvailableHotels.css';
 
 export const AvailableHotels = forwardRef((_, ref) => {
-  const available = useSelector((state) => state.availableHotels);
+  const availableHotels = useSelector((state) => state.availableHotels);
+  
+  const available = Object.values(availableHotels.mutations)[0]?.data;
 
   if (available.length === 0) {
     return (

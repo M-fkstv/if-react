@@ -8,7 +8,7 @@ import { Apps } from '../Icons';
 
 import { authStatuses } from '../../Constants/authStatuses';
 import { setStatus } from '../../store/slices/auth.slice';
-import { setAvailableHotels } from '../../store/slices/available.slice';
+import { availableHotelsActions, setAvailableHotels} from '../../store/slices/available.slice';
 import { setUser } from '../../store/slices/user.slice';
 
 import './SignOut.css';
@@ -59,9 +59,8 @@ export const SignOut = forwardRef((_, ref) => {
 
   const signOut = () => {
     dispatch(setStatus(authStatuses.loggedOut));
-    console.log(setStatus(authStatuses.loggedOut));
     dispatch(setUser({ email: null, password: null }));
-    dispatch(setAvailableHotels(null));
+    dispatch(availableHotelsActions.setAvailableHotels(null));
 
     navigate('/login');
   };
