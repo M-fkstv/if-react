@@ -22,8 +22,7 @@ export const Form = () => {
   const dispatch = useDispatch();
   // const { data: hotels1 = [], isLoading } = useGetAvailableHotelsQuery();
   const [getAvailableHotels, { isLoading }] = useAvailableHotMutation();
-  const state = useSelector((state) => state );
- 
+  const state = useSelector((state) => state);
 
   async function handleSubmit(e) {
     e.preventDefault();

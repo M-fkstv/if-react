@@ -8,7 +8,7 @@ import { Apps } from '../Icons';
 
 import { authStatuses } from '../../Constants/authStatuses';
 import { setStatus } from '../../store/slices/auth.slice';
-import { availableHotelsActions, setAvailableHotels} from '../../store/slices/available.slice';
+import { availableHotelsActions, setAvailableHotels } from '../../store/slices/available.slice';
 import { setUser } from '../../store/slices/user.slice';
 
 import './SignOut.css';

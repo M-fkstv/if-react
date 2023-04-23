@@ -1,8 +1,6 @@
-
 import { createUseStyles } from 'react-jss';
 
 export const useStyles = createUseStyles({
- 
   offer: {
     display: 'flex',
     flexDirection: 'column',
@@ -19,25 +17,18 @@ export const useStyles = createUseStyles({
   },
 
   icons: {
-   textAlign: 'center',
+    textAlign: 'center',
   },
 
-  iconsIcon :{
-      aspectRatio: '1/1',
-      marginBottom: 42,
-      maxWidth: 100,
+  iconsIcon: {
+    aspectRatio: '1/1',
+    marginBottom: 42,
+    maxWidth: 100,
   },
 
-  description :{
-      fontSize: 24,
-      fontWeight: 400,
-      color: 'var(--main-text)',
-     
- },
+  description: {
+    fontSize: 24,
+    fontWeight: 400,
+    color: 'var(--main-text)',
+  },
 });
-
-
-
-
-
-

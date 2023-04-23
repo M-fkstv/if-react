@@ -11,7 +11,4 @@
 //   }),
 // });
 
-
-
 // export const { useGetAvailableHotelsQuery } = availableHotels1;
-

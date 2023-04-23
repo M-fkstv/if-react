@@ -11,7 +11,6 @@ import { Homes } from '../Homes';
 import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
-import './App.css';
 import { useAvailableHotMutation } from '../../services/getAvailable';
 
 export const App = () => {
@@ -19,17 +18,14 @@ export const App = () => {
   const navigate = useNavigate();
   const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn);
   const availableHotels = useSelector((state) => state.availableHotels);
-  const [getAvailableHotels, {data}] = useAvailableHotMutation();
+  const [getAvailableHotels, { data }] = useAvailableHotMutation();
 
-
-  useEffect(()=>{
-   
- 
-  console.log(data);
-  },[]);
-
+  useEffect(() => {
+    console.log(data);
+  }, []);
 
   const available = Object.values(availableHotels.mutations)[0]?.data;
+  console.log(availableHotels);
 
   useEffect(() => {
     if (loggedOut) {

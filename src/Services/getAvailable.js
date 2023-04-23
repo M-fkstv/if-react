@@ -7,23 +7,20 @@ export const availableHot = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${apiUrl}`,
   }),
-  endpoints:(builder) => ({
+  endpoints: (builder) => ({
     availableHot: builder.mutation({
       query: (data) => ({
         url: `?search=${data}`,
         method: 'GET',
-        
       }),
-      
+
       onQueryStarted: async (args, api) => {
-        try{
-         
+        try {
           const { data } = await api.queryFulfilled;
 
           // debugger;
           api.dispatch(availableHotelsActions.setAvailableHotels(data));
-
-        } catch (error){
+        } catch (error) {
           console.log(error.message);
         }
       },
@@ -31,8 +28,6 @@ export const availableHot = createApi({
   }),
 });
 
-
 export const { useAvailableHotMutation } = availableHot;
 
-//  
- 
+//

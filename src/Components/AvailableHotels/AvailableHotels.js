@@ -5,17 +5,27 @@ import { Slider } from '../Slider';
 import { SliderButton } from '../SliderButton';
 
 import { useSelector } from 'react-redux';
-import './AvailableHotels.css';
+
+import { useHomesStyles } from '../HotelCard/homes.styles';
+import { useIndexStyles } from '../../index.styles';
+import { useSliderStyles } from '../Slider/slider.styles';
+
+
 
 export const AvailableHotels = forwardRef((_, ref) => {
+
+  const classes = useHomesStyles();
+  const indexClasses = useIndexStyles();
+  const sliderClasses = useSliderStyles();
+
   const availableHotels = useSelector((state) => state.availableHotels);
-  
+
   const available = Object.values(availableHotels.mutations)[0]?.data;
 
   if (available.length === 0) {
     return (
-      <section className="homes" ref={ref}>
-        <h2 className="section-title">
+      <section className={classes.homes} ref={ref}>
+        <h2 className={indexClasses.sectionTitle}>
           Available hotels
           <p>Error...</p>
         </h2>
@@ -24,10 +34,10 @@ export const AvailableHotels = forwardRef((_, ref) => {
   }
   if (available.length < 4) {
     return (
-      <section className="homes" ref={ref}>
-        <h2 className="section-title">Available hotels</h2>
+      <section className={classes.homes} ref={ref}>
+        <h2 className={indexClasses.sectionTitle}>Available hotels</h2>
 
-        <div className="homes__examples">
+        <div className={classes.examples}>
           {available.map((item) => (
             <HotelCard {...item} key={item.id} />
           ))}
@@ -36,13 +46,13 @@ export const AvailableHotels = forwardRef((_, ref) => {
     );
   }
   return (
-    <section className="homes" ref={ref}>
-      <h2 className="section-title">Available hotels</h2>
+    <section className={classes.homes} ref={ref}>
+      <h2 className={indexClasses.sectionTitle}>Available hotels</h2>
 
-      <div className="slider-wrapper">
-        <SliderButton className={'s-button-next'} />
-        <SliderButton className={'s-button-prev'} />
-        <Slider className="homes__examples" data={available} />
+      <div className={sliderClasses.wrapper}>
+        <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
+        <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'}/>
+        <Slider className={classes.examples} data={available} />
       </div>
     </section>
   );

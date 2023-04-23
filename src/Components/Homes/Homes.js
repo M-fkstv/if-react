@@ -5,11 +5,18 @@ import { Slider } from '../Slider';
 import { getHotels } from '../../services/SearchApi/SearchAPI';
 import { BaseURL } from '../../services/Constanst/links';
 
-import './Homes.css';
+import { useHomesStyles } from '../HotelCard/homes.styles';
+import { useIndexStyles } from '../../index.styles';
+import { useSliderStyles } from '../Slider/slider.styles';
+
 
 export const Homes = () => {
+  
+  const classes = useHomesStyles();
   const [state, setState] = useState([]);
   const hasHomes = localStorage.getItem('homes');
+  const indexClasses = useIndexStyles();
+  const sliderClasses = useSliderStyles();
 
   useEffect(() => {
     if (!hasHomes) {
@@ -24,13 +31,13 @@ export const Homes = () => {
   }, [hasHomes]);
 
   return (
-    <section className="homes">
-      <h2 className="section-title">Homes guests loves</h2>
+    <section className={classes.homes}>
+      <h2 className={indexClasses.sectionTitle}>Homes guests loves</h2>
 
-      <div className="slider-wrapper">
-        <SliderButton className={'s-button-next'} />
-        <SliderButton className={'s-button-prev'} />
-        <Slider className="homes__examples" data={state} />
+      <div className={sliderClasses.wrapper}>
+        <SliderButton className={sliderClasses.buttonPrev} id={'nextEl'} />
+        <SliderButton className={sliderClasses.buttonNext} id={'prevEl'}/>
+        <Slider className={classes.examples} data={state}/>
       </div>
     </section>
   );

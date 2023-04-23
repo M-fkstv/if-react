@@ -1,8 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import './SliderButton.css';
 
-export const SliderButton = ({ className }) => <div className={className}></div>;
+export const SliderButton = ({ className, id }) => <div className={className} id={id}></div>;
 
 SliderButton.propTypes = {
   className: Proptypes.string,

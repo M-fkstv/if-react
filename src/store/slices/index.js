@@ -14,7 +14,6 @@ const persistConfig = {
   blacklist: [
     availableHot.reducerPath,
     // availableHotels1.reducerPath,
-
   ],
 };
 
@@ -23,8 +22,7 @@ export const rootReducer = persistReducer(
   combineReducers({
     auth: authReducer,
     user: userReducer,
-    [availableHot.reducerPath] : availableHot.reducer,
+    [availableHot.reducerPath]: availableHot.reducer,
     // availableHotels: availableReducer,
   }),
 );
-

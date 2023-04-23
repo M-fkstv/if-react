@@ -11,10 +11,9 @@ import { PATH } from '../../Constants/paths';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import './Slider.css';
-import '../SliderButton/SliderButton.css';
 
 export const Slider = ({ className, data }) => {
+
   return (
     <Swiper
       className={className}
@@ -34,8 +33,8 @@ export const Slider = ({ className, data }) => {
         },
       }}
       navigation={{
-        nextEl: '.s-button-next',
-        prevEl: '.s-button-prev',
+        nextEl: '#nextEl',
+        prevEl: '#prevEl',
         clickable: true,
         loop: true,
       }}
@@ -43,7 +42,7 @@ export const Slider = ({ className, data }) => {
       {data.map((item) => (
         <SwiperSlide key={item.id}>
           {/* <Link to={PATH.hotels}>   validateDOMNesting(...): <a> cannot appear as a descendant of <a>. */}
-            <HotelCard {...item} />
+          <HotelCard {...item} />
           {/* </Link> */}
         </SwiperSlide>
       ))}
