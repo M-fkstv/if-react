@@ -1,5 +1,9 @@
 import React from 'react';
 
-import './Loader.css';
+import { useLoaderStyles } from './Loader.styles';
 
-export const Loader = () => <p className="loader"></p>;
+export const Loader = () => {
+  const classes = useLoaderStyles();
+
+  return <p className={classes.loader}></p>;
+};

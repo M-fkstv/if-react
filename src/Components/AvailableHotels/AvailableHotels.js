@@ -6,14 +6,11 @@ import { SliderButton } from '../SliderButton';
 
 import { useSelector } from 'react-redux';
 
-import { useHomesStyles } from '../HotelCard/homes.styles';
+import { useHomesStyles } from '../Homes/homes.styles';
 import { useIndexStyles } from '../../index.styles';
 import { useSliderStyles } from '../Slider/slider.styles';
 
-
-
 export const AvailableHotels = forwardRef((_, ref) => {
-
   const classes = useHomesStyles();
   const indexClasses = useIndexStyles();
   const sliderClasses = useSliderStyles();
@@ -51,7 +48,7 @@ export const AvailableHotels = forwardRef((_, ref) => {
 
       <div className={sliderClasses.wrapper}>
         <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
-        <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'}/>
+        <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
         <Slider className={classes.examples} data={available} />
       </div>
     </section>

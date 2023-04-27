@@ -1,3 +1,7 @@
+:root{
+  --animation-color:#f5bd41;
+}
+
 .header__images--account {
   height: 40px;
   width: 40px;

@@ -13,9 +13,14 @@ import { getHotels } from '../../services/SearchApi/SearchAPI';
 import { useAvailableHotMutation } from '../../services/getAvailable';
 import { availableHotelsActions, setAvailableHotels } from '../../store/slices/available.slice';
 
-import './Form.css';
+import './Form.styles.js';
+import { useButtonStyles } from '../Button/Button.styles';
+import { useFormStyles } from './Form.styles.js';
 
 export const Form = () => {
+  const classes = useFormStyles();
+  const btnClasses = useButtonStyles();
+
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
   const adultsCountRef = useRef();
@@ -58,18 +63,18 @@ export const Form = () => {
   const outsideRef = useClickOutside(() => setFilterActive(false));
 
   return (
-    <form id="form" className="form col-md-12" onSubmit={handleSubmit} ref={outsideRef}>
+    <form id="form" className={classes.form} onSubmit={handleSubmit} ref={outsideRef}>
       <HotelsSearch onChange={handleChange} value={formState} />
-      <div className="form__date col-md-4">
-        <label className="form__date--in--label label" htmlFor="date-in">
+      <div className={classes.dates}>
+        <label className={classes.dateInLlabel} htmlFor="date-in">
           Check in
         </label>
         <Calendar />
-        <label className="form__date-out--label label" htmlFor="date-out">
+        <label className={classes.dateOutLabel} htmlFor="date-out">
           Check out
         </label>
       </div>
-      <div className="form__person col-md-4 col-xs-6" onClick={showFilter}>
+      <div className={classes.persons} onClick={showFilter}>
         <h3>
           <span ref={adultsCountRef}>1</span> Adults - <span>0</span> Children - <span>1</span>Rooms
         </h3>
@@ -80,7 +85,8 @@ export const Form = () => {
       Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()
       */}
 
-      <Button btnText={'Submit'} className="form__submit col-md-4 col-xs-6" />
+      <Button btnText={'Submit'} className={btnClasses.submit} />  {/* form__submit col-md-4 col-xs-6 */}
+     
     </form>
   );
 };

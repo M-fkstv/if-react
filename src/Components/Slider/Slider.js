@@ -13,7 +13,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export const Slider = ({ className, data }) => {
-
   return (
     <Swiper
       className={className}

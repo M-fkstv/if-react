@@ -10,10 +10,10 @@ import { authStatuses } from '../../Constants/authStatuses';
 import { setStatus } from '../../store/slices/auth.slice';
 import { availableHotelsActions, setAvailableHotels } from '../../store/slices/available.slice';
 import { setUser } from '../../store/slices/user.slice';
-
-import './SignOut.css';
+import { useSignOutStyles } from './SignOut.styles';
 
 export const Modal = forwardRef(({ children }, ref) => {
+  const classes = useSignOutStyles();
   const location = useLocation();
 
   const [showModal, setShowModal] = useState(false);
@@ -39,8 +39,8 @@ export const Modal = forwardRef(({ children }, ref) => {
     showModal &&
     createPortal(
       <>
-        <div className="modal-wrapper" onClick={closeModal}>
-          <div className="modal">{children}</div>
+        <div className={classes.wrapper} onClick={closeModal}>
+          <div className={classes.modal}>{children}</div>
         </div>
       </>,
       document.body,
@@ -54,6 +54,8 @@ Modal.propTypes = {
 };
 
 export const SignOut = forwardRef((_, ref) => {
+  const classes = useSignOutStyles();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -67,8 +69,8 @@ export const SignOut = forwardRef((_, ref) => {
 
   return (
     <Modal ref={ref}>
-      <div className="modal-content" onClick={signOut}>
-        <Apps className="sign-out" id="#sign-out" />
+      <div className={classes.content} onClick={signOut}>
+        <Apps className={classes.signOut} id="#sign-out" />
         <p>Sing out</p>
       </div>
     </Modal>

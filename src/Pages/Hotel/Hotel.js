@@ -6,10 +6,12 @@ import { Footer } from '../../Components/Footer';
 import { Header } from '../../Components/Header';
 import { Sprite } from '../../Components/Sprite';
 
+import { useHomesStyles } from '../../Components/Homes/homes.styles';
 import './Hotel.css';
 
 export const Hotel = () => {
   const { state } = useLocation();
+  const classes = useHomesStyles();
 
   return (
     <>
@@ -17,17 +19,17 @@ export const Hotel = () => {
       <ScrollRestoration />
       <div className="header__wrapper">
         <Header />
-        <div className="homes__examples__icons ">
+        <div className={classes.examplesIcons}>
           <img
-            className="homes__examples__icon "
+            className={classes.examplesIcon}
             id={state.id}
             src={state.imageUrl}
             alt={state.name}
           />
 
-          <div className="homes__description">
-            <p className="homes__description--text">{state.name}</p>
-            <p className="homes__description--text">
+          <div className={classes.description}>
+            <p className={classes.descriptionText}>{state.name}</p>
+            <p className={classes.descriptionText}>
               {state.city}, {state.country}
             </p>
           </div>

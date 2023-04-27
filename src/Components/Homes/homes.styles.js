@@ -6,9 +6,8 @@ export const useHomesStyles = createUseStyles({
     backgroundColor: bgColor,
     paddingTop: 120,
     paddingBottom: 120,
-    
   },
-  
+
   examples: {
     position: 'relative',
     maxWidth: 1232,
@@ -19,23 +18,23 @@ export const useHomesStyles = createUseStyles({
     flexWrap: 'wrap',
   },
 
-  examplesIcons:{
+  examplesIcons: {
     width: 296,
     margin: '0 auto',
     overflow: 'hidden',
   },
 
-  examplesIcon:{
+  examplesIcon: {
     width: '100%',
-    aspectRratio: '1/1',
+    aspectRatio: '1/1',
     transition: '0.5s',
 
-    '&:hover':{
+    '&:hover': {
       scale: 1.1,
     },
   },
 
-  description:{
+  description: {
     height: 120,
   },
 
@@ -46,14 +45,8 @@ export const useHomesStyles = createUseStyles({
     fontWeight: 400,
     color: generalBlue,
 
-    '&:last-of-type':{
+    '&:last-of-type': {
       color: '#bfbfbf',
     },
   },
-
 });
-
-
-
-
-

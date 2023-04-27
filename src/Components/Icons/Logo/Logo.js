@@ -1,9 +1,14 @@
 import React from 'react';
 
-import './Logo.css';
+// import './Logo.css';
+import { useLogoStyles } from './Logo.styles';
 
-export const Logo = () => (
-  <svg className="header__logo">
-    <use href="#logo" />
-  </svg>
-);
+export const Logo = () => {
+  const classes = useLogoStyles();
+
+  return (
+    <svg className={classes.logo}>
+      <use href="#logo" />
+    </svg>
+  );
+};

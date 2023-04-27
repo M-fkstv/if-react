@@ -4,17 +4,20 @@ import PropTypes from 'prop-types';
 
 import { PATH } from '../../Constants/paths';
 
-import './HotelCard.css';
+// import './HotelCard.css';
+import { useHomesStyles } from '../Homes/homes.styles';
 
 export const HotelCard = ({ id, name, city, country, imageUrl }) => {
-  return (
-    <div className="homes__examples__icons ">
-      <Link to={`${PATH.hotels}${id}`} state={{ id, name, city, country, imageUrl }}>
-        <img className="homes__examples__icon " id={id} src={imageUrl} alt={name} />
+const classes = useHomesStyles();
 
-        <div className="homes__description">
-          <p className="homes__description--text">{name}</p>
-          <p className="homes__description--text">
+  return (
+    <div className={classes.examplesIcons}>
+      <Link to={`${PATH.hotels}${id}`} state={{ id, name, city, country, imageUrl }}>
+        <img className={classes.examplesIcon} id={id} src={imageUrl} alt={name} />
+
+        <div className={classes.description}>
+          <p className={classes.descriptionText}>{name}</p>
+          <p className={classes.descriptionText}>
             {city}, {country}
           </p>
         </div>

@@ -3,17 +3,20 @@ import PropTypes from 'prop-types';
 
 import { Apps } from '../Icons';
 
-import './HotelsSearch.css';
+// import './HotelsSearch.css';
+import { useSearchStyles } from './HotelsSearch.styles';
 
 export const HotelsSearch = memo(({ onChange, value }) => {
+  const classes = useSearchStyles();
+
   return (
-    <div className="form__city col-md-4">
-      <label className="form__city--label label" htmlFor="search">
+    <div className={classes.city}>
+      <label className={classes.cityLabel} htmlFor="search">
         Your destination or hotel name
       </label>
-      <Apps className="magnifier" id="#magnifier" />
+      <Apps className={classes.magnifier} id="#magnifier" />
       <input
-        className="form__city--search input-style col-xs-6"
+        className={classes.citySearch}
         type="text"
         id="search"
         name="search"

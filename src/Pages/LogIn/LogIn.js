@@ -13,8 +13,12 @@ import { setStatus } from '../../store/slices/auth.slice';
 import { setUser } from '../../store/slices/user.slice';
 
 import './LogIn.css';
+import { useButtonStyles } from '../../Components/Button/Button.styles';
+import { useLoginStyles } from './Login.styles';
 
 export const LogIn = () => {
+  const btnClasses = useButtonStyles();
+  const classes = useLoginStyles();
   const emailId = useId();
   const passwordId = useId();
   const navigate = useNavigate();
@@ -39,28 +43,28 @@ export const LogIn = () => {
       <ScrollRestoration />
       <div className="log-in">
         <Header />
-        <form className="log-in__form" onSubmit={handleSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <h1>Sign in</h1>
-          <div className="wrapper">
-            <label className="log-in__label" htmlFor={emailId}>
+          <div className={classes.wrapper}>
+            <label className={classes.label}htmlFor={emailId}>
               Email address
             </label>
             <input
               name="email"
-              className="log-in__input"
+              className={classes.input}
               id={emailId}
               type="text"
               autoComplete="off"
             />
-          </div>
-          <div className="wrapper">
-            <label className="log-in__label" htmlFor={passwordId}>
+          </div>  
+          <div className={classes.wrapper}>
+            <label className={classes.label} htmlFor={passwordId}>
               Password
             </label>
-            <input name="password" className="log-in__input" id={passwordId} type="password" />
+            <input name="password" className={classes.input} id={passwordId} type="password" />
           </div>
 
-          <Button btnText="Sign in" className="log-in__submit" type="submit" />
+          <Button btnText="Sign in" className={btnClasses.logInSubmit} type="submit" />
         </form>
       </div>
     </>

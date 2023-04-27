@@ -6,24 +6,26 @@ import { SignOut } from '../SignOutModal/SignOut';
 
 import { PATH } from '../../Constants/paths';
 
-import './Header.css';
+import { useHeaderStyles } from './Header.styles';
 
 export const Header = () => {
   // const navigate = useNavigate(); //for button element
   const signOutRef = useRef(null);
 
+  const classes = useHeaderStyles();
+
   return (
-    <header className="header">
+    <header className={classes.header}>
       <Link to={PATH.index}>
         <Logo />
       </Link>
-      <div className="header__container">
-        <div className="header__text">
-          <p className="header__text--title">Stays</p>
-          <p className="header__text--title">Attractions</p>
+      <div className={classes.container}>
+        <div className={classes.text}>
+          <p className={classes.textTitle}>Stays</p>
+          <p className={classes.textTitle}>Attractions</p>
         </div>
 
-        <div className="header__images">
+        <div className={classes.images}>
           <Menu />
           <Night />
           <Account onClick={() => signOutRef.current.open()} />

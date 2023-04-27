@@ -1,9 +1,10 @@
 import { createUseStyles } from 'react-jss';
 
-export const generalBlue='#3077c6',
-      bgColor='#eaf0f9',
-      animationColor= '#f5bd41',
-      mainText= '#383838';
+export const generalBlue = '#3077c6',
+  bgColor = '#eaf0f9',
+  animationColor = '#f5bd41',
+  mainText = '#383838',
+  generalWhite = 'white';
 
 export const useIndexStyles = createUseStyles({
   '@import': 'url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap)',
@@ -13,19 +14,18 @@ export const useIndexStyles = createUseStyles({
       margin: 0,
       boxSizing: 'border-box',
     },
-    
-  },
 
-  html: {
-    fontFamily: 'Roboto, sans-serif',
+    html: {
+      fontFamily: 'Roboto, sans-serif',
+    },
+
+    a: {
+      textDecoration: 'none',
+    },
   },
 
   sprite: {
     display: 'none',
-  },
-
-  a: {
-    textDecoration: 'none',
   },
 
   '@keyframes width': {
@@ -40,7 +40,7 @@ export const useIndexStyles = createUseStyles({
     fontWeight: 500,
     margin: '0 auto 106px',
     color: mainText,
-    
+
     '&:hover:before': {
       position: 'absolute',
       content: '""',
@@ -53,8 +53,6 @@ export const useIndexStyles = createUseStyles({
       animation: '$width 300ms ease-in-out',
     },
   },
-
-  
 
   colLg1: {
     width: 'calc(100% / 14)',
@@ -100,10 +98,3 @@ export const useIndexStyles = createUseStyles({
     width: '100%',
   },
 });
-
-// import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-// * {
-//   margin: 0;
-//   box-sizing: border-box;
-// }

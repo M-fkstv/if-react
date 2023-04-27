@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { useCalendarStyles } from './Calendar.styles';
 
 import './Calendar.css';
 
@@ -16,6 +17,8 @@ export const Calendar = memo(() => {
     setStartDate(start);
     setEndDate(end);
   };
+
+  const styles = useCalendarStyles();
 
   return (
     <DatePicker

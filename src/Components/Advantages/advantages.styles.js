@@ -10,18 +10,19 @@ export const useStyles = createUseStyles({
 
   advantages: {
     width: 1232,
+    maxWidth:1232,
     display: 'flex',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     flexWrap: 'wrap',
     margin: '0 auto 110px',
   },
-
+ 
   icons: {
     textAlign: 'center',
   },
 
   iconsIcon: {
-    aspectRatio: '1/1',
+    aspectRatio: '1 / 1',
     marginBottom: 42,
     maxWidth: 100,
   },
@@ -31,4 +32,4 @@ export const useStyles = createUseStyles({
     fontWeight: 400,
     color: 'var(--main-text)',
   },
-});
+}, {name:'Adv', index:2 });

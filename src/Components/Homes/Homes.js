@@ -5,13 +5,11 @@ import { Slider } from '../Slider';
 import { getHotels } from '../../services/SearchApi/SearchAPI';
 import { BaseURL } from '../../services/Constanst/links';
 
-import { useHomesStyles } from '../HotelCard/homes.styles';
+import { useHomesStyles } from './homes.styles';
 import { useIndexStyles } from '../../index.styles';
 import { useSliderStyles } from '../Slider/slider.styles';
 
-
 export const Homes = () => {
-  
   const classes = useHomesStyles();
   const [state, setState] = useState([]);
   const hasHomes = localStorage.getItem('homes');
@@ -36,8 +34,8 @@ export const Homes = () => {
 
       <div className={sliderClasses.wrapper}>
         <SliderButton className={sliderClasses.buttonPrev} id={'nextEl'} />
-        <SliderButton className={sliderClasses.buttonNext} id={'prevEl'}/>
-        <Slider className={classes.examples} data={state}/>
+        <SliderButton className={sliderClasses.buttonNext} id={'prevEl'} />
+        <Slider className={classes.examples} data={state} />
       </div>
     </section>
   );
