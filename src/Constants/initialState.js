@@ -5,9 +5,9 @@ export const INITIAL_STATE = {
     status: authStatuses.loggedOut,
   },
   user: {
-    email: null,  
+    email: null,
     password: null,
   },
   availableHotels: [],
-  theme:'dark',
+  theme: 'dark',
 };

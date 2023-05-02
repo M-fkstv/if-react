@@ -2,16 +2,20 @@ import React from 'react';
 import { Apps } from '../Icons';
 import { config } from './advantages.config';
 
-import { useStyles } from './advantages.styles';
+import { useTheme } from 'react-jss';
 import { useIndexStyles } from '../../index.styles';
+import { useHomesStyles } from '../Homes/homes.styles';
+import { useAdvStyles } from './advantages.styles';
 
 export const Advantages = () => {
-  const indexClasses = useIndexStyles();
-  const classes = useStyles();
+  const theme = useTheme;
+  const indexClasses = useIndexStyles(theme);
+  const titleClasses = useHomesStyles(theme);
+  const classes = useAdvStyles(theme);
 
   return (
     <section className={classes.offer}>
-      <h2 className={indexClasses.sectionTitle}>What do we offer</h2>
+      <h2 className={titleClasses.sectionTitle}>What do we offer</h2>
 
       <div className={classes.advantages}>
         {config.map((item, index) => {

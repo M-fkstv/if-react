@@ -23,7 +23,6 @@ export const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);

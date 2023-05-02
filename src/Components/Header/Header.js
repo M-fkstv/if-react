@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from '../../store/slices/theme.slice';
 import { useHeaderStyles } from './Header.styles';
 
-
 export const Header = () => {
   // const navigate = useNavigate(); //for button element
   const signOutRef = useRef(null);

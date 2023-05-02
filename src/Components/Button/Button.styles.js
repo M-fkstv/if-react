@@ -1,13 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import { generalBlue, generalWhite } from '../../index.styles';
-import { darkTheme } from '../../styles/darkTheme';
 
 export const buttonStyles = (theme) => ({
   submit: {
     display: 'block',
     backgroundColor: theme.palette.primary.mainBtn,
     width: '16%',
-    color: `${generalWhite}`,
+    color: theme.palette.primary.mainText,
     border: 0,
     borderRadius: 8,
     fontSize: 24,

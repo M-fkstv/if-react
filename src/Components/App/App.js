@@ -20,12 +20,9 @@ export const App = () => {
   const [getAvailableHotels, { isLoading }] = useAvailableHotMutation();
 
   // useEffect(() => {
-    // console.log(useAvailableHotMutation());
-    // console.log(isLoading);
-    // }, [data]);
-    
-
- 
+  // console.log(useAvailableHotMutation());
+  // console.log(isLoading);
+  // }, [data]);
 
   const available = Object.values(availableHotels.mutations)[0]?.data;
   console.log(availableHotels);

@@ -1,11 +1,37 @@
 import { createUseStyles } from 'react-jss';
-import { bgColor, generalBlue } from '../../index.styles';
+import { animationColor, generalBlue } from '../../index.styles';
 
-export const useHomesStyles = createUseStyles({
+export const homesStyles = (theme) => ({
   homes: {
-    backgroundColor: bgColor,
+    backgroundColor: theme.palette.primary.backgroundColor,
     paddingTop: 120,
     paddingBottom: 120,
+  },
+
+  '@keyframes width': {
+    from: { width: 0 },
+    to: { width: 100 },
+  },
+
+  sectionTitle: {
+    position: 'relative',
+    textAlign: 'center',
+    fontSize: 40,
+    fontWeight: 500,
+    margin: '0 auto 106px',
+    color: theme.palette.primary.sectionTitletext,
+
+    '&:hover:before': {
+      position: 'absolute',
+      content: '""',
+      width: 100,
+      borderBottom: `7px solid ${animationColor}`,
+      top: '140%',
+      left: '50%',
+      color: animationColor,
+      transform: 'translateX(-50%)',
+      animation: '$width 300ms ease-in-out',
+    },
   },
 
   examples: {
@@ -50,3 +76,5 @@ export const useHomesStyles = createUseStyles({
     },
   },
 });
+
+export const useHomesStyles = createUseStyles(homesStyles);

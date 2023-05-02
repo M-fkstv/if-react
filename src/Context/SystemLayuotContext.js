@@ -11,8 +11,8 @@ import { darkTheme } from '../styles/darkTheme';
 import { lightTheme } from '../styles/lightTheme';
 
 export const SystemLayuot = () => {
-  const currentTheme = useSelector((state)=>state.theme);
-  const theme = (currentTheme === 'dark') ? darkTheme : lightTheme;
+  const currentTheme = useSelector((state) => state.theme);
+  const theme = currentTheme === 'dark' ? darkTheme : lightTheme;
 
   console.log(currentTheme);
 
@@ -20,11 +20,11 @@ export const SystemLayuot = () => {
     <>
       <Sprite />
       <ScrollRestoration />
-        <PersistGate loading={<Loader />} persistor={persistor}>
-          <ThemeProvider theme={theme}>
-            <Outlet />
-          </ThemeProvider>
-        </PersistGate>
+      <PersistGate loading={<Loader />} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <Outlet />
+        </ThemeProvider>
+      </PersistGate>
     </>
   );
 };

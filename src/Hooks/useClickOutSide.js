@@ -5,11 +5,9 @@ export const useClickOutside = (close) => {
 
   useEffect(() => {
     const handleClickOutSide = (event) => {
-
       // console.log('event.target',event.target);
       // console.log('ref.current',ref.current);
       if (ref.current && !ref.current.contains(event.target) && close) {
-
         close();
       }
     };
@@ -23,4 +21,3 @@ export const useClickOutside = (close) => {
 
   return ref;
 };
-

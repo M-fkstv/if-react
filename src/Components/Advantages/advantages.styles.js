@@ -1,13 +1,13 @@
 import { createUseStyles } from 'react-jss';
 
-export const useStyles = createUseStyles(
-  {
+export const advStyles = (theme) => ({
     offer: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       width: '100%',
       paddingTop: 120,
+      backgroundColor: theme.palette.secondary.backgroundColor,
     },
 
     advantages: {
@@ -39,6 +39,6 @@ export const useStyles = createUseStyles(
       fontWeight: 400,
       color: 'var(--main-text)',
     },
-  },
-  { name: 'Adv', index: 2 },
-);
+  });
+
+export const useAdvStyles = createUseStyles(advStyles);

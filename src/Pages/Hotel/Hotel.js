@@ -14,7 +14,6 @@ export const Hotel = () => {
 
   return (
     <>
-    
       <div className="header__wrapper">
         <Header />
         <div className={classes.examplesIcons}>

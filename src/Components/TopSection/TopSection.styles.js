@@ -1,7 +1,4 @@
 import { createUseStyles } from 'react-jss';
-import { generalWhite } from '../../index.styles';
-import { darkTheme } from '../../styles/darkTheme';
-import { lightTheme } from '../../styles/lightTheme';
 
 export const topSectionStyles = (theme) => ({
   wrapper: {

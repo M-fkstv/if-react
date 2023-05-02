@@ -5,11 +5,11 @@ import { App } from '../Components/App/App';
 import { ErrorBoundary } from '../Components/ErrorBoundaryRouter.js/ErrorBoundaryRouter';
 import { Loader } from '../Components/Loader/Loader';
 
-import { SystemLayuot } from '../Context/SystemLayuotContext';
+// import { SystemLayuot } from '../Context/SystemLayuotContext';
 
 import { PATH } from '../Constants/paths';
-import { LogIn } from '../Pages/LogIn/LogIn';
-import { Wrapper } from '../Components/Wparrep';
+import { LogIn } from '../Pages/LogIn';
+import { Wrapper } from '../Components/Wrapper';
 
 const Hotel = lazy(() => import('../Pages/Hotel'));
 

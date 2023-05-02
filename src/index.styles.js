@@ -1,12 +1,14 @@
 import { createUseStyles } from 'react-jss';
 
 export const generalBlue = '#3077c6',
+  generalBlueActive = '#0f509a',
   bgColor = '#eaf0f9',
   animationColor = '#f5bd41',
   mainText = '#383838',
-  generalWhite = 'white';
+  generalWhite = '#ffffff',
+  generalBlack = '#000000';
 
-export const useIndexStyles = createUseStyles({
+export const indexStyles = (theme) => ({
   '@import': 'url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap)',
 
   '@global': {
@@ -28,31 +30,7 @@ export const useIndexStyles = createUseStyles({
     display: 'none',
   },
 
-  '@keyframes width': {
-    from: { width: 0 },
-    to: { width: 100 },
-  },
-
-  sectionTitle: {
-    position: 'relative',
-    textAlign: 'center',
-    fontSize: 40,
-    fontWeight: 500,
-    margin: '0 auto 106px',
-    color: mainText,
-
-    '&:hover:before': {
-      position: 'absolute',
-      content: '""',
-      width: 100,
-      borderBottom: `7px solid ${animationColor}`,
-      top: '140%',
-      left: '50%',
-      color: animationColor,
-      transform: 'translateX(-50%)',
-      animation: '$width 300ms ease-in-out',
-    },
-  },
+  
 
   colLg1: {
     width: 'calc(100% / 14)',
@@ -98,3 +76,5 @@ export const useIndexStyles = createUseStyles({
     width: '100%',
   },
 });
+
+export const useIndexStyles = createUseStyles(indexStyles);
