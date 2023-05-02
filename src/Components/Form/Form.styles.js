@@ -2,12 +2,11 @@ import { createUseStyles } from 'react-jss';
 import { animationColor, generalWhite } from '../../index.styles';
 
 export const useFormStyles = createUseStyles({
-
-  form:{
+  form: {
     display: 'flex',
     position: 'relative',
     flexWrap: 'wrap',
-    width:'100%',
+    width: '100%',
     maxWidth: 1230,
     height: 64,
     padding: 0,
@@ -15,42 +14,37 @@ export const useFormStyles = createUseStyles({
     borderRadius: 8,
     backgroundColor: `${generalWhite}`,
   },
-  
+
   magnifier: {
     display: 'none',
     height: 16,
     width: 16,
   },
-  
+
   formCity: {
     position: 'relative',
     display: 'flex',
     width: '37.85%',
-    /*max-width: 1232px;*/
-    /*padding-left: 24px;*/
+    maxWidth: 1232,
+    paddingLeft: 24,
   },
 
-  inputStyle :{
+  inputStyle: {
     border: 0,
     borderRadius: 8,
     fontWeight: 400,
     fontSize: 18,
     height: 59,
   },
-  
-  // label: {
-  //   fontSize: 18,
-  //   color: `${generalWhite}`,
-  // },
-  
-  dateInLlabel :{
+
+  dateInLlabel: {
     position: 'absolute',
     top: -50,
     left: 25,
     fontSize: 18,
     color: `${generalWhite}`,
 
-    '&:after':{
+    '&:after': {
       position: 'absolute',
       content: '""',
       height: 1,
@@ -60,26 +54,24 @@ export const useFormStyles = createUseStyles({
       marginLeft: 10,
     },
   },
-  
 
-  
-  dateOutLabel :{
+  dateOutLabel: {
     position: 'absolute',
     top: -50,
     left: 118,
     fontSize: 18,
     color: `${generalWhite}`,
   },
-  
+
   dates: {
     position: 'relative',
     width: '21.12%',
     height: 64,
-    border: `3px solid ${animationColor}`,
+    border: '3px solid #f3f3f4',
     borderRadius: 8,
     margin: -3,
   },
-  
+
   persons: {
     display: 'flex',
     width: '26%',
@@ -89,17 +81,14 @@ export const useFormStyles = createUseStyles({
     paddingLeft: 30,
     textAlign: 'center',
   },
-  
+
   personsSearch: {
     width: '100%',
     textAlign: 'center',
 
-    '&:checked':{
+    '&:checked': {
       border: `3px solid ${animationColor}`,
       outline: 0,
     },
   },
-
 });
-
-

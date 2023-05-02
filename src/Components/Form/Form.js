@@ -16,10 +16,12 @@ import { availableHotelsActions, setAvailableHotels } from '../../store/slices/a
 import './Form.styles.js';
 import { useButtonStyles } from '../Button/Button.styles';
 import { useFormStyles } from './Form.styles.js';
+import { useTheme } from 'react-jss';
 
 export const Form = () => {
+  const theme = useTheme();
   const classes = useFormStyles();
-  const btnClasses = useButtonStyles();
+  const btnClasses = useButtonStyles(theme);
 
   const [formState, setFormState] = useState('');
   const [filterActive, setFilterActive] = useState(false);
@@ -76,17 +78,15 @@ export const Form = () => {
       </div>
       <div className={classes.persons} onClick={showFilter}>
         <h3>
-          <span ref={adultsCountRef}>1</span> Adults - <span>0</span> Children - <span>1</span>Rooms
+          <span>1</span> Adults - <span>0</span> Children - <span>1</span>Rooms
         </h3>
       </div>
-
-      <UsersFilter active={filterActive} ref={adultsCountRef} />
+      <UsersFilter active={filterActive} />
       {/* ref={adultsCountRef} показывает ошибку
       Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()
       */}
-
-      <Button btnText={'Submit'} className={btnClasses.submit} />  {/* form__submit col-md-4 col-xs-6 */}
-     
+      <Button btnText={'Submit'} className={btnClasses.submit} />{' '}
+      {/* form__submit col-md-4 col-xs-6 */}
     </form>
   );
 };

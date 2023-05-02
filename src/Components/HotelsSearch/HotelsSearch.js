@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Apps } from '../Icons';
 
-// import './HotelsSearch.css';
 import { useSearchStyles } from './HotelsSearch.styles';
 
 export const HotelsSearch = memo(({ onChange, value }) => {

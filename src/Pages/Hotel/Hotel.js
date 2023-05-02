@@ -1,10 +1,9 @@
 import React from 'react';
-import { ScrollRestoration, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { Apps } from '../../Components/Icons';
 import { Footer } from '../../Components/Footer';
 import { Header } from '../../Components/Header';
-import { Sprite } from '../../Components/Sprite';
+import { Apps } from '../../Components/Icons';
 
 import { useHomesStyles } from '../../Components/Homes/homes.styles';
 import './Hotel.css';
@@ -15,8 +14,7 @@ export const Hotel = () => {
 
   return (
     <>
-      <Sprite />
-      <ScrollRestoration />
+    
       <div className="header__wrapper">
         <Header />
         <div className={classes.examplesIcons}>

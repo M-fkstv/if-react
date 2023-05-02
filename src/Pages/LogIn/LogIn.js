@@ -1,10 +1,9 @@
 import React, { useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { ScrollRestoration, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
-import { Sprite } from '../../Components/Sprite';
 
 import { authStatuses } from '../../Constants/authStatuses';
 import { PATH } from '../../Constants/paths';
@@ -12,8 +11,8 @@ import { PATH } from '../../Constants/paths';
 import { setStatus } from '../../store/slices/auth.slice';
 import { setUser } from '../../store/slices/user.slice';
 
-import './LogIn.css';
 import { useButtonStyles } from '../../Components/Button/Button.styles';
+import './LogIn.css';
 import { useLoginStyles } from './Login.styles';
 
 export const LogIn = () => {
@@ -23,6 +22,7 @@ export const LogIn = () => {
   const passwordId = useId();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,14 +39,12 @@ export const LogIn = () => {
 
   return (
     <>
-      <Sprite />
-      <ScrollRestoration />
       <div className="log-in">
         <Header />
         <form className={classes.form} onSubmit={handleSubmit}>
           <h1>Sign in</h1>
           <div className={classes.wrapper}>
-            <label className={classes.label}htmlFor={emailId}>
+            <label className={classes.label} htmlFor={emailId}>
               Email address
             </label>
             <input
@@ -56,7 +54,7 @@ export const LogIn = () => {
               type="text"
               autoComplete="off"
             />
-          </div>  
+          </div>
           <div className={classes.wrapper}>
             <label className={classes.label} htmlFor={passwordId}>
               Password

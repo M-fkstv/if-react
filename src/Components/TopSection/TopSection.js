@@ -6,9 +6,11 @@ import { Apps } from '../Icons';
 import { useTopSectionStyles } from './TopSection.styles';
 
 import './TopSection.css';
+import { useTheme } from 'react-jss';
 
 export const TopSection = () => {
-const classes = useTopSectionStyles();
+  const theme = useTheme();
+  const classes = useTopSectionStyles(theme);
 
   return (
     <>

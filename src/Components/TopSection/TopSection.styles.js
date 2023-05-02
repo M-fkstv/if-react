@@ -1,7 +1,9 @@
 import { createUseStyles } from 'react-jss';
 import { generalWhite } from '../../index.styles';
+import { darkTheme } from '../../styles/darkTheme';
+import { lightTheme } from '../../styles/lightTheme';
 
-export const useTopSectionStyles = createUseStyles({
+export const topSectionStyles = (theme) => ({
   wrapper: {
     background: 'url("../Icons/castelmezzano-1979546 1.jpg")',
     backgroundSize: 'cover',
@@ -20,7 +22,7 @@ export const useTopSectionStyles = createUseStyles({
       weight: 500,
       size: 50,
     },
-    color: `${generalWhite}`,
+    color: theme.palette.primary.mainText,
     margin: {
       top: 200,
       bottom: 145,
@@ -34,3 +36,5 @@ export const useTopSectionStyles = createUseStyles({
     margin: '120px auto',
   },
 });
+
+export const useTopSectionStyles = createUseStyles(topSectionStyles);

@@ -7,6 +7,7 @@ import { availableReducer } from './available.slice';
 import storage from 'redux-persist/lib/storage';
 import { availableHotels1 } from '../../services/availableHotelsAPI';
 import { availableHot } from '../../services/getAvailable';
+import { themeReducer } from './theme.slice';
 
 const persistConfig = {
   key: 'root',
@@ -20,6 +21,7 @@ const persistConfig = {
 export const rootReducer = persistReducer(
   persistConfig,
   combineReducers({
+    theme: themeReducer,
     auth: authReducer,
     user: userReducer,
     [availableHot.reducerPath]: availableHot.reducer,

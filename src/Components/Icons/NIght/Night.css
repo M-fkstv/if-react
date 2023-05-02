@@ -1,4 +1,5 @@
 .header__images--night {
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }

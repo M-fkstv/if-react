@@ -1,4 +1,8 @@
 /*<<<<<<<<<<<<<<<<<<<<   MODAL WINDOW TO FORM PEOPLES INPUT   >>>>>>>>>>>>>>>>>>>>>>>>>>*/
+:root {
+  --general-blue: #3077c6;
+}
+
 .persons {
   display: none;
   z-index: 2;
@@ -42,11 +46,8 @@
   font-size: 20px;
 }
 .btn--disabled {
-  height: 30px;
-  width: 30px;
   color: rgb(171, 137, 137);
   border: 1px solid #808080ff;
-  background-color: #ffffff;
   opacity: 0.5;
 }
 .output {

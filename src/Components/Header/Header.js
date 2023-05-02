@@ -6,11 +6,22 @@ import { SignOut } from '../SignOutModal/SignOut';
 
 import { PATH } from '../../Constants/paths';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from '../../store/slices/theme.slice';
 import { useHeaderStyles } from './Header.styles';
+
 
 export const Header = () => {
   // const navigate = useNavigate(); //for button element
   const signOutRef = useRef(null);
+  const dispatch = useDispatch();
+  const currentTheme = useSelector((state) => state.theme);
+  const theme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  const switchTheme = () => {
+    dispatch(setTheme(theme));
+    console.log(currentTheme);
+  };
 
   const classes = useHeaderStyles();
 
@@ -27,7 +38,7 @@ export const Header = () => {
 
         <div className={classes.images}>
           <Menu />
-          <Night />
+          <Night onClick={switchTheme} />
           <Account onClick={() => signOutRef.current.open()} />
           {/* <Account onClick={() => navigate(PATH.login)}/>  for button element */}
         </div>

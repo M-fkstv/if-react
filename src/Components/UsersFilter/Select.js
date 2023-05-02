@@ -2,7 +2,7 @@
 //   .fill(0)
 //   .map((item, index) => `<option>${index} years old</option>`)
 //   .join('');
-import './UsersFilter.css';
+// import './UsersFilter.css';
 import PropTypes from 'prop-types';
 
 export const SelectWrapper = ({ select }) => {

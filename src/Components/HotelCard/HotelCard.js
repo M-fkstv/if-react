@@ -8,7 +8,7 @@ import { PATH } from '../../Constants/paths';
 import { useHomesStyles } from '../Homes/homes.styles';
 
 export const HotelCard = ({ id, name, city, country, imageUrl }) => {
-const classes = useHomesStyles();
+  const classes = useHomesStyles();
 
   return (
     <div className={classes.examplesIcons}>

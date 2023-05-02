@@ -5,8 +5,10 @@ import { Counter } from '../Counter/Counter';
 import { SelectWrapper } from './Select';
 
 import './UsersFilter.css';
+import { useUsersFilterStyles } from './UsersFilter.styles';
 
 export const UsersFilter = memo(({ active }) => {
+  const classes = useUsersFilterStyles();
   const [select, setSelect] = useState([]);
   const [guests, setGuests] = useState({
     adults: 1,
@@ -16,13 +18,15 @@ export const UsersFilter = memo(({ active }) => {
 
   return (
     <div className={active ? 'persons active' : 'persons'}>
-      <div className="persons__inputs">
-        <div className="adults__input">
-          <p className="inputs__title--adult">Adults</p>
+      {/* <div className={active ? `${classes.persons}` : `${classes.personsActive}`}>  */}
+      {/*  Ломает useClickOutside */}
+      <div className={classes.inputs}>
+        <div className={classes.adultsInput}>
+          <p>Adults</p>
           <Counter name={'adults'} setGuests={setGuests} guests={guests} initialValue={1} />
         </div>
-        <div className="children__input">
-          <p className="inputs__title">Children</p>
+        <div className={classes.childrenInput}>
+          <p>Children</p>
           <Counter
             name={'children'}
             setGuests={setGuests}
@@ -33,8 +37,8 @@ export const UsersFilter = memo(({ active }) => {
           />
         </div>
 
-        <div className="rooms__input">
-          <p className="inputs__title">Rooms</p>
+        <div className={classes.roomsInput}>
+          <p>Rooms</p>
           <Counter name={'rooms'} setGuests={setGuests} guests={guests} initialValue={1} />
         </div>
         {guests.children > 0 && (

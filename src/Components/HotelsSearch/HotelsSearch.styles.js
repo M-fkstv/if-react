@@ -1,8 +1,7 @@
 import { createUseStyles } from 'react-jss';
-import { animationColor, generalWhite } from '../../index.styles';
+import { generalWhite } from '../../index.styles';
 
 export const useSearchStyles = createUseStyles({
-
   magnifier: {
     display: 'none',
     height: 16,
@@ -17,28 +16,24 @@ export const useSearchStyles = createUseStyles({
 
   citySearch: {
     position: 'relative',
-    width: '100%',
+    width: '99%',
     paddingLeft: 8,
+    // paddingRight:8,
+    fontSize: 18,
+    backgroundColor: `${generalWhite}`,
+    composes: '$inputStyle',
 
-    '&$inputStyle':{
-      border: 0,
-      borderRadius: 8,
-      fontWeight: 400,
-      fontSize: 18,
-      height: 59,
-    },
-    
-    '&:focus-visible':{
-      backgroundColor:`${generalWhite}`,
-      outline: `3px solid ${animationColor}`,
-      border: 0,
-    },
+    // '&:focus-visible': {
+    //   // border: `3px solid ${animationColor}`,
+    //   outline:`${animationColor} solid 3px`,
+    // },
+  },
 
-    '&:selected':{
-      backgroundColor:`${generalWhite}`,
-    },
-    
-
+  inputStyle: {
+    border: 0,
+    borderRadius: 8,
+    fontWeight: 400,
+    height: 59,
   },
 
   cityLabel: {
@@ -47,10 +42,9 @@ export const useSearchStyles = createUseStyles({
     left: 20,
     composes: '$label',
   },
-  
+
   label: {
     fontSize: 18,
-    color:`${generalWhite}`,
+    color: `${generalWhite}`,
   },
 });
-

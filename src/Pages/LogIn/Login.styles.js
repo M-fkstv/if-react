@@ -16,11 +16,11 @@ export const loginStyles = () => ({
       marginBottom: 40,
     },
   },
-  
+
   background: {
-    backgroundImage: 'url("../../Components/Icons/castelmezzano-1979546\ 1.svg")',
+    backgroundImage: 'url("../../Components/Icons/castelmezzano-1979546 1.svg")',
     backgroundSize: 'cover',
-    height: 900,  
+    height: 900,
     minHeight: '100vh',
     paddingTop: 50,
   },

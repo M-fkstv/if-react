@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import { counterReducer } from './Counter.Reducer';
 
 import '../UsersFilter/UsersFilter.css';
+import { useUsersFilterStyles } from '../UsersFilter/UsersFilter.styles';
 
 export const Counter = ({ name, guests, setGuests, select, setSelect, initialValue }) => {
   const [state, dispatch] = useReducer(counterReducer, { name: name, count: initialValue });
+
+  const classes = useUsersFilterStyles();
 
   const countRef = createRef();
   const { count } = state;
@@ -28,6 +31,7 @@ export const Counter = ({ name, guests, setGuests, select, setSelect, initialVal
   });
 
   const add = (e) => {
+    e.preventDefault();
     const addReducer = () => {
       dispatch({ type: 'increment' });
     };
@@ -43,6 +47,7 @@ export const Counter = ({ name, guests, setGuests, select, setSelect, initialVal
   };
 
   const remove = (e) => {
+    e.preventDefault();
     (() => {
       dispatch({ type: 'decrement' });
     })();
@@ -58,7 +63,7 @@ export const Counter = ({ name, guests, setGuests, select, setSelect, initialVal
 
   return (
     <>
-      <div className="counter">
+      <div className={classes.counter}>
         <button name={name} className={btnRemove} onClick={remove}>
           -
         </button>

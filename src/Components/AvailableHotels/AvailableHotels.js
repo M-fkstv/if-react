@@ -47,8 +47,8 @@ export const AvailableHotels = forwardRef((_, ref) => {
       <h2 className={indexClasses.sectionTitle}>Available hotels</h2>
 
       <div className={sliderClasses.wrapper}>
-        <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
         <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
+        <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
         <Slider className={classes.examples} data={available} />
       </div>
     </section>

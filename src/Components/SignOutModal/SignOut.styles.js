@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { generalWhite } from '../../index.styles';
 
-export const signOutStyles = () =>({
+export const signOutStyles = () => ({
   wrapper: {
     position: 'fixed',
     height: '100vh',
@@ -12,8 +12,8 @@ export const signOutStyles = () =>({
     zIndex: 1,
     opacity: 0.5,
   },
-  
-  modal:{
+
+  modal: {
     position: 'fixed',
     top: 120,
     left: 1180,
@@ -37,7 +37,6 @@ export const signOutStyles = () =>({
     height: 18,
     width: 20,
   },
-  
 });
 
 export const useSignOutStyles = createUseStyles(signOutStyles);

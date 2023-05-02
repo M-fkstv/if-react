@@ -14,7 +14,7 @@ export const Footer = () => {
           <use href="./src/images/sprite.svg#mobile-footer-logo" />
         </svg>
         <div className={classes.description}>
-          <div className={classes.column}>  
+          <div className={classes.column}>
             {/* col-md-3 */}
             <ul className={classes.columnText}>
               About

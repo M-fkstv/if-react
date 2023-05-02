@@ -33,8 +33,8 @@ export const Homes = () => {
       <h2 className={indexClasses.sectionTitle}>Homes guests loves</h2>
 
       <div className={sliderClasses.wrapper}>
-        <SliderButton className={sliderClasses.buttonPrev} id={'nextEl'} />
-        <SliderButton className={sliderClasses.buttonNext} id={'prevEl'} />
+        <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
+        <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
         <Slider className={classes.examples} data={state} />
       </div>
     </section>
